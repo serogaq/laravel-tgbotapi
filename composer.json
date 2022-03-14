@@ -1,0 +1,63 @@
+{
+    "name": "serogaq/laravel-tgbotapi",
+    "description": "This package provides methods for working with the telegram bot api, and helpers for receiving updates via webhooks or the long polling method",
+    "keywords": [
+        "telegram",
+        "telegram bot",
+        "telegram bot api",
+        "laravel telegram",
+        "laravel"
+    ],
+    "homepage": "https://github.com/serogaq/laravel-tgbotapi",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "serogaq",
+            "email": "me@serogaq.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^8.0",
+        "resolute/laravel-pseudo-daemon": "0.3.0"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^5.10",
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Serogaq\\TgBotApi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Serogaq\\TgBotApi\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/testbench package:test",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Serogaq\\TgBotApi\\TgBotApiServiceProvider"
+            ],
+            "aliases": {
+                "BotManager": "Serogaq\\TgBotApi\\TgBotApiFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

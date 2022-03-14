@@ -1,0 +1,24 @@
+<?php
+
+namespace DummyNamespace;
+
+use Serogaq\TgBotApi\Events\NewUpdateReceived;
+use Illuminate\Support\Facades\Log;
+
+class DummyClass {
+
+	public function __construct() {
+		//
+	}
+
+	/**
+	 * Handle the event.
+	 *
+	 * @param  Serogaq\TgBotApi\Events\NewUpdateReceived  $event
+	 * @return void
+	 */
+	public function handle(NewUpdateReceived $event) {
+		Log::channel($event->bot->getBotConf()->log_channel)->debug('Handle NewUpdateReceived event', ['event' => $event]);
+	}
+
+}

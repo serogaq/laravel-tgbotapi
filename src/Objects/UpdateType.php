@@ -1,0 +1,44 @@
+<?php
+
+namespace Serogaq\TgBotApi\Objects;
+
+class UpdateType {
+
+	const MESSAGE = 100000;
+
+	const COMMAND = 101000;
+	const COMMAND_WITHOUT_ARGS = 101001;
+	const COMMAND_WITH_ARGS = 101100;
+	const COMMAND_WITH_ARGS_SPACE = 101101;
+	const COMMAND_WITH_ARGS_UNDERSCORE = 101102;
+	
+	const MEDIA = 102000;
+	const PHOTO = 102001;
+	const VIDEO = 102002;
+	const VIDEO_NOTE = 102003;
+	const VOICE = 102004;
+	const DOCUMENT = 102004;
+
+	const GAME = 103000;
+	const CONTACT = 104000;
+	const VENUE = 105000;
+	const LOCATION = 106000;
+	const STICKER = 107000;
+
+	const EVENT = 110000;
+	const EVENT_NEW_CHAT_MEMBERS = 110001;
+	const EVENT_LEFT_CHAT_MEMBER = 110002;
+	const EVENT_PINNED_MESSAGE = 110003;
+	const EVENT_EDITED_MESSAGE = 110004;
+	
+	const CALLBACK_QUERY = 120000;
+	
+	const INLINE_QUERY = 130000;
+	
+	const CHOSEN_INLINE_RESULT = 140000;
+
+	const PRE_CHECKOUT_QUERY = 150000;
+	
+	const OTHER = 999999;
+
+}

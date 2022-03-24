@@ -51,7 +51,7 @@ To receive updates via a long polling, create a background task:
 // app/Console/Kernel.php
 class Kernel extends ConsoleKernel {
 	protected function schedule(Schedule $schedule) {
-		$schedule->command('tgbotapi:getupdates', ['bot_username'])->everyMinute()->runInBackground()->withoutOverlapping();
+		$schedule->command('tgbotapi:getupdates', ['bot_username'])->everyMinute()->runInBackground();
 	}
 }
 ```

@@ -6,11 +6,8 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use Serogaq\TgBotApi\BotManager;
 use Serogaq\TgBotApi\Exceptions\BotManagerConfigException;
-use Resolute\PseudoDaemon\IsPseudoDaemon;
 
 class GetUpdates extends Command {
-
-	use IsPseudoDaemon;
 
 	protected $hidden = false;
 
@@ -33,17 +30,12 @@ class GetUpdates extends Command {
 			$this->error($e->getMessage());
 			return 1;
 		}
-		$this->runAsPseudoDaemon();
-	}
-
-	public function process() {
+		$end_time = time()+58;
 		while(true) {
-			$this->bot->getUpdatesAndCreateEvents(['timeout' => 59]);
+			$t = $end_time-time();
+			if($t <= 2) break;
+			$this->bot->getUpdatesAndCreateEvents(['timeout' => $t]);
 		}
-	}
-
-	public function pseudoDaemonSleepSeconds() {
-		return 1;
 	}
 
 }

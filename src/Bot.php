@@ -55,7 +55,7 @@ class Bot {
 
 	private function apiRequest(string $method, ?array $data = null, ?array $attachments = null): Response {
 		$botConf = $this->getBotConf();
-		$httpClient = Http::withOptions([])->acceptJson();
+		$httpClient = Http::withOptions([])->acceptJson()->timeout(600);
 		Log::channel($botConf->log_channel)->debug('TgBotApi Bot apiRequest request', ['data' => $data, 'attachments' => $attachments]);
 		if(!is_null($data)) {
 			$httpClient->asMultipart();

@@ -34,7 +34,7 @@ class Bot {
 		elseif(is_null($data) && !is_null($attachments)) $response = $this->apiRequest($name, null, $attachments);
 		elseif(!is_null($data) && !is_null($attachments)) $response = $this->apiRequest($name, $data, $attachments);
 		$r = $response->json();
-		if(isset($r['ok']) && $r['ok'] === true && isset($r['result']) && count($r) === 2) return $this->arrayToObject($r['result']);
+		if(isset($r['ok']) && $r['ok'] === true && isset($r['result']) && count($r) === 2 && is_array($r['result'])) return $this->arrayToObject($r['result']);
 		return $this->arrayToObject($r);
 	}
 

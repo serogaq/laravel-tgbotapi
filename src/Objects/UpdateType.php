@@ -5,6 +5,7 @@ namespace Serogaq\TgBotApi\Objects;
 class UpdateType {
 
 	const MESSAGE = 100000;
+	const TEXT = 100001;
 
 	const COMMAND = 101000;
 	const COMMAND_WITHOUT_ARGS = 101001;

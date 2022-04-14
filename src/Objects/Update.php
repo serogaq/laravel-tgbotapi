@@ -44,6 +44,12 @@ class Update {
 			if(is_array($property)) $property = $this->arrayToObject($property);
 			return $property;
 		}
+		// TODO: Exception
+	}
+
+	public function __isset(string $name): bool {
+		if(!is_null($this->_update) && isset($this->_update[$name])) return true;
+		return false;
 	}
 
 	private function arrayToObject(array $data): object {
@@ -59,7 +65,7 @@ class Update {
 
 	protected function assignUpdateType(): void {
 		if(is_null($this->_update)) return;
-		if(isset($this->_update['message']['text'])) {
+		if(isset($this->_update['message'])) {
 			$this->_updateTypes[] = UpdateType::MESSAGE;
 			if(isset($this->_update['message']['entities']) && $this->_update['message']['entities'][0]['type'] === 'bot_command') {
 				$this->_updateTypes[] = UpdateType::COMMAND;
@@ -72,7 +78,7 @@ class Update {
 					preg_match('#^/(\S+_\S+)#', $command, $match);
 					if(count($match) > 0) $this->_updateTypes[] = UpdateType::COMMAND_WITH_ARGS_UNDERSCORE;
 				}
-			}
+			} else if(isset($this->_update['message']['text'])) $this->_updateTypes[] = UpdateType::TEXT;
 			if(isset($this->_update['message']['photo']) || isset($this->_update['message']['video']) || isset($this->_update['message']['video_note']) || isset($this->_update['message']['voice']) || isset($this->_update['message']['document'])) {
 				$this->_updateTypes[] = UpdateType::MEDIA;
 				if(isset($this->_update['message']['photo'])) $this->_updateTypes[] = UpdateType::PHOTO;
@@ -98,6 +104,7 @@ class Update {
 			if(isset($this->_update['edited_message'])) $this->_updateTypes[] = UpdateType::EVENT_EDITED_MESSAGE;
 		}
 		if(isset($this->_update['callback_query'])) $this->_updateTypes[] = UpdateType::CALLBACK_QUERY;
+		if(isset($this->_update['callback_query']) && isset($this->_update['callback_query']['game_short_name'])) $this->_updateTypes[] = UpdateType::GAME;
 		if(isset($this->_update['inline_query'])) $this->_updateTypes[] = UpdateType::INLINE_QUERY;
 		if(isset($this->_update['chosen_inline_result'])) $this->_updateTypes[] = UpdateType::CHOSEN_INLINE_RESULT;
 		if(isset($this->_update['pre_checkout_query'])) $this->_updateTypes[] = UpdateType::PRE_CHECKOUT_QUERY;

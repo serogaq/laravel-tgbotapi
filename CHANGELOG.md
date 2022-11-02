@@ -18,3 +18,8 @@ All notable changes to `laravel-tgbotapi` will be documented in this file
 - Improved work with html5 games (detection of UpdateType)
 - New UpdateType - TEXT
 - New magic method __isset to check if an attribute exists in an update
+
+## 1.2.0 - 02.11.2022
+
+- Traits for handling updates in controllers
+- Command to create a controller that handles updates of a specific type

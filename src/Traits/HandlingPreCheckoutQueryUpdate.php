@@ -3,13 +3,12 @@
 namespace Serogaq\TgBotApi\Traits;
 
 use Serogaq\TgBotApi\Events\NewUpdateReceived;
-use Serogaq\TgBotApi\Http\Controllers\Updates\PreCheckoutQueryUpdate;
 use Illuminate\Support\Facades\App;
 
 trait HandlingPreCheckoutQueryUpdate {
 
 	public function handlePreCheckoutQueryUpdate(NewUpdateReceived $event) {
-		$controller = App::makeWith(PreCheckoutQueryUpdate::class, ['event' => $event]);
+		$controller = App::makeWith('App\Http\Controllers\TgBotApi\PreCheckoutQueryUpdate', ['event' => $event]);
 		$controller->handle();
 	}
 

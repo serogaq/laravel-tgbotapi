@@ -3,13 +3,12 @@
 namespace Serogaq\TgBotApi\Traits;
 
 use Serogaq\TgBotApi\Events\NewUpdateReceived;
-use Serogaq\TgBotApi\Http\Controllers\Updates\OtherUpdate;
 use Illuminate\Support\Facades\App;
 
 trait HandlingOtherUpdate {
 
 	public function handleOtherUpdate(NewUpdateReceived $event) {
-		$controller = App::makeWith(OtherUpdate::class, ['event' => $event]);
+		$controller = App::makeWith('App\Http\Controllers\TgBotApi\OtherUpdate', ['event' => $event]);
 		$controller->handle();
 	}
 

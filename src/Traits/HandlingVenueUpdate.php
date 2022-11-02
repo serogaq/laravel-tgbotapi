@@ -3,7 +3,7 @@
 namespace Serogaq\TgBotApi\Traits;
 
 use Serogaq\TgBotApi\Events\NewUpdateReceived;
-use Serogaq\TgBotApi\Http\Controllers\TgBotApi\VenueUpdate;
+use Serogaq\TgBotApi\Http\Controllers\Updates\VenueUpdate;
 use Illuminate\Support\Facades\App;
 
 trait HandlingVenueUpdate {

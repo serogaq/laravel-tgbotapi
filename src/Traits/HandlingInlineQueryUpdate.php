@@ -3,7 +3,7 @@
 namespace Serogaq\TgBotApi\Traits;
 
 use Serogaq\TgBotApi\Events\NewUpdateReceived;
-use Serogaq\TgBotApi\Http\Controllers\TgBotApi\InlineQueryUpdate;
+use Serogaq\TgBotApi\Http\Controllers\Updates\InlineQueryUpdate;
 use Illuminate\Support\Facades\App;
 
 trait HandlingInlineQueryUpdate {

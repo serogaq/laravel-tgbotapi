@@ -3,7 +3,7 @@
 namespace Serogaq\TgBotApi\Traits;
 
 use Serogaq\TgBotApi\Events\NewUpdateReceived;
-use Serogaq\TgBotApi\Http\Controllers\TgBotApi\StickerUpdate;
+use Serogaq\TgBotApi\Http\Controllers\Updates\StickerUpdate;
 use Illuminate\Support\Facades\App;
 
 trait HandlingStickerUpdate {

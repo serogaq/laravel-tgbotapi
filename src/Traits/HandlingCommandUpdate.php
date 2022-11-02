@@ -3,7 +3,7 @@
 namespace Serogaq\TgBotApi\Traits;
 
 use Serogaq\TgBotApi\Events\NewUpdateReceived;
-use Serogaq\TgBotApi\Http\Controllers\TgBotApi\CommandUpdate;
+use Serogaq\TgBotApi\Http\Controllers\Updates\CommandUpdate;
 use Illuminate\Support\Facades\App;
 
 trait HandlingCommandUpdate {

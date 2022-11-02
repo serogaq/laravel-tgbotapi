@@ -3,7 +3,7 @@
 namespace Serogaq\TgBotApi\Traits;
 
 use Serogaq\TgBotApi\Events\NewUpdateReceived;
-use Serogaq\TgBotApi\Http\Controllers\TgBotApi\ContactUpdate;
+use Serogaq\TgBotApi\Http\Controllers\Updates\ContactUpdate;
 use Illuminate\Support\Facades\App;
 
 trait HandlingContactUpdate {

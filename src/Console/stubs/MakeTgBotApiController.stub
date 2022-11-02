@@ -1,0 +1,14 @@
+<?php
+
+namespace DummyNamespace;
+
+use Serogaq\TgBotApi\Http\Controllers\Updates\DummyClass as AbstractUpdate;
+use Illuminate\Support\Facades\Log;
+
+class DummyClass extends AbstractUpdate {
+
+	public function handle() {
+		Log::channel($this->bot->getBotConf()->log_channel)->debug('DummyClass handle', ['update' => $this->update]);
+	}
+
+}

@@ -2,12 +2,8 @@
 
 namespace Serogaq\TgBotApi\Http\Controllers\Updates;
 
-use Illuminate\Support\Facades\Log;
+abstract class MediaUpdate extends Controller {
 
-class MediaUpdate extends Controller {
-
-	public function handle() {
-		Log::channel($this->bot->getBotConf()->log_channel)->debug('MediaUpdate handle', ['update' => $this->update]);
-	}
+	abstract public function handle();
 
 }

@@ -2,12 +2,8 @@
 
 namespace Serogaq\TgBotApi\Http\Controllers\Updates;
 
-use Illuminate\Support\Facades\Log;
+abstract class OtherUpdate extends Controller {
 
-class OtherUpdate extends Controller {
-
-	public function handle() {
-		Log::channel($this->bot->getBotConf()->log_channel)->debug('OtherUpdate handle', ['update' => $this->update]);
-	}
+	abstract public function handle();
 
 }

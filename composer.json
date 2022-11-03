@@ -2,10 +2,10 @@
     "name": "serogaq/laravel-tgbotapi",
     "description": "This package provides methods for working with the telegram bot api, and helpers for receiving updates via webhooks or the long polling method",
     "keywords": [
-        "telegram",
         "telegram bot",
         "telegram bot api",
-        "laravel telegram",
+        "laravel telegram bot",
+        "laravel telegram bot api",
         "laravel"
     ],
     "homepage": "https://github.com/serogaq/laravel-tgbotapi",
@@ -18,13 +18,13 @@
         }
     ],
     "require": {
-        "php": "^8.0",
-        "illuminate/support": "^8.0|^9.0"
+        "php": "^7.4 || >=8.0.2",
+        "illuminate/support": "^8.0 || ^9.0"
     },
     "require-dev": {
-        "nunomaduro/collision": "^5.10",
-        "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.0"
+        "nunomaduro/collision": "^5.10 || ^6.0",
+        "orchestra/testbench": "^6.0 || ^7.0",
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {

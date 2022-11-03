@@ -23,3 +23,8 @@ All notable changes to `laravel-tgbotapi` will be documented in this file
 
 - Traits for handling updates in controllers
 - Command to create a controller that handles updates of a specific type
+
+## 1.2.1 - 03.11.2022
+
+- PHP minimum version fixes for Laravel 8
+- Workflow improvement for Github Actions

@@ -50,11 +50,17 @@ class Bot {
 	}
 
 	public function getBotConf(): object {
-		return $this->botConf;
+		$botConf = clone $this->botConf;
+		unset($botConf->token);
+		return $botConf;
+	}
+
+	public function getBotId(): int {
+		return explode(':', $this->botConf->token)[0];
 	}
 
 	private function apiRequest(string $method, ?array $data = null, ?array $attachments = null): Response {
-		$botConf = $this->getBotConf();
+		$botConf = clone $this->botConf;
 		$httpClient = Http::withOptions([])->acceptJson()->timeout(600);
 		Log::channel($botConf->log_channel)->debug('TgBotApi Bot apiRequest request', ['data' => $data, 'attachments' => $attachments]);
 		if(!is_null($data)) {
@@ -68,8 +74,8 @@ class Bot {
 				if(is_array($value)) $val = json_encode($value);
 				$multipartData[] = ['name' => $key, 'contents' => (string)$val];
 			}
-			$response = $httpClient->post("$botConf->api_server/bot$botConf->token/$method", $multipartData);
-		} else $response = $httpClient->post("$botConf->api_server/bot$botConf->token/$method");
+			$response = $httpClient->post("{$botConf->api_server}/bot{$botConf->token}/{$method}", $multipartData);
+		} else $response = $httpClient->post("{$botConf->api_server}/bot{$botConf->token}/{$method}");
 		Log::channel($botConf->log_channel)->debug('TgBotApi Bot apiRequest response', ['status' => $response->status(), 'body' => $response->body()]);
 		return $response->throw(function ($response, $e) {
 			if($e instanceof RequestException) throw new BotRequestException($e);

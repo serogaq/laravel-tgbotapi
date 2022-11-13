@@ -89,25 +89,58 @@ class Update {
 			}
 			if(isset($this->_update['message']['game'])) $this->_updateTypes[] = UpdateType::GAME;
 			if(isset($this->_update['message']['contact'])) $this->_updateTypes[] = UpdateType::CONTACT;
+			if(isset($this->_update['message']['dice'])) $this->_updateTypes[] = UpdateType::DICE;
 			if(isset($this->_update['message']['venue'])) $this->_updateTypes[] = UpdateType::VENUE;
 			if(isset($this->_update['message']['location'])) $this->_updateTypes[] = UpdateType::LOCATION;
 			if(isset($this->_update['message']['sticker'])) $this->_updateTypes[] = UpdateType::STICKER;
-			if(isset($this->_update['message']['new_chat_members']) || isset($this->_update['message']['left_chat_member']) || isset($this->_update['message']['new_chat_title']) || isset($this->_update['message']['new_chat_photo']) || isset($this->_update['message']['delete_chat_photo']) || isset($this->_update['message']['group_chat_created']) || isset($this->_update['message']['supergroup_chat_created']) || isset($this->_update['message']['channel_chat_created']) || isset($this->_update['message']['migrate_to_chat_id']) || isset($this->_update['message']['migrate_from_chat_id']) || isset($this->_update['message']['pinned_message']) || isset($this->_update['message']['invoice']) || isset($this->_update['message']['successful_payment'])) {
+			if(isset($this->_update['message']['new_chat_members']) || isset($this->_update['message']['left_chat_member']) || isset($this->_update['message']['new_chat_title']) || isset($this->_update['message']['new_chat_photo']) || isset($this->_update['message']['delete_chat_photo']) || isset($this->_update['message']['group_chat_created']) || isset($this->_update['message']['supergroup_chat_created']) || isset($this->_update['message']['channel_chat_created']) || isset($this->_update['message']['message_auto_delete_timer_changed']) || isset($this->_update['message']['migrate_to_chat_id']) || isset($this->_update['message']['migrate_from_chat_id']) || isset($this->_update['message']['pinned_message']) || isset($this->_update['message']['invoice']) || isset($this->_update['message']['successful_payment']) || isset($this->_update['message']['connected_website']) || isset($this->_update['message']['proximity_alert_triggered']) || isset($this->_update['message']['forum_topic_created']) || isset($this->_update['message']['forum_topic_closed']) || isset($this->_update['message']['forum_topic_reopened']) || isset($this->_update['message']['video_chat_scheduled']) || isset($this->_update['message']['video_chat_started']) || isset($this->_update['message']['video_chat_ended']) || isset($this->_update['message']['video_chat_participants_invited']) || isset($this->_update['message']['web_app_data'])) {
 				$this->_updateTypes[] = UpdateType::EVENT;
-				if(isset($this->_update['message']['new_chat_members'])) $this->_updateTypes[] = UpdateType::EVENT_NEW_CHAT_MEMBERS;
-				if(isset($this->_update['message']['left_chat_member'])) $this->_updateTypes[] = UpdateType::EVENT_LEFT_CHAT_MEMBER;
+				if(isset($this->_update['message']['new_chat_members'])) {
+					$this->_updateTypes[] = UpdateType::EVENT_NEW_CHAT_MEMBERS;
+					$botJoined = false;
+					foreach($this->_update['message']['new_chat_members'] as $member) {
+						if($member['is_bot']) $botJoined = true;
+					}
+					if($botJoined) $this->_updateTypes[] = UpdateType::EVENT_BOT_JOINED;
+				}
+				if(isset($this->_update['message']['left_chat_member'])) {
+					$this->_updateTypes[] = UpdateType::EVENT_LEFT_CHAT_MEMBER;
+					if($this->_update['message']['left_chat_member']['is_bot']) $this->_updateTypes[] = UpdateType::EVENT_BOT_LEFT;
+				}
 				if(isset($this->_update['message']['pinned_message'])) $this->_updateTypes[] = UpdateType::EVENT_PINNED_MESSAGE;
+				if(isset($this->_update['message']['migrate_to_chat_id']) || isset($this->_update['message']['migrate_from_chat_id'])) $this->_updateTypes[] = UpdateType::EVENT_CHAT_MIGRATE;
+				if(isset($this->_update['message']['forum_topic_created'])) $this->_updateTypes[] = UpdateType::EVENT_FORUM_TOPIC_CREATED;
+				if(isset($this->_update['message']['forum_topic_closed'])) $this->_updateTypes[] = UpdateType::EVENT_FORUM_TOPIC_CLOSED;
+				if(isset($this->_update['message']['forum_topic_reopened'])) $this->_updateTypes[] = UpdateType::EVENT_FORUM_TOPIC_REOPENED;
 			}
 		}
-		if(isset($this->_update['edited_channel_post']) || isset($this->_update['channel_post']) || isset($this->_update['edited_message'])) {
+		if(isset($this->_update['edited_channel_post']) || isset($this->_update['edited_message']) || isset($this->_update['chat_join_request']) || isset($this->_update['my_chat_member'])) {
 			$this->_updateTypes[] = UpdateType::EVENT;
+			if(isset($this->_update['edited_channel_post'])) $this->_updateTypes[] = UpdateType::EVENT_EDITED_CHANNEL_POST;
 			if(isset($this->_update['edited_message'])) $this->_updateTypes[] = UpdateType::EVENT_EDITED_MESSAGE;
+			if(isset($this->_update['chat_join_request'])) $this->_updateTypes[] = UpdateType::EVENT_CHAT_JOIN_REQUEST;
+			if(isset($this->_update['my_chat_member'])) {
+				if(isset($this->_update['my_chat_member']['new_chat_member']) && isset($this->_update['my_chat_member']['old_chat_member']) && isset($this->_update['my_chat_member']['chat']) && $this->_update['my_chat_member']['chat']['type'] === 'private') {
+					if($this->_update['my_chat_member']['new_chat_member']['status'] === 'kicked') $this->_updateTypes[] = UpdateType::EVENT_BOT_BLOCKED;
+					if($this->_update['my_chat_member']['new_chat_member']['status'] === 'member' && $this->_update['my_chat_member']['old_chat_member']['status'] === 'kicked') $this->_updateTypes[] = UpdateType::EVENT_BOT_UNBLOCKED;
+				} else if(isset($this->_update['my_chat_member']['new_chat_member']) && isset($this->_update['my_chat_member']['old_chat_member'])) {
+					if($this->_update['my_chat_member']['new_chat_member']['status'] === 'administrator' || $this->_update['my_chat_member']['old_chat_member']['status'] === 'administrator') $this->_updateTypes[] = UpdateType::EVENT_CHANGE_ADMINISTRATOR;
+					if($this->_update['my_chat_member']['new_chat_member']['status'] === 'restricted' || $this->_update['my_chat_member']['old_chat_member']['status'] === 'restricted') $this->_updateTypes[] = UpdateType::EVENT_CHANGE_RESTRICTED;
+					if($this->_update['my_chat_member']['new_chat_member']['status'] === 'kicked' || $this->_update['my_chat_member']['old_chat_member']['status'] === 'kicked') $this->_updateTypes[] = UpdateType::EVENT_CHANGE_KICKED;
+					if($this->_update['my_chat_member']['new_chat_member']['status'] === 'member' && $this->_update['my_chat_member']['new_chat_member']['user']['is_bot']) $this->_updateTypes[] = UpdateType::EVENT_BOT_JOINED;
+					if($this->_update['my_chat_member']['new_chat_member']['status'] === 'left' && $this->_update['my_chat_member']['new_chat_member']['user']['is_bot']) $this->_updateTypes[] = UpdateType::EVENT_BOT_LEFT;
+				}
+			}
 		}
+		if(isset($this->_update['channel_post'])) $this->_updateTypes[] = UpdateType::CHANNEL_POST;
 		if(isset($this->_update['callback_query'])) $this->_updateTypes[] = UpdateType::CALLBACK_QUERY;
 		if(isset($this->_update['callback_query']) && isset($this->_update['callback_query']['game_short_name'])) $this->_updateTypes[] = UpdateType::GAME;
 		if(isset($this->_update['inline_query'])) $this->_updateTypes[] = UpdateType::INLINE_QUERY;
 		if(isset($this->_update['chosen_inline_result'])) $this->_updateTypes[] = UpdateType::CHOSEN_INLINE_RESULT;
 		if(isset($this->_update['pre_checkout_query'])) $this->_updateTypes[] = UpdateType::PRE_CHECKOUT_QUERY;
+		if(isset($this->_update['shipping_query'])) $this->_updateTypes[] = UpdateType::SHIPPING_QUERY;
+		if(isset($this->_update['poll'])) $this->_updateTypes[] = UpdateType::POLL;
+		if(isset($this->_update['poll_answer'])) $this->_updateTypes[] = UpdateType::POLL_ANSWER;
 		if(empty($this->_updateTypes)) $this->_updateTypes[] = UpdateType::OTHER;
 	}
 

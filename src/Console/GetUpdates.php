@@ -47,13 +47,13 @@ class GetUpdates extends Command {
 				$this->fork();
 				return 0;
 			}
-			$this->bot->getUpdatesAndCreateEvents(['timeout' => $end_time-time()]);	
+			$this->bot->getUpdatesAndCreateEvents(['timeout' => $t]);	
 		}
 		$this->fork();
 	}
 
 	public function fork(): void {
-		$process = Process::fromShellCommandline("php /var/www/html/artisan tgbotapi:getupdates {$this->username} --background --first-run=no > /dev/null 2>&1 &", base_path(), null, null, 65);
+		$process = Process::fromShellCommandline("php artisan tgbotapi:getupdates {$this->username} --background --first-run=no > /dev/null 2>&1 &", base_path(), null, null, 65);
 		$process->disableOutput();
 		$process->start();
 	}

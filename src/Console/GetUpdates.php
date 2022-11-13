@@ -53,7 +53,7 @@ class GetUpdates extends Command {
 	}
 
 	public function fork(): void {
-		$process = Process::fromShellCommandline(command: "php /var/www/html/artisan tgbotapi:getupdates {$this->username} --background --first-run=no > /dev/null 2>&1 &", cwd: base_path(), timeout: 65);
+		$process = Process::fromShellCommandline("php /var/www/html/artisan tgbotapi:getupdates {$this->username} --background --first-run=no > /dev/null 2>&1 &", base_path(), null, null, 65);
 		$process->disableOutput();
 		$process->start();
 	}

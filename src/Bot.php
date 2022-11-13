@@ -116,7 +116,6 @@ class Bot {
 			} else $store = $this->offsetStore;
 			return $store;
 		}
-
 	}
 
 	public function getUpdates(callable $callback, ?array $data = null): void {

@@ -32,3 +32,7 @@ All notable changes to `laravel-tgbotapi` will be documented in this file
 ## 1.2.2 - 13.11.2022
 
 - New UpdateType's
+
+## 1.2.3 - 13.11.2022
+
+- Reworking tgbotapi:getupdates command for long background work

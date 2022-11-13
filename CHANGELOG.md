@@ -28,3 +28,7 @@ All notable changes to `laravel-tgbotapi` will be documented in this file
 
 - PHP minimum version fixes for Laravel 8
 - Workflow improvement for Github Actions
+
+## 1.2.2 - 13.11.2022
+
+- New UpdateType's

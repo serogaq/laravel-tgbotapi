@@ -70,7 +70,7 @@ class GetUpdates extends Command {
      * @return void
      */
     public function work(): void {
-        if($this->shouldRunUntilComplete() && $this->runs > 500 && Carbon::now()->second >= 57) {
+        if ($this->shouldRunUntilComplete() && $this->runs > 500 && Carbon::now()->second >= 57) {
             $this->completed();
             return;
         }
@@ -109,11 +109,11 @@ class GetUpdates extends Command {
         }
         $this->printInfo();
         $this->started = true;
-        while($this->run) {
+        while ($this->run) {
             $this->getBatchId();
             $this->work();
             unset($this->batchId);
-            if(!$this->shouldContinue()) {
+            if (!$this->shouldContinue()) {
                 $this->run = false;
                 continue;
             }
@@ -162,7 +162,9 @@ class GetUpdates extends Command {
 
     public function line($string, $style = null, $verbosity = null) {
         $formatted = Carbon::now()->format('[Y-m-d H:i:s.v] - ') . 'TgBotApi GetUpdatesCommand';
-        if($this->started && $this->run) $formatted .= ':' . $this->getBatchId();
+        if ($this->started && $this->run) {
+            $formatted .= ':' . $this->getBatchId();
+        }
         $formatted .= ' - ' . $string;
         parent::line($formatted, $style, $verbosity);
         Log::channel($this->bot->getBotConf()->log_channel)->debug('TgBotApi GetUpdatesCommand' . ':' . $this->getBatchId() . "\n" . $string);

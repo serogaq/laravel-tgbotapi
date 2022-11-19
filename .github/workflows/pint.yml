@@ -2,9 +2,7 @@ name: Laravel Pint
 
 on: 
   push:
-    branches:
-      - '*'
-      - '!master'
+    branches: [master]
 
 jobs:
   phplint:

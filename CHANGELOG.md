@@ -36,3 +36,8 @@ All notable changes to `laravel-tgbotapi` will be documented in this file
 ## 1.2.3 - 13.11.2022
 
 - Reworking tgbotapi:getupdates command for long background work
+
+## 1.3.0 - 19.11.2022
+
+- Another rework of tgbotapi:getupdates command for long background work, fixing issues
+- Ability to make asynchronous Telegram Bot Api calls #6 (powered by Laravel Octane with Swoole)

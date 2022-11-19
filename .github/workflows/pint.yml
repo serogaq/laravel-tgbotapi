@@ -1,6 +1,8 @@
 name: Laravel Pint
 
-on: 
+on:
+  push:
+    branches: [master]
   pull_request:
     branches: [master]
 
@@ -8,15 +10,15 @@ jobs:
   phplint:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
-        - name: "laravel-pint"
-          uses: aglipanci/laravel-pint-action@1.0.0
-          with:
-            verboseMode: true
-            configPath: "pint.json"
-        - uses: stefanzweifel/git-auto-commit-action@v4
-          with:
-            commit_message: Laravel Pint Coding Style
-            commit_user_name: github-actions[bot] laravel-pint
-            commit_user_email: github-actions[bot]@users.noreply.github.com
-            commit_author: github-actions[bot] <actions@github.com>
+      - uses: actions/checkout@v2
+      - name: Laravel Pint
+        uses: aglipanci/laravel-pint-action@1.0.0
+        with:
+          verboseMode: true
+          configPath: "pint.json"
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[CI] Laravel Pint Coding Style"
+          commit_user_name: github-actions[bot] laravel-pint
+          commit_user_email: github-actions[bot]@users.noreply.github.com
+          commit_author: github-actions[bot] <actions@github.com>

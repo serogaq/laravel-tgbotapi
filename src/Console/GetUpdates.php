@@ -162,9 +162,7 @@ class GetUpdates extends Command {
 
     public function line($string, $style = null, $verbosity = null) {
         $formatted = Carbon::now()->format('[Y-m-d H:i:s.v] - ') . 'TgBotApi GetUpdatesCommand';
-        if ($this->started && $this->run) {
-            $formatted .= ':' . $this->getBatchId();
-        }
+        if($this->started && $this->run) $formatted .= ':' . $this->getBatchId();
         $formatted .= ' - ' . $string;
         parent::line($formatted, $style, $verbosity);
         Log::channel($this->bot->getBotConf()->log_channel)->debug('TgBotApi GetUpdatesCommand' . ':' . $this->getBatchId() . "\n" . $string);

@@ -51,12 +51,52 @@ To receive updates via a long polling, create a background task:
 // app/Console/Kernel.php
 class Kernel extends ConsoleKernel {
 	protected function schedule(Schedule $schedule) {
-		$schedule->command('tgbotapi:getupdates', ['bot_username'])->everyMinute()->runInBackground();
+		$schedule->command('tgbotapi:getupdates', ['bot_username', '--until-complete'])->everyMinute()->withoutOverlapping()->runInBackground();
 	}
 }
 ```
 
 Events will be sent to `app/Listeners/UpdateProcessing.php` where you can process them.
+
+There are helpers for handling update events in controllers for each group of UpdateType's:
+
+```php
+// app/Listeners/UpdateProcessing.php
+use Serogaq\TgBotApi\Traits\ProcessingInControllers;
+use Serogaq\TgBotApi\Traits\{HandlingCommandUpdate, HandlingEventUpdate};
+class UpdateProcessing {
+	use ProcessingInControllers;
+	use HandlingCommandUpdate, HandlingEventUpdate;
+}
+```
+
+Next, create handler controllers for the two UpdateType's:
+
+```bash
+$ php artisan make:tgbotapi-controller CommandUpdate
+$ php artisan make:tgbotapi-controller EventUpdate
+```
+
+Now you can process all events in the handle method in the corresponding controller:
+
+```php
+// app/Http/Controllers/TgBotApi/CommandUpdate.php
+use Serogaq\TgBotApi\Bot;
+use Serogaq\TgBotApi\Objects\UpdateType;
+use Serogaq\TgBotApi\Http\Controllers\Updates\CommandUpdate as AbstractUpdate;
+class CommandUpdate extends AbstractUpdate {
+	public function handle() {
+		# /start
+		if($this->update->commandMatch('start') && $this->update->isUpdateType(UpdateType::COMMAND_WITHOUT_ARGS)) $this->startCommand($this->bot, $this->update->message->chat->id);
+		# /start args
+		if($this->update->commandMatch('start') && $this->update->isUpdateType(UpdateType::COMMAND_WITH_ARGS_SPACE)) $this->startCommand($this->bot, $this->update->message->chat->id, $this->update->getMatches());
+	}
+	public function startCommand(Bot $bot, int $chat_id, ?string $start = null) {
+		$bot->sendMessage(['text' => 'Hello!', 'parse_mode' => 'HTML', 'chat_id' => $chat_id]);
+	}
+
+}
+```
 
 ### Testing
 

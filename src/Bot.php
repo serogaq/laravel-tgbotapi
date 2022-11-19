@@ -5,6 +5,7 @@ namespace Serogaq\TgBotApi;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Client\Response;
 use Illuminate\Http\Client\RequestException;
@@ -19,12 +20,29 @@ class Bot {
 
 	private object $offsetStore;
 
+	private bool $asyncNextRequest = false;
+	private ?array $asyncRequest;
+
 	public function __construct(object $botConf) {
 		$this->botConf = $botConf;
 		$this->offsetStore = $this->getOffsetStore(true);
 	}
 
-	public function __call(string $name, array $arguments): mixed {
+	public function __call(string $name, array $arguments = []): mixed {
+		if($name === 'getUpdates') $this->asyncNextRequest = false;
+		if($this->asyncNextRequest) {
+			$this->asyncRequest[] = $this->getBotConf()->username;
+			$this->asyncRequest[] = $name;
+			$this->asyncRequest[] = $arguments;
+			$jsonReq = json_encode($this->asyncRequest);
+			$this->asyncRequest = null;
+			$id = bin2hex(random_bytes(10));
+			$asyncRequests = json_decode(Cache::store('octane')->get('tgbotapi_async_requests', '[]'), true);
+			$asyncRequests[$id] = $jsonReq;
+			Cache::store('octane')->forever('tgbotapi_async_requests', json_encode($asyncRequests));
+			$this->asyncNextRequest = false;
+			return $id;
+		}
 		$data = null;
 		$attachments = null;
 		if(isset($arguments[0]) && Arr::isAssoc($arguments[0])) $data = $arguments[0];
@@ -60,9 +78,10 @@ class Bot {
 	}
 
 	private function apiRequest(string $method, ?array $data = null, ?array $attachments = null): Response {
+		$uid = bin2hex(random_bytes(3));
 		$botConf = clone $this->botConf;
 		$httpClient = Http::withOptions([])->acceptJson()->timeout(600);
-		Log::channel($botConf->log_channel)->debug('TgBotApi Bot apiRequest request', ['data' => $data, 'attachments' => $attachments]);
+		Log::channel($botConf->log_channel)->debug('TgBotApi Bot apiRequest request['.$uid.']', ['data' => $data, 'attachments' => $attachments]);
 		if(!is_null($data)) {
 			$httpClient->asMultipart();
 			if(!is_null($attachments)) {
@@ -76,7 +95,7 @@ class Bot {
 			}
 			$response = $httpClient->post("{$botConf->api_server}/bot{$botConf->token}/{$method}", $multipartData);
 		} else $response = $httpClient->post("{$botConf->api_server}/bot{$botConf->token}/{$method}");
-		Log::channel($botConf->log_channel)->debug('TgBotApi Bot apiRequest response', ['status' => $response->status(), 'body' => $response->body()]);
+		Log::channel($botConf->log_channel)->debug('TgBotApi Bot apiRequest response['.$uid.']', ['status' => $response->status(), 'body' => $response->body()]);
 		return $response->throw(function ($response, $e) {
 			if($e instanceof RequestException) throw new BotRequestException($e);
 		});
@@ -143,6 +162,59 @@ class Bot {
 			event(new NewUpdateReceived($bot, $update, Update::GETUPDATES));
 			return true;
 		}, $data);
+	}
+
+	public function async(): self {
+		if(!defined('SWOOLE_VERSION') || (defined('SWOOLE_VERSION') && !class_exists('\Laravel\Octane\Facades\Octane'))) throw new BotException('Swoole and \Laravel\Octane\Facades\Octane must be available to use this feature');
+		$this->asyncNextRequest = true;
+		return $this;
+	}
+
+	public function countPendingAsyncRequests(): int {
+		if(!defined('SWOOLE_VERSION') || (defined('SWOOLE_VERSION') && !class_exists('\Laravel\Octane\Facades\Octane'))) throw new BotException('Swoole and \Laravel\Octane\Facades\Octane must be available to use this feature');
+		$asyncRequests = json_decode(Cache::store('octane')->get('tgbotapi_async_requests', '[]'), true);
+		$count = 0;
+		foreach($asyncRequests as $id => $req) {
+			$request = json_decode($req, true);
+			if($request[0] !== $this->botConf->username) continue;
+			$count += 1;
+		}
+		return $count;
+	}
+
+	public function runAsyncRequests(): ?array {
+		if(!defined('SWOOLE_VERSION') || (defined('SWOOLE_VERSION') && !class_exists('\Laravel\Octane\Facades\Octane'))) throw new BotException('Swoole and \Laravel\Octane\Facades\Octane must be available to use this feature');
+		$countRequests = $this->countPendingAsyncRequests();
+		if($countRequests === 0) return null;
+		$waitTimeout = $countRequests*8000;
+		if($waitTimeout > 60000) $waitTimeout = 60000;
+		$asyncRequests = json_decode(Cache::store('octane')->get('tgbotapi_async_requests', '[]'), true);
+		$tasks = [];
+		$skippedIds = [];
+		foreach($asyncRequests as $id => $req) {
+			$request = json_decode($req, true);
+			if($request[0] !== $this->botConf->username) {
+				$skippedIds[] = $id;
+				continue;
+			}
+			$tasks[] = function() use($id, $request) {
+				$bot = \Serogaq\TgBotApi\BotManager::selectBot($request[0]);
+				$response = call_user_func_array([$bot, $request[1]], $request[2]);
+				return [$id => $response];
+			};
+		}
+		$result = \Laravel\Octane\Facades\Octane::concurrently($tasks, $waitTimeout);
+		if(empty($skippedIds)) Cache::store('octane')->forget('tgbotapi_async_requests');
+		else {
+			$updatedAsyncRequests = [];
+			foreach($asyncRequests as $id => $req) {
+				if(in_array($id, $skippedIds)) {
+					$updatedAsyncRequests[$id] = $req;
+				}
+			}
+			Cache::store('octane')->forever('tgbotapi_async_requests', json_encode($updatedAsyncRequests));
+		}
+		return $result;
 	}
 
 }

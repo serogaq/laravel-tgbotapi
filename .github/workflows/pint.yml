@@ -1,16 +1,21 @@
-name: PHP Linting
+name: Laravel Pint
 
-on: pull_request
+on: 
+  push:
+    branches:
+      - '*'
+      - '!master'
 
 jobs:
   phplint:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v1
+        - uses: actions/checkout@v2
         - name: "laravel-pint"
           uses: aglipanci/laravel-pint-action@1.0.0
           with:
-            preset: laravel
             verboseMode: true
             configPath: "pint.json"
-          
+        - uses: stefanzweifel/git-auto-commit-action@v4
+          commit_message: Laravel Pint Coding Style
+          commit_user_name: github-actions[bot] laravel-pint

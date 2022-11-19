@@ -16,7 +16,7 @@ jobs:
             configPath: "pint.json"
         - uses: stefanzweifel/git-auto-commit-action@v4
           with:
-            commit_message: Laravel Pint Coding Style
+            commit_message: [CI] Laravel Pint Coding Style
             commit_user_name: github-actions[bot] laravel-pint
             commit_user_email: github-actions[bot]@users.noreply.github.com
             commit_author: github-actions[bot] <actions@github.com>

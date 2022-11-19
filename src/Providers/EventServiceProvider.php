@@ -7,19 +7,18 @@ use Serogaq\TgBotApi\Events\NewUpdateReceived;
 use Serogaq\TgBotApi\Listeners\UpdateProcessing;
 
 class EventServiceProvider extends ServiceProvider {
-	
-	protected $listen = [
-		NewUpdateReceived::class => [
-			UpdateProcessing::class,
-		]
-	];
+    protected $listen = [
+        NewUpdateReceived::class => [
+            UpdateProcessing::class,
+        ],
+    ];
 
-	/**
-	 * Register any events for your application.
-	 *
-	 * @return void
-	 */
-	public function boot() {
-		parent::boot();
-	}
+    /**
+     * Register any events for your application.
+     *
+     * @return void
+     */
+    public function boot() {
+        parent::boot();
+    }
 }

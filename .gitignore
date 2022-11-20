@@ -1,6 +1,7 @@
 /vendor
 /.phpdoc
 /docs
+.phpunit.cache
 .phpunit.result.cache
 composer.lock
 phpdoc

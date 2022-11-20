@@ -1,4 +1,6 @@
-preset: laravel
-
-disabled:
-  - single_class_element_per_statement
+php:
+  preset: laravel
+  disabled:
+    - single_class_element_per_statement
+    - no_alternative_syntax
+    - no_unused_imports

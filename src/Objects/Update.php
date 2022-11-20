@@ -17,7 +17,7 @@ class Update {
 
     protected bool $_isMatch = false;
 
-    protected array|string|null $_matches = null;
+    protected $_matches = null;
 
     public function __construct(?array $update = null) {
         $this->_update = $update;
@@ -256,7 +256,7 @@ class Update {
         return true;
     }
 
-    public function getMatches(): array|string|null {
+    public function getMatches() {
         return $this->_isMatch ? $this->_matches : null;
     }
 

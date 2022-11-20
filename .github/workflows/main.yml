@@ -2,45 +2,104 @@ name: Run Tests
 
 on:
   push:
-    branches: [v1]
+    paths:
+      - 'src/**'
+      - 'config/**'
+      - 'routes/**'
+      - 'tests/**'
+      - 'composer.json'
+      - 'phpunit.xml.dist'
+      - 'pint.json'
   pull_request:
-    branches: [v1]
+    paths:
+      - 'src/**'
+      - 'config/**'
+      - 'routes/**'
+      - 'tests/**'
+      - 'composer.json'
+      - 'phpunit.xml.dist'
+      - 'pint.json'
 
 jobs:
-  test:
+  tests:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [7.4, 8.0.2, 8.1]
-        laravel: [8.*, 9.*]
+        php: ['7.4', '8.0.2', '8.1']
+        laravel: ['^8.0', '^9.0']
         stability: [prefer-stable]
-        include:
-          - laravel: 8.*
-            testbench: ^6.0
-          - laravel: 9.*
-            testbench: ^7.0
         exclude:
-          - laravel: 9.*
-            php: 7.4
-    name: Tests (P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }})
+          - laravel: '^9.0'
+            php: '7.4'
+
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
+    env:
+      EXTENSIONS: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+      EXT_CACHE_KEY: ext-cache-v1
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Setup extensions cache environment
+        id: cache-env
+        uses: shivammathur/cache-extensions@v1
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: ${{ env.EXTENSIONS }}
+          key: ${{ env.EXT_CACHE_KEY }}
+
+      - name: Cache extensions
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.cache-env.outputs.dir }}
+          key: ${{ steps.cache-env.outputs.key }}
+          restore-keys: ${{ steps.cache-env.outputs.key }}
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+          extensions: ${{ env.EXTENSIONS }}
           coverage: none
+          tools: cs2pr
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ runner.os }}-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-
+
       - name: Setup problem matchers
         run: |
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-          composer update --${{ matrix.stability }} --prefer-dist --no-cache --no-interaction
+          composer require "illuminate/support:${{ matrix.laravel }}" --no-interaction --no-update
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+      
       - name: Execute tests
         run: vendor/bin/phpunit
+
+      - name: Check .php files for syntax errors
+        run: composer php:syntax -- --checkstyle | cs2pr
+
+      - uses: actions/cache@v3
+        id: cache-db
+        with:
+          path: ~/.symfony/cache
+          key: db
+
+      - name: Check composer dependencies for known security issues
+        uses: symfonycorp/security-checker-action@v4
+        with:
+          lock: ./composer.lock

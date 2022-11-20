@@ -164,7 +164,7 @@ class Bot {
                         }
                     }
 
-                    public function set(int|string $offset): void {
+                    public function set($offset): void {
                         $this->updateOffset = (int) $offset;
                         $this->offsetStorage->put($this->username . '.offset', (string) $offset);
                     }

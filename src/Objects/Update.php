@@ -256,7 +256,7 @@ class Update {
         return true;
     }
 
-    public function getMatches(): array|string|null {
+    public function getMatches() {
         return $this->_isMatch ? $this->_matches : null;
     }
 

@@ -3,6 +3,7 @@
 namespace Serogaq\TgBotApi;
 
 use Illuminate\Http\Client\RequestException;
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
@@ -96,7 +97,9 @@ class Bot {
     private function apiRequest(string $method, ?array $data = null, ?array $attachments = null): Response {
         $uid = bin2hex(random_bytes(3));
         $botConf = clone $this->botConf;
-        $httpClient = Http::withOptions([])->acceptJson()->timeout(600);
+        $httpClient = Http::retry(2, 100, function ($exception, $request) {
+            return $exception instanceof ConnectionException;
+        })->acceptJson()->timeout(60);
         Log::channel($botConf->log_channel)->debug('TgBotApi Bot apiRequest request[' . $uid . ']', ['data' => $data, 'attachments' => $attachments]);
         if (!is_null($data)) {
             $httpClient->asMultipart();

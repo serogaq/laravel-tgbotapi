@@ -3,7 +3,6 @@
 namespace Serogaq\TgBotApi\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
 use Serogaq\TgBotApi\BotManager;
 use Serogaq\TgBotApi\Events\NewUpdateReceived;
 use Serogaq\TgBotApi\Objects\Update;

@@ -2,8 +2,8 @@
 
 namespace Serogaq\TgBotApi;
 
-use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Client\ConnectionException;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;

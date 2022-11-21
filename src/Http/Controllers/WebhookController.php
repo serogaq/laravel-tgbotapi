@@ -12,6 +12,12 @@ class WebhookController extends Controller {
         $bot = BotManager::selectBotByHash($hash);
         $data = $request->all();
         $update = new Update($data);
-        event(new NewUpdateReceived($bot, $update, Update::WEBHOOK));
+        try {
+            event(new NewUpdateReceived($bot, $update, Update::WEBHOOK));
+        } catch(\Throwable $e) {
+            report($e);
+        } finally {
+            return response('OK', 200)->header('Content-Type', 'text/plain');
+        }
     }
 }

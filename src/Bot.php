@@ -199,12 +199,8 @@ class Bot {
         if (!empty($response['result'])) {
             foreach ($response['result'] as $update) {
                 $u = new Update($update);
-                $ok = $callback($this, $u);
-                if ($autoUpdateOffset && is_bool($ok) && $ok === true) {
-                    $this->getOffsetStore()->set($update['update_id']);
-                } else {
-                    break;
-                }
+                if ($autoUpdateOffset) $this->getOffsetStore()->set($update['update_id']);
+                $callback($this, $u);
             }
         }
     }

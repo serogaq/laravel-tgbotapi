@@ -1,0 +1,55 @@
+name: Update Documentation
+
+on:
+  push:
+    paths:
+      - 'src/**'
+      - 'docs/**'
+    branches: [ v1 ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: ${{ github.ref == 'refs/heads/v1' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v1
+      - name: Cache phpDocumentor build files
+        id: phpdocumentor-cache
+        uses: actions/cache@v3
+        with:
+          path: .phpdoc/cache
+          key: ${{ runner.os }}-phpdocumentor-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-phpdocumentor-
+      - name: Build with phpDocumentor
+        run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv --target build/docs --cache-folder .phpdoc/cache
+      - name: Prepare html
+        run: sed 's/class="phpdocumentor-topnav__menu">/class="phpdocumentor-topnav__menu" >\n<li class="phpdocumentor-topnav__menu-item -social"><a href="https:\/\/github.com\/serogaq\/laravel-tgbotapi"><span><i class="fab fa-github"><\/i><\/span><\/a><\/li>/g' build/docs/index.html > build/docs/index.html.upd && cat build/docs/index.html.upd > build/docs/index.html && rm build/docs/index.html.upd
+      - name: Upload artifact to GitHub Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: build/docs
+
+  deploy:
+    if: ${{ github.ref == 'refs/heads/v1' }}
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

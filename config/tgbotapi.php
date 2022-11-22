@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'api_server' => 'https://api.telegram.org',
 
     'offset_store' => 'file', // file
@@ -13,4 +14,5 @@ return [
             'api_server' => null,
         ],
     ],
+
 ];

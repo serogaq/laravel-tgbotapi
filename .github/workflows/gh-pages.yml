@@ -27,7 +27,7 @@ jobs:
         run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv --target build/docs --cache-folder .phpdoc/cache
       - name: Prepare html
         run: |
-          sed -i 's/class="phpdocumentor-topnav__menu">/class="phpdocumentor-topnav__menu" >\n<li class="phpdocumentor-topnav__menu-item -social"><a href="https:\/\/github.com\/phpdocumentor\/phpdocumentor"><span><i class="fab fa-github"><\/i><\/span><\/a><\/li>/g' build/docs/index.html
+          sudo sed -i 's/class="phpdocumentor-topnav__menu">/class="phpdocumentor-topnav__menu" >\n<li class="phpdocumentor-topnav__menu-item -social"><a href="https:\/\/github.com\/phpdocumentor\/phpdocumentor"><span><i class="fab fa-github"><\/i><\/span><\/a><\/li>/g' build/docs/index.html
       - name: Pack docs
         run: sudo tar -czvf docs.tar.gz -C build/docs .
       - name: Make artifact

@@ -12,31 +12,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Build
-      run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv --target build/docs --cache-folder .phpdoc/cache
-    - name: Pack docs
-      run: sudo tar -czvf docs.tar.gz -C build/docs .
-    - name: Make artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: github-pages
-        path: docs.tar.gz
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv --target build/docs --cache-folder .phpdoc/cache
+      - name: Pack docs
+        run: sudo tar -czvf docs.tar.gz -C build/docs .
+      - name: Make artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: github-pages
+          path: docs.tar.gz
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/download-artifact@v2
-      with:
-        name: github-pages
-    - run: mkdir -p ./public && tar -xzvf docs.tar.gz -C ./public
-    - run: ls -la
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3.7.3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
-    
-    
+      - uses: actions/download-artifact@v2
+        with:
+          name: github-pages
+      - run: mkdir -p ./public && tar -xzvf docs.tar.gz -C ./public
+      - run: ls -la
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

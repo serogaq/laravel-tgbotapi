@@ -1,4 +1,4 @@
-name: Build documentation
+name: Docs update on GitHub Pages
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
         run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv --target build/docs --cache-folder .phpdoc/cache
       - name: Prepare html
         run: |
-          sudo find build/docs -type f -name "*.html" -print0 | xargs -0 sudo sed -i 's/class="phpdocumentor-topnav__menu">/class="phpdocumentor-topnav__menu" >\n<li class="phpdocumentor-topnav__menu-item -social"><a href="https:\/\/github.com\/serogaq\/laravel-tgbotapi"><span><i class="fab fa-github"><\/i><\/span><\/a><\/li>/g'
+          sudo find build/docs -type f -name "*.html" -print0 | xargs -0 sudo sed -i 's/class="phpdocumentor-topnav__menu">/class="phpdocumentor-topnav__menu" >\n<li class="phpdocumentor-topnav__menu-item -social"><a target="_blank" href="https:\/\/github.com\/serogaq\/laravel-tgbotapi"><span><i class="fab fa-github"><\/i><\/span><\/a><\/li>/g'
       - name: Pack docs
         run: sudo tar -czvf docs.tar.gz -C build/docs .
       - name: Make artifact

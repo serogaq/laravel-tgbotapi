@@ -37,4 +37,4 @@ jobs:
           commit_message: "[CI] Laravel Pint Coding Style"
           commit_user_name: github-actions[bot] laravel-pint
           commit_user_email: github-actions[bot]@users.noreply.github.com
-          commit_author: github-actions[bot] <actions@github.com>
+          commit_author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>

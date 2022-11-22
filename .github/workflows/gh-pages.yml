@@ -1,56 +1,42 @@
-name: Update Documentation
+name: Build documentation
 
 on:
   push:
+    branches: [ v1 ]
     paths:
       - 'src/**'
       - 'docs/**'
-    branches: [ v1 ]
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
   build:
-    if: ${{ github.ref == 'refs/heads/v1' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v1
-      - name: Cache phpDocumentor build files
-        id: phpdocumentor-cache
-        uses: actions/cache@v3
-        with:
-          path: .phpdoc/cache
-          key: ${{ runner.os }}-phpdocumentor-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-phpdocumentor-
-      - name: Build with phpDocumentor
-        run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv --target build/docs --cache-folder .phpdoc/cache
-      - run: ls -al
-      - name: Prepare html
-        run: sudo sed 's/class="phpdocumentor-topnav__menu">/class="phpdocumentor-topnav__menu" >\n<li class="phpdocumentor-topnav__menu-item -social"><a href="https:\/\/github.com\/serogaq\/laravel-tgbotapi"><span><i class="fab fa-github"><\/i><\/span><\/a><\/li>/g' build/docs/index.html > build/docs/index.html.upd && ls -al && sudo mv build/docs/index.html.upd build/docs/index.html
-      - name: Upload artifact to GitHub Pages
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: build/docs
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Build
+      run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv --target build/docs --cache-folder .phpdoc/cache
+    - name: Pack docs
+      run: sudo tar -czvf docs.tar.gz -C build/docs .
+    - name: Make artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: github-pages
+        path: docs.tar.gz
 
   deploy:
-    if: ${{ github.ref == 'refs/heads/v1' }}
     needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+    - uses: actions/download-artifact@v2
+      with:
+        name: github-pages
+    - run: mkdir -p ./public && tar -xzvf docs.tar.gz -C ./public
+    - run: ls -la
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3.7.3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+    
+    

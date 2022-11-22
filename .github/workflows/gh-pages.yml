@@ -45,6 +45,8 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: github-pages
+      - name: Unpacking
+        run: mkdir -p ./public && tar -xzvf docs.tar.gz -C ./public
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:

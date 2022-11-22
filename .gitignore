@@ -1,7 +1,10 @@
-/vendor
-/.phpdoc
-/docs
+vendor/
+build/
+.phpdoc/
 .phpunit.cache
 .phpunit.result.cache
+.project
 composer.lock
 phpdoc
+*.phar
+.DS_Store

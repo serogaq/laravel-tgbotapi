@@ -1,0 +1,40 @@
+name: Project Automation
+
+on:
+  issues:
+    types: [labeled]
+  pull_request:
+    types: [labeled]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  assign_to_project:
+    runs-on: ubuntu-latest
+    name: Assign to Project
+    steps:
+      - name: Assign issues to Project
+        uses: srggrs/assign-one-project-github-action@1.2.1
+        if: |
+          github.event_name == 'issues' &&
+          (
+            contains(github.event.issue.labels.*.name, 'bug') ||
+            contains(github.event.issue.labels.*.name, 'enhancement') ||
+            contains(github.event.issue.labels.*.name, 'invalid')
+          )
+        with:
+          project: 'https://github.com/users/serogaq/projects/1'
+          column_name: 'Todo'
+      
+      - name: Assign pull request to Project
+        uses: srggrs/assign-one-project-github-action@1.2.1
+        if: |
+          github.event_name == 'pull_request' &&
+          (
+            contains(github.event.issue.labels.*.name, 'enhancement') ||
+            contains(github.event.issue.labels.*.name, 'fix')
+          )
+        with:
+          project: 'https://github.com/users/serogaq/projects/1'
+          column_name: 'In Progress'

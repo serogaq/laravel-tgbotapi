@@ -9,6 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  contents: write
   pages: write
   id-token: write
 
@@ -25,9 +26,8 @@ jobs:
       - name: Build
         run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv --target build/docs --cache-folder .phpdoc/cache
       - name: Prepare html
-        run:
-          mkdir -p ./public && tar -xzvf docs.tar.gz -C ./public
-          sed 's/class="phpdocumentor-topnav__menu">/class="phpdocumentor-topnav__menu" >\n<li class="phpdocumentor-topnav__menu-item -social"><a href="https:\/\/github.com\/phpdocumentor\/phpdocumentor"><span><i class="fab fa-github"><\/i><\/span><\/a><\/li>/g' ./build/docs/index.html > ./build/docs/index.html.upd && mv ./build/docs/index.html.upd ./build/docs/index.html
+        run: |
+          sed -i 's/class="phpdocumentor-topnav__menu">/class="phpdocumentor-topnav__menu" >\n<li class="phpdocumentor-topnav__menu-item -social"><a href="https:\/\/github.com\/phpdocumentor\/phpdocumentor"><span><i class="fab fa-github"><\/i><\/span><\/a><\/li>/g' build/docs/index.html
       - name: Pack docs
         run: sudo tar -czvf docs.tar.gz -C build/docs .
       - name: Make artifact
@@ -47,4 +47,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
           publish_dir: ./public

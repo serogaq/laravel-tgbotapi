@@ -21,8 +21,6 @@ jobs:
   build:
     if: ${{ github.ref == 'refs/heads/v1' }}
     runs-on: ubuntu-latest
-    container:
-      options: --user root
     steps:
       - uses: actions/checkout@v3
       - name: Configure GitHub Pages

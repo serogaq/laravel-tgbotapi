@@ -36,7 +36,7 @@ jobs:
       - name: Build with phpDocumentor
         run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv --target build/docs --cache-folder .phpdoc/cache
       - name: Prepare html
-        run: sed 's/class="phpdocumentor-topnav__menu">/class="phpdocumentor-topnav__menu" >\n<li class="phpdocumentor-topnav__menu-item -social"><a href="https:\/\/github.com\/serogaq\/laravel-tgbotapi"><span><i class="fab fa-github"><\/i><\/span><\/a><\/li>/g' build/docs/index.html > build/docs/index.html.upd && mv ./build/docs/index.html.upd ./build/docs/index.html
+        run: sed 's/class="phpdocumentor-topnav__menu">/class="phpdocumentor-topnav__menu" >\n<li class="phpdocumentor-topnav__menu-item -social"><a href="https:\/\/github.com\/serogaq\/laravel-tgbotapi"><span><i class="fab fa-github"><\/i><\/span><\/a><\/li>/g' build/docs/index.html > build/docs/index.html.upd && mv build/docs/index.html.upd build/docs/index.html
       - name: Upload artifact to GitHub Pages
         uses: actions/upload-pages-artifact@v1
         with:

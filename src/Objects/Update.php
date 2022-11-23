@@ -322,7 +322,7 @@ class Update {
         if (!isset($this->_update['message']) || !isset($this->_update['message']['text'])) {
             return false;
         }
-        if(preg_match("#^/(?<command>[a-zA-Z0-9_]+)(@[a-zA-Z0-9_]+bot)?(?<data> .*)?$#msu", $this->_update['message']['text'], $matches, PREG_OFFSET_CAPTURE) !== 1) {
+        if (preg_match('#^/(?<command>[a-zA-Z0-9_]+)(@[a-zA-Z0-9_]+bot)?(?<data> .*)?$#msu', $this->_update['message']['text'], $matches, PREG_OFFSET_CAPTURE) !== 1) {
             return false;
         }
         $this->_matches = null;
@@ -330,8 +330,8 @@ class Update {
         if (isset($matches['data']) && !empty(trim($matches['data'][0]))) {
             $this->_matches[' '] = trim($matches['data'][0]);
         }
-        if($command !== $cmd && Str::startsWith($cmd, $command) && substr($cmd, strlen($command), 1) === '_') {
-            $args = explode('_', substr($cmd, strlen($command)+1));
+        if ($command !== $cmd && Str::startsWith($cmd, $command) && mb_substr($cmd, mb_strlen($command), 1) === '_') {
+            $args = explode('_', mb_substr($cmd, mb_strlen($command) + 1));
             $this->_matches['_'] = $args;
             $result = true;
             $this->_isMatch = $result;

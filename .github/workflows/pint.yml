@@ -2,22 +2,22 @@ name: Laravel Pint
 
 on:
   push:
+    branches:
+      - 'v1'
+      - 'issue-**'
     paths:
       - 'src/**'
-      - 'config/**'
       - 'routes/**'
       - 'tests/**'
       - 'composer.json'
-      - 'phpunit.xml.dist'
       - 'pint.json'
   pull_request:
+    types: [opened, reopened, synchronize]
     paths:
       - 'src/**'
-      - 'config/**'
       - 'routes/**'
       - 'tests/**'
       - 'composer.json'
-      - 'phpunit.xml.dist'
       - 'pint.json'
 
 jobs:

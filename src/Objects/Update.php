@@ -2,6 +2,7 @@
 
 namespace Serogaq\TgBotApi\Objects;
 
+use Illuminate\Support\Str;
 use Serogaq\TgBotApi\Exceptions\BotUpdateException;
 
 class Update {
@@ -321,41 +322,24 @@ class Update {
         if (!isset($this->_update['message']) || !isset($this->_update['message']['text'])) {
             return false;
         }
-        $cmd = preg_replace('#^/(.+?)@\S+ #', '/$1 ', $this->_update['message']['text'], 1);
-        $this->_matches = null;
-        if (mb_strpos($cmd, ' ') !== false) {
-            $this->_matches = mb_substr($cmd, mb_strpos($cmd, ' ') + 1);
-            $cmd = mb_substr($cmd, 0, mb_strpos($cmd, ' '));
-        }
-        $cmd = preg_replace('#^/(.+)#', '$1', $cmd, 1);
-        $this->_isMatch = false;
-        $bool = ($command === $cmd);
-        $this->_isMatch = $bool;
-        return $bool;
-    }
-
-    public function commandRegexpMatch(string $regexp): bool {
-        if (is_null($this->_update)) {
-            throw new BotUpdateException('Update is null');
-        }
-        if (!isset($this->_update['message']) || !isset($this->_update['message']['text'])) {
+        if(preg_match("#^/(?<command>[a-zA-Z0-9_]+)(@[a-zA-Z0-9_]+bot)?(?<data> .*)?$#msu", $this->_update['message']['text'], $matches, PREG_OFFSET_CAPTURE) !== 1) {
             return false;
         }
-        $cmd = preg_replace('#^/(.+?)@\S+ #', '/$1 ', $this->_update['message']['text'], 1);
         $this->_matches = null;
-        if (mb_strpos($cmd, ' ') !== false) {
-            $this->_matches['whitespace'] = mb_substr($cmd, mb_strpos($cmd, ' ') + 1);
-            $cmd = mb_substr($cmd, 0, mb_strpos($cmd, ' '));
+        $cmd = $matches['command'][0];
+        if (isset($matches['data']) && !empty(trim($matches['data'][0]))) {
+            $this->_matches[' '] = trim($matches['data'][0]);
         }
-        $cmd = preg_replace('#^/(.+)#', '$1', $cmd, 1);
-        $this->_isMatch = false;
-        $bool = (preg_match($regexp, $cmd, $match) ? true : false);
-        $this->_isMatch = $bool;
-        if (is_null($this->_matches)) {
-            $this->_matches = empty($match) ? null : $match;
+        if($command !== $cmd && Str::startsWith($cmd, $command) && substr($cmd, strlen($command), 1) === '_') {
+            $args = explode('_', substr($cmd, strlen($command)+1));
+            $this->_matches['_'] = $args;
+            $result = true;
+            $this->_isMatch = $result;
         } else {
-            $this->_matches = array_merge($this->_matches, $match);
+            $this->_isMatch = false;
+            $result = ($command === $cmd);
+            $this->_isMatch = $result;
         }
-        return $bool;
+        return $result;
     }
 }

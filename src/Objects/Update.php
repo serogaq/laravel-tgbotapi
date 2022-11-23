@@ -84,19 +84,18 @@ class Update {
             $this->_updateTypes[] = UpdateType::MESSAGE;
             if (isset($this->_update['message']['entities']) && $this->_update['message']['entities'][0]['type'] === 'bot_command') {
                 $this->_updateTypes[] = UpdateType::COMMAND;
-                $command = preg_replace('#^/(.+?)@\S+ #', '/$1 ', $this->_update['message']['text'], 1);
-                // preg_match('#^/(\S+)#', $command, $match);
-                if (mb_strpos($command, ' ') === false && mb_strpos($command, '_') === false) {
-                    $this->_updateTypes[] = UpdateType::COMMAND_WITHOUT_ARGS;
-                } else {
-                    $this->_updateTypes[] = UpdateType::COMMAND_WITH_ARGS;
-                    if (mb_strpos($command, ' ') !== false) {
+                if (preg_match('#^/(?<command>[a-zA-Z0-9_]+)(@[a-zA-Z0-9_]+bot)?(?<data> .*)?$#msu', $this->_update['message']['text'], $matches, PREG_OFFSET_CAPTURE) === 1) {
+                    $withArgs = false;
+                    if (isset($matches['data']) && !empty(trim($matches['data'][0]))) {
                         $this->_updateTypes[] = UpdateType::COMMAND_WITH_ARGS_SPACE;
+                        $withArgs = true;
                     }
-                    preg_match('#^/(\S+_\S+)#', $command, $match);
-                    if (count($match) > 0) {
+                    if (Str::contains($matches['command'][0], '_')) {
                         $this->_updateTypes[] = UpdateType::COMMAND_WITH_ARGS_UNDERSCORE;
+                        $withArgs = true;
                     }
+                    if($withArgs) $this->_updateTypes[] = UpdateType::COMMAND_WITH_ARGS;
+                    else $this->_updateTypes[] = UpdateType::COMMAND_WITHOUT_ARGS;
                 }
             } elseif (isset($this->_update['message']['text'])) {
                 $this->_updateTypes[] = UpdateType::TEXT;

@@ -94,8 +94,11 @@ class Update {
                         $this->_updateTypes[] = UpdateType::COMMAND_WITH_ARGS_UNDERSCORE;
                         $withArgs = true;
                     }
-                    if($withArgs) $this->_updateTypes[] = UpdateType::COMMAND_WITH_ARGS;
-                    else $this->_updateTypes[] = UpdateType::COMMAND_WITHOUT_ARGS;
+                    if ($withArgs) {
+                        $this->_updateTypes[] = UpdateType::COMMAND_WITH_ARGS;
+                    } else {
+                        $this->_updateTypes[] = UpdateType::COMMAND_WITHOUT_ARGS;
+                    }
                 }
             } elseif (isset($this->_update['message']['text'])) {
                 $this->_updateTypes[] = UpdateType::TEXT;

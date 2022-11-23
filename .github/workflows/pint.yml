@@ -2,6 +2,9 @@ name: Laravel Pint
 
 on:
   push:
+    branches:
+      - 'v1'
+      - 'issue-**'
     paths:
       - 'src/**'
       - 'routes/**'
@@ -10,7 +13,6 @@ on:
       - 'pint.json'
   pull_request:
     types: [opened]
-    branches: [ v1 ]
     paths:
       - 'src/**'
       - 'routes/**'

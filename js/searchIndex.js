@@ -821,11 +821,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Objects-Update.html#method_commandMatch"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Objects\\Update\u003A\u003AcommandRegexpMatch\u0028\u0029",
-            "name": "commandRegexpMatch",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Objects-Update.html#method_commandRegexpMatch"
-        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Objects\\Update\u003A\u003AINTERNAL",
             "name": "INTERNAL",
             "summary": "",

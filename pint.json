@@ -93,7 +93,8 @@
     }
   },
   "exclude": [
-    "config"
+    "config",
+    "docs"
   ],
   "notPath": [
     "src/Objects/UpdateType.php"

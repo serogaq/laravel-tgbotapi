@@ -12,7 +12,7 @@ on:
       - 'composer.json'
       - 'pint.json'
   pull_request:
-    types: [opened]
+    types: [opened, reopened, synchronize]
     paths:
       - 'src/**'
       - 'routes/**'

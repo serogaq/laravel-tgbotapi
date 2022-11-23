@@ -2,6 +2,9 @@ name: Run Tests
 
 on:
   push:
+    branches:
+      - 'v1'
+      - 'issue-**'
     paths:
       - 'src/**'
       - 'config/**'
@@ -11,6 +14,7 @@ on:
       - 'phpunit.xml.dist'
       - 'pint.json'
   pull_request:
+    types: [opened, reopened, synchronize]
     paths:
       - 'src/**'
       - 'config/**'

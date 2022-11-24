@@ -3,7 +3,8 @@
 namespace Serogaq\TgBotApi\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Foundation\Console\AboutCommand;
+use Illuminate\Support\Facades\Route;
+//use Illuminate\Foundation\Console\AboutCommand;
 //use Serogaq\TgBotApi\Console\{DeleteWebhook, GetUpdates, InstallTgBotApi, MakeTgBotApiController, MakeUpdateProcessingListener, SetWebhook};
 use Serogaq\TgBotApi\Console\InstallTgBotApi;
 use Serogaq\TgBotApi\BotManager;
@@ -16,10 +17,10 @@ class TgBotApiServiceProvider extends ServiceProvider {
      * Bootstrap the application services.
      */
     public function boot() {
-        AboutCommand::add('TgBotApi', fn () => ['Version' => '2.0.0-alpha']);
+        //AboutCommand::add('TgBotApi', fn () => ['Version' => '2.0.0-alpha']);
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/tgbotapi.php' => config_path('tgbotapi.php'),
+                __DIR__ . '/../../config/tgbotapi.php' => config_path('tgbotapi.php'),
             ], 'tgbotapi-config');
             $this->commands([
                 InstallTgBotApi::class,
@@ -37,7 +38,7 @@ class TgBotApiServiceProvider extends ServiceProvider {
      * Register the application services.
      */
     public function register() {
-        $this->mergeConfigFrom(__DIR__ . '/../config/tgbotapi.php', 'tgbotapi');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/tgbotapi.php', 'tgbotapi');
         $this->app->singleton(BotManager::class, function ($app) {
             return new BotManager(config('tgbotapi'));
         });
@@ -51,7 +52,7 @@ class TgBotApiServiceProvider extends ServiceProvider {
      */
     protected function registerRoutes() {
         Route::group($this->routeConfiguration(), function () {
-            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+            $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         });
     }
 

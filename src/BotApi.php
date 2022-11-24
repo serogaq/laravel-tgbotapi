@@ -31,10 +31,10 @@ class BotApi {
 
     protected function createRequest(string $method, array $arguments): ApiRequest {
         $middleware = resolve(Middleware::class);
-        if(isset($botConfig['middleware']) && !empty($botConfig['middleware'])) {
-            foreach ($botConfig['middleware'] as $m) $middleware->addRequestMiddleware($m);
+        if(isset($this->botConfig['middleware']) && !empty($this->botConfig['middleware'])) {
+            foreach ($this->botConfig['middleware'] as $m) $middleware->addRequestMiddleware($m);
         }
-        $apiRequest = $middleware->execRequestMiddlewares(new ApiRequest($method, $arguments, getBotIdFromToken($botConfig['token'])));
+        $apiRequest = $middleware->execRequestMiddlewares(new ApiRequest($method, $arguments, getBotIdFromToken($this->botConfig['token'])));
         return $apiRequest;
     }
 

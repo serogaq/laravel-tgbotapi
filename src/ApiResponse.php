@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\TgBotApi;
+namespace Serogaq\TgBotApi;
 
 use Serogaq\TgBotApi\Exceptions\ApiResponseException;
 
@@ -17,6 +17,10 @@ class ApiResponse {
             throw new ApiResponseException('Json parsing error', 0, $e);
         }
         if (!is_array($this->response)) throw new ApiResponseException("Incorrect response type:\n".var_export($this->response, true), 1);
+    }
+
+    public function __toString(): string {
+        return json_encode($this->response);
     }
 
     public function asArray(): array {

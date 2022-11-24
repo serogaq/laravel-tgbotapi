@@ -5,14 +5,14 @@ namespace Serogaq\TgBotApi\Services\HttpClient;
 
 use Serogaq\TgBotApi\Interfaces\HttpClient;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Http\Client\{ ConnectionException, RequestException };
+use Illuminate\Http\Client\{ PendingRequest, ConnectionException, RequestException };
 use Serogaq\TgBotApi\ApiResponse;
 use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Exceptions\HttpClientException;
 
 class LaravelHttpClient implements HttpClient {
     
-    protected Http $client;
+    protected PendingRequest $request;
 
     /** @var int Timeout of the request in seconds. */
     protected int $timeout = 60;
@@ -21,7 +21,7 @@ class LaravelHttpClient implements HttpClient {
     protected int $connectTimeout = 10;
 
     public function __construct() {
-        $this->client = Http::withOptions([])->acceptJson()->timeout($this->timeout)->connectTimeout($this->connectTimeout);
+        $this->request = Http::withOptions([])->acceptJson()->timeout($this->timeout)->connectTimeout($this->connectTimeout);
     }
 
     /**
@@ -43,7 +43,7 @@ class LaravelHttpClient implements HttpClient {
     ): ApiResponse {
         if ($method === 'GET') {
             try {
-                $response = $this->client
+                $response = $this->request
                                 ->get($url)
                                 ->throw(function ($response, $e) {
                                     report($e);
@@ -54,7 +54,7 @@ class LaravelHttpClient implements HttpClient {
                 throw new HttpClientException($e->getMessage(), 2, $e);
             }
         } elseif ($method === 'POST') {
-            if (!empty($data) || !empty($files)) $this->client->asMultipart();
+            if (!empty($data) || !empty($files)) $this->request->asMultipart();
             if (!empty($data)) {
                 $multipartData = [];
                 foreach ($data as $key => $value) {
@@ -67,11 +67,11 @@ class LaravelHttpClient implements HttpClient {
             }
             if (!empty($files)) {
                 foreach ($files as $key => $path) {
-                    $this->client->attach($key, file_get_contents($path), explode('/', $path)[count(explode('/', $path)) - 1]);
+                    $this->request->attach($key, file_get_contents($path), explode('/', $path)[count(explode('/', $path)) - 1]);
                 }
             }
             try {
-                $response = $this->client
+                $response = $this->request
                                 ->post($url, $multipartData)
                                 ->throw(function ($response, $e) {
                                     report($e);
@@ -103,7 +103,7 @@ class LaravelHttpClient implements HttpClient {
      */
     public function setTimeout(int $timeout): self {
         $this->timeout = $timeout;
-        $this->client->timeout($timeout);
+        $this->request->timeout($timeout);
         return $this;
     }
 
@@ -124,7 +124,7 @@ class LaravelHttpClient implements HttpClient {
      */
     public function setConnectTimeout(int $connectTimeout): self {
         $this->connectTimeout = $connectTimeout;
-        $this->client->connectTimeout($connectTimeout);
+        $this->request->connectTimeout($connectTimeout);
         return $this;
     }
 

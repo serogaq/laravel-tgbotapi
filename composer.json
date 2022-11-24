@@ -24,7 +24,10 @@
     "autoload": {
         "psr-4": {
             "Serogaq\\TgBotApi\\": "src"
-        }
+        },
+        "files": [
+            "src/Helpers/Helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

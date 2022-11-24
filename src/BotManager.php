@@ -38,7 +38,7 @@ class BotManager {
      * @param  int|string  $idOrUsername Bot ID or Bot Username
      * @return  ?array  Bot Config
      */
-    protected function getBotConfig(int|string $idOrUsername): ?array {
+    public function getBotConfig(int|string $idOrUsername): ?array {
         if(!$this->botExists($idOrUsername)) return null;
         foreach ($this->config['bots'] as $bot) {
             if (

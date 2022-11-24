@@ -5,6 +5,7 @@ namespace Serogaq\TgBotApi;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Arr;
+use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Interfaces\HttpClient;
 
 class ApiRequest {
@@ -19,6 +20,7 @@ class ApiRequest {
     protected BotManager $botManager;
     protected array $botConfig;
 
+    protected array $arguments;
     protected string $method;
     protected array $data = [];
     protected array $files = [];
@@ -35,6 +37,7 @@ class ApiRequest {
         $this->botManager = resolve(BotManager::class);
         $this->botConfig = $this->botManager->getBotConfig($botId);
         $this->method = $method;
+        $this->arguments = $arguments;
         $this->data = $this->getDataFromArguments($arguments);
         $this->files = $this->getFilesFromArguments($arguments);
         $this->setTimeoutFromArguments($arguments);
@@ -108,6 +111,14 @@ class ApiRequest {
 
     public function getBotId(): int {
         return $this->botId;
+    }
+
+    public function getMethod(): string {
+        return $this->method;
+    }
+
+    public function getArguments(): array {
+        return $this->arguments;
     }
 
     public function async(): self {

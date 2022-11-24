@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Serogaq\TgBotApi\Services;
 
 use Serogaq\TgBotApi\Interfaces\{ RequestMiddleware, ResponseMiddleware };
-use Serogaq\TgBotApi1\{ ApiRequest, ApiResponse };
+use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
 use Illuminate\Support\Facades\App;
 
 class Middleware {
@@ -41,10 +41,11 @@ class Middleware {
         reset($implements);
         $implements = key($implements);
         if ($implements === RequestMiddleware::class) {
-            return isset($this->requestMiddleware[get_class($middleware)]) ? true : false;
-        } elseif ($implements === RequestMiddleware::class) {
-            return isset($this->responseMiddleware[get_class($middleware)]) ? true : false;
+            return isset($this->requestMiddleware[$middleware]) ? true : false;
+        } elseif ($implements === ResponseMiddleware::class) {
+            return isset($this->responseMiddleware[$middleware]) ? true : false;
         }
+        // TODO: Exception: middleware should implement RequestMiddleware|ResponseMiddleware
     }
 
     public function execRequestMiddlewares(ApiRequest $apiRequest): ApiRequest {

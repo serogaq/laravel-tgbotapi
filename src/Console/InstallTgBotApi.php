@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
 class InstallTgBotApi extends Command {
-    protected $hidden = true;
+    protected $hidden = false;
 
     protected $signature = 'tgbotapi:install {--force}';
 

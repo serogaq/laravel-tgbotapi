@@ -49,10 +49,7 @@
         "laravel": {
             "providers": [
                 "Serogaq\\TgBotApi\\Providers\\TgBotApiServiceProvider"
-            ],
-            "aliases": {
-                "BotManager": "Serogaq\\TgBotApi\\Facades\\BotManagerFacade"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",

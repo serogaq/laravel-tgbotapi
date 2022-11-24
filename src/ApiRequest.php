@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Serogaq\TgBotApi;
 
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Arr;
 use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Interfaces\HttpClient;
 
@@ -33,7 +31,7 @@ class ApiRequest {
     public function __construct(string $method, array $arguments, int $botId) {
         $this->requestId = mb_substr(md5(random_bytes(10)), 0, 10);
         $this->botId = $botId;
-        $this->httpClient = App::make(HttpClient::class);
+        $this->httpClient = resolve(HttpClient::class);
         $this->botManager = resolve(BotManager::class);
         $this->botConfig = $this->botManager->getBotConfig($botId);
         $this->method = $method;

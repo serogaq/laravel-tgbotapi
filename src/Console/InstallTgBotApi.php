@@ -8,77 +8,39 @@ use Illuminate\Support\Facades\File;
 class InstallTgBotApi extends Command {
     protected $hidden = true;
 
-    protected $signature = 'tgbotapi:install {--inputstream=}';
+    protected $signature = 'tgbotapi:install {--force}';
 
     protected $description = 'Install laravel-tgbotapi package';
 
     private $reInstall = false;
 
     public function handle() {
-        $inputstream = is_null($this->option('inputstream')) ? null : explode('|', $this->option('inputstream'));
-        if ($this->alreadyInstalled()) {
-            if (isset($inputstream[0])) {
-                $c = $inputstream[0] === 'yes' ? true : false;
-            } else {
-                $c = $this->confirm('Package laravel-tgbotapi already installed. Do you want to overwrite config, listeners, and storage?', false);
-            }
-            if ($c === false) {
+        $force = $this->option('force');
+        if ($this->alreadyInstalled() && $force !== true) {
+            $confirmOverwrite = $this->confirm('Package laravel-tgbotapi already installed. Do you want to overwrite config?', false);
+            if ($confirmOverwrite === false) {
                 $this->info('Reinstall canceled');
                 return 0;
             }
-            $this->info('Reinstalling laravel-tgbotapi package...');
-            $this->reInstall = true;
+            $force = true;
         }
-
-        if (!$this->reInstall) {
+        if($force) $confirmOverwrite = true;
+        if(isset($confirmOverwrite) && $confirmOverwrite === true) {
+            $this->info('Reinstalling laravel-tgbotapi package...');
+        } else {
             $this->info('Installing laravel-tgbotapi package...');
         }
-
-        if (!$this->configExists('tgbotapi.php') || $this->reInstall) {
+        //
+        if (!$this->configExists('tgbotapi.php') || $confirmOverwrite) {
             $this->info('Publishing configuration...');
-            $this->publish('tgbotapi-config', $this->reInstall);
+            $this->publish('tgbotapi-config', $force);
         }
-
-        /*$this->info('Publishing migrations...');
-        if(!$this->migrationExists('.php')) {
-            $this->publish('tgbotapi-migrations');
-        }*/
-
-        if (!$this->listenerExists('UpdateProcessing.php') || $this->reInstall) {
-            if ($this->reInstall && $this->listenerExists('UpdateProcessing.php')) {
-                $overwrite = $this->confirm('Do you want to overwrite UpdateProcessing Listener (' . app_path('Listeners/UpdateProcessing.php') . ') ?', false);
-            }
-            if (isset($overwrite) && $overwrite === false) {
-                unset($overwrite);
-            } else {
-                if ($this->reInstall && $this->listenerExists('UpdateProcessing.php')) {
-                    unlink(app_path('Listeners/UpdateProcessing.php'));
-                }
-                $this->info('Publishing listener...');
-                $this->publishListener('UpdateProcessing');
-            }
-        }
-
-        $this->info('Creating storage...');
-        if (empty(realpath(storage_path('tgbotapi'))) || $this->reInstall) {
-            if ($this->reInstall) {
-                $this->removeDirectory(storage_path('tgbotapi'));
-            }
-            mkdir(storage_path('tgbotapi'));
-            File::put(storage_path('tgbotapi/.gitignore'), "*\n!.gitignore\n");
-            $this->info('Creating complete.');
-        }
-
+        //
         $this->info('Installed laravel-tgbotapi package');
-        return 0;
     }
 
     private function configExists($fileName) {
         return File::exists(config_path($fileName));
-    }
-
-    private function migrationExists($fileName) {
-        return File::exists(database_path("migrations/{$fileName}"));
     }
 
     private function listenerExists($fileName) {
@@ -91,7 +53,7 @@ class InstallTgBotApi extends Command {
 
     private function publish($tag, $forcePublish = false) {
         $params = [
-            '--provider' => "Serogaq\TgBotApi\TgBotApiServiceProvider",
+            '--provider' => "Serogaq\TgBotApi\Providers\TgBotApiServiceProvider",
             '--tag' => $tag,
         ];
         if ($forcePublish === true) {
@@ -100,9 +62,9 @@ class InstallTgBotApi extends Command {
         return $this->call('vendor:publish', $params);
     }
 
-    private function publishListener($name) {
+    /*private function publishListener($name) {
         $this->call('tgbotapi:makeupdatelistener', ['name' => $name]);
-    }
+    }*/
 
     private function removeDirectory($directory) {
         $directoryPath = $directory . DIRECTORY_SEPARATOR;

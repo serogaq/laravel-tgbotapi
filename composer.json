@@ -12,8 +12,7 @@
         }
     ],
     "require": {
-        "php": "^7.4 || >=8.0.2",
-        "ext-json": "*",
+        "php": ">=8.0.2",
         "illuminate/support": "^8.0 || ^9.0"
     },
     "require-dev": {
@@ -49,10 +48,10 @@
         },
         "laravel": {
             "providers": [
-                "Serogaq\\TgBotApi\\TgBotApiServiceProvider"
+                "Serogaq\\TgBotApi\\Providers\\TgBotApiServiceProvider"
             ],
             "aliases": {
-                "BotManager": "Serogaq\\TgBotApi\\TgBotApiFacade"
+                "BotManager": "Serogaq\\TgBotApi\\Facades\\BotManagerFacade"
             }
         }
     },

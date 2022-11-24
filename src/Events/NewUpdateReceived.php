@@ -10,7 +10,7 @@ use Serogaq\TgBotApi\Objects\Update;
 class NewUpdateReceived {
     use Dispatchable, SerializesModels;
 
-    public $bot;
+    public Bot $bot;
 
     public $update;
 

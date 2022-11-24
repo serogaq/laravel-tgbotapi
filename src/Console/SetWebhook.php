@@ -5,7 +5,6 @@ namespace Serogaq\TgBotApi\Console;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use Serogaq\TgBotApi\BotManager;
-use Serogaq\TgBotApi\Exceptions\BotManagerConfigException;
 
 class SetWebhook extends Command {
     protected $signature = 'tgbotapi:setwebhook {username : Bot Username} {--url= : Webhook URL}';

@@ -4,12 +4,12 @@ namespace DummyNamespace;
 
 use Illuminate\Support\Facades\Log;
 use Serogaq\TgBotApi\Events\NewUpdateReceived;
-//use Serogaq\TgBotApi\Traits\ProcessingInControllers;
-//use Serogaq\TgBotApi\Traits\{HandlingTextUpdate, HandlingCommandUpdate};
+// use Serogaq\TgBotApi\Traits\ProcessingInControllers;
+// use Serogaq\TgBotApi\Traits\{HandlingTextUpdate, HandlingCommandUpdate};
 
 class DummyClass {
 
-	//use ProcessingInControllers, HandlingTextUpdate, HandlingCommandUpdate;
+	// use ProcessingInControllers, HandlingTextUpdate, HandlingCommandUpdate;
 
 	/**
 	 * Handle the event.

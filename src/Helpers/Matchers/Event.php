@@ -10,7 +10,8 @@ class Event  {
     /**
      * Checks if EventUpdate matches any of the passed EventType's.
      * Example:
-     * if (Event::anyOf(EventType::NEW_CHAT_MEMBERS | EventType::LEFT_CHAT_MEMBER))
+     * if (Event::anyOf(EventType::NEW_CHAT_MEMBERS | EventType::LEFT_CHAT_MEMBER)) 
+     * if (Event::anyOf(EventType::ALL ^ EventType::LEFT_CHAT_MEMBER)) // Everything, except EventType::LEFT_CHAT_MEMBER
      * 
      * @param int $flags 
      * @param EventUpdate $update

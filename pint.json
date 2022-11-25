@@ -94,9 +94,7 @@
   },
   "exclude": [
     "config",
-    "docs"
-  ],
-  "notPath": [
-    "src/Objects/UpdateType.php"
+    "docs",
+    "src/Constants"
   ]
 }

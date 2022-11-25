@@ -23,7 +23,7 @@ class Update implements IUpdate, \Stringable {
     
     public function __toString(): string {
         return json_encode([
-            'class' => self::class,
+            'type' => (new \ReflectionClass($this))->getShortName(),
             'update' => $this->update
         ]);
     }
@@ -36,7 +36,7 @@ class Update implements IUpdate, \Stringable {
         return arrayToObject($this->update);
     }
 
-    private static function createUpdate(string $updateType, array $update): IUpdate {
+    public static function createUpdate(string $updateType, array $update): IUpdate {
         try {
             $updateInstance = App::makeWith($updateType, ['update' => $update]);
         } catch (\Twrowable $e) {

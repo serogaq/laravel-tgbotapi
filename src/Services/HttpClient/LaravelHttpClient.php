@@ -11,6 +11,8 @@ use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Exceptions\HttpClientException;
 
 class LaravelHttpClient implements HttpClient {
+
+    protected string $requestId;
     
     protected PendingRequest $request;
 
@@ -22,6 +24,15 @@ class LaravelHttpClient implements HttpClient {
 
     public function __construct() {
         $this->request = Http::withOptions([])->acceptJson()->timeout($this->timeout)->connectTimeout($this->connectTimeout);
+    }
+
+    public function setRequestId(string $requestId): self {
+        $this->requestId = $requestId;
+        return $this;
+    }
+
+    public function getRequestId(): string {
+        return $this->requestId;
     }
 
     /**
@@ -83,7 +94,7 @@ class LaravelHttpClient implements HttpClient {
             }
         }
         else throw new HttpClientException("Unsupported Method '{$method}'", 3);
-        return new ApiResponse($response->body());
+        return new ApiResponse($this->getRequestId(), $response->body());
     }
 
     /**

@@ -6,6 +6,10 @@ namespace Serogaq\TgBotApi\Interfaces;
 use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
 
 interface HttpClient {
+
+    public function setRequestId(string $requestId): self;
+
+    public function getRequestId(): string;
     
     /**
      * Send HTTP request.

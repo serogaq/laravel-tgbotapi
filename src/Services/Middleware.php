@@ -5,6 +5,7 @@ namespace Serogaq\TgBotApi\Services;
 
 use Serogaq\TgBotApi\Interfaces\{ RequestMiddleware, ResponseMiddleware };
 use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
+use Serogaq\TgBotApi\Exceptions\MiddlewareException;
 use Illuminate\Support\Facades\App;
 
 class Middleware {
@@ -15,19 +16,13 @@ class Middleware {
 
     public function addRequestMiddleware(string $middleware): void {
         if($this->isAlreadyAdded($middleware)) return;
-        $implements = class_implements($middleware);
-        reset($implements);
-        $implements = key($implements);
-        if ($implements !== RequestMiddleware::class) return;
+        if(!is_subclass_of($middleware, RequestMiddleware::class)) return;
         $this->requestMiddleware[$middleware] = $middleware;
     }
 
     public function addResponseMiddleware(string $middleware): void {
         if($this->isAlreadyAdded($middleware)) return;
-        $implements = class_implements($middleware);
-        reset($implements);
-        $implements = key($implements);
-        if ($implements !== ResponseMiddleware::class) return;
+        if(!is_subclass_of($middleware, ResponseMiddleware::class)) return;
         $this->responseMiddleware[$middleware] = $middleware;
     }
 
@@ -37,15 +32,12 @@ class Middleware {
     }
 
     protected function isAlreadyAdded(string $middleware): bool {
-        $implements = class_implements($middleware);
-        reset($implements);
-        $implements = key($implements);
-        if ($implements === RequestMiddleware::class) {
+        if (is_subclass_of($middleware, RequestMiddleware::class)) {
             return isset($this->requestMiddleware[$middleware]) ? true : false;
-        } elseif ($implements === ResponseMiddleware::class) {
+        } elseif (is_subclass_of($middleware, ResponseMiddleware::class)) {
             return isset($this->responseMiddleware[$middleware]) ? true : false;
         }
-        // TODO: Exception: middleware should implement RequestMiddleware|ResponseMiddleware
+        throw new MiddlewareException('Middleware should implement \Serogaq\TgBotApi\Interfaces\RequestMiddleware or \Serogaq\TgBotApi\Interfaces\ResponseMiddleware');
     }
 
     public function execRequestMiddlewares(ApiRequest $apiRequest): ApiRequest {

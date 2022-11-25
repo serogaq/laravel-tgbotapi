@@ -5,8 +5,9 @@ namespace Serogaq\TgBotApi;
 
 use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Interfaces\HttpClient;
+use Illuminate\Support\Facades\Log;
 
-class ApiRequest {
+class ApiRequest implements \Stringable {
 
     const FILES = 'files';
     const TIMEOUT = 'request_timeout';
@@ -20,6 +21,7 @@ class ApiRequest {
 
     protected array $arguments;
     protected string $method;
+    protected string $url;
     protected array $data = [];
     protected array $files = [];
     /** @var int Timeout of the request in seconds. */
@@ -36,6 +38,9 @@ class ApiRequest {
         $this->botConfig = $this->botManager->getBotConfig($botId);
         $this->method = $method;
         $this->arguments = $arguments;
+        $apiUrl = str_replace('{TOKEN}', $this->botConfig['token'], $this->botConfig['api_url'] ?? config('tgbotapi.api_url'));
+        $apiUrl = str_replace('{METHOD}', $this->method, $apiUrl);
+        $this->url = $apiUrl;
         $this->data = $this->getDataFromArguments($arguments);
         $this->files = $this->getFilesFromArguments($arguments);
         $this->setTimeoutFromArguments($arguments);
@@ -57,13 +62,13 @@ class ApiRequest {
     }
 
     public function send(): ApiResponse {
-        $apiUrl = str_replace('{TOKEN}', $this->botConfig['token'], $this->botConfig['api_url'] ?? config('tgbotapi.api_url'));
-        $apiUrl = str_replace('{METHOD}', $this->method, $apiUrl);
+        Log::channel($this->botConfig['log_channel'] ?? config('logging.default'))->debug("TgBotApi ApiRequest send:\n".(string) $this);
         $apiResponse = $this->httpClient
+                ->setRequestId($this->requestId)
                 ->setTimeout($this->timeout)
                 ->setConnectTimeout($this->connectTimeout)
                 ->send(
-                    $apiUrl,
+                    $this->url,
                     empty($this->data) ? 'GET' : 'POST',
                     $this->data,
                     $this->files,
@@ -130,6 +135,7 @@ class ApiRequest {
             foreach ($this->botConfig['middleware'] as $m) $middleware->addResponseMiddleware($m);
         }
         $apiResponse = $middleware->execResponseMiddlewares($apiResponse);
+        Log::channel($this->botConfig['log_channel'] ?? config('logging.default'))->debug("TgBotApi ApiResponse:\n".(string) $apiResponse);
         return $apiResponse;
     }
 

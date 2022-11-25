@@ -9,8 +9,11 @@ use Illuminate\Support\Facades\Route;
 use Serogaq\TgBotApi\Console\InstallTgBotApi;
 use Serogaq\TgBotApi\BotManager;
 use Serogaq\TgBotApi\Interfaces\HttpClient;
+use Serogaq\TgBotApi\Interfaces\OffsetStore;
+use Serogaq\TgBotApi\Providers\EventServiceProvider;
 use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Services\HttpClient\LaravelHttpClient;
+use Serogaq\TgBotApi\Services\OffsetStore\FileOffsetStore;
 
 class TgBotApiServiceProvider extends ServiceProvider {
     /**
@@ -44,6 +47,7 @@ class TgBotApiServiceProvider extends ServiceProvider {
         });
         $middleware = new Middleware();
         $this->app->instance(Middleware::class, $middleware);
+        $this->app->register(EventServiceProvider::class);
         $this->bindingInterfaces();
     }
 
@@ -52,7 +56,7 @@ class TgBotApiServiceProvider extends ServiceProvider {
      */
     protected function registerRoutes() {
         Route::group($this->routeConfiguration(), function () {
-            $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+            $this->loadRoutesFrom(__DIR__.'/../../routes/tgbotapi.php');
         });
     }
 
@@ -74,6 +78,12 @@ class TgBotApiServiceProvider extends ServiceProvider {
             match (config('tgbotapi.http_client', 'laravel')) {
                 'laravel' => LaravelHttpClient::class,
                 default => LaravelHttpClient::class,
+            }
+        );
+        $this->app->bind(OffsetStore::class,
+            match (config('tgbotapi.offset_store', 'file')) {
+                'file' => FileOffsetStore::class,
+                default => FileOffsetStore::class,
             }
         );
     }

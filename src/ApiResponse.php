@@ -6,11 +6,12 @@ namespace Serogaq\TgBotApi;
 use Serogaq\TgBotApi\Exceptions\ApiResponseException;
 use function Serogaq\TgBotApi\Helpers\arrayToObject;
 
-class ApiResponse {
+class ApiResponse implements \Stringable {
 
+    protected string $requestId;
     protected array $response;
 
-    public function __construct(string|array $body) {
+    public function __construct(string $requestId, string|array $body) {
         if(is_string($body)) {
             try {
                 $this->response = json_decode($body, associative: true, flags: JSON_THROW_ON_ERROR);
@@ -21,10 +22,14 @@ class ApiResponse {
         } else
             $this->response = $body;
         if (!is_array($this->response)) throw new ApiResponseException("Incorrect response type:\n".var_export($this->response, true), 1);
+        $this->requestId = $requestId;
     }
 
     public function __toString(): string {
-        return json_encode($this->response);
+        return json_encode([
+            'requestId' => $this->requestId,
+            'body' => $this->response
+        ]);
     }
 
     public function asArray(): array {

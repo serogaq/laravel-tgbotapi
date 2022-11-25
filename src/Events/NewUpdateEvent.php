@@ -1,28 +1,29 @@
 <?php
+declare(strict_types=1);
 
 namespace Serogaq\TgBotApi\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Serogaq\TgBotApi\Bot;
-use Serogaq\TgBotApi\Objects\Update;
+use Serogaq\TgBotApi\BotApi;
+use Serogaq\TgBotApi\Interfaces\Update;
 
-class NewUpdateReceived {
+class NewUpdateEvent {
     use Dispatchable, SerializesModels;
 
-    public Bot $bot;
+    public BotApi $botApi;
 
-    public $update;
+    public Update $update;
 
-    public $updateChannel;
+    public int $updateChannel;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Bot $bot, Update $update, int $updateChannel) {
-        $this->bot = $bot;
+    public function __construct(BotApi $botApi, Update $update, int $updateChannel) {
+        $this->botApi = $botApi;
         $this->update = $update;
         $this->updateChannel = $updateChannel;
     }

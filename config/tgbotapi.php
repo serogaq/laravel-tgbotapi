@@ -12,7 +12,7 @@ return [
     */
     'routes' => [
         'prefix' => 'tgbotapi',
-        'middleware' => ['web'],
+        'middleware' => [],
     ],
 
     /*
@@ -63,11 +63,8 @@ return [
         [
             'username' => '',
             'token' => '',
-            'middleware' => [
-                \Serogaq\TgBotApi\Middleware\Request::class,
-                \Serogaq\TgBotApi\Middleware\Response::class,
-            ],
-            'log_channel' => 'default',
+            'middleware' => [],
+            'log_channel' => 'stack',
             'api_url' => null,
         ],
     ],

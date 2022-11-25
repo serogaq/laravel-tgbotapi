@@ -3,8 +3,9 @@
 namespace Serogaq\TgBotApi\Console;
 
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Facades\Storage;
 
-class MakeTgBotApiController extends GeneratorCommand {
+class MakeUpdateController extends GeneratorCommand {
     public $name;
 
     /**
@@ -21,28 +22,32 @@ class MakeTgBotApiController extends GeneratorCommand {
      *
      * @var string
      */
-    protected $type = 'TgBotApi Update Controller';
+    protected $type = 'Update Controller';
 
     public function handle() {
         $names = [
             'CallbackQueryUpdate',
+            'ChannelPostUpdate',
             'ChosenInlineResultUpdate',
             'CommandUpdate',
             'ContactUpdate',
+            'DiceUpdate',
             'EventUpdate',
             'GameUpdate',
             'InlineQueryUpdate',
             'LocationUpdate',
             'MediaUpdate',
-            'OtherUpdate',
+            'PollUpdate',
             'PreCheckoutQueryUpdate',
+            'ShippingQueryUpdate',
             'StickerUpdate',
             'TextUpdate',
             'VenueUpdate',
+            'Update'
         ];
         $this->name = $this->argument('name');
         if (!in_array($this->name, $names)) {
-            $this->line('  <bg=red> ERROR </> <options=bold>Name</> must be one of: <options=bold>' . implode(', ', $names) . '</>');
+            $this->line('  <bg=red> ERROR </> Argument <options=bold>Name</> must be one of: <options=bold>' . implode(', ', $names) . '</>');
             return 1;
         }
         parent::handle();
@@ -50,11 +55,11 @@ class MakeTgBotApiController extends GeneratorCommand {
     }
 
     public function getStub() {
-        return  __DIR__ . '/stubs/MakeTgBotApiController.stub';
+        return  __DIR__ . '/stubs/UpdateController.stub';
     }
 
     public function getDefaultNamespace($rootNamespace) {
-        return $rootNamespace . '\Http\Controllers\TgBotApi';
+        return $rootNamespace . '\TgBotApi\Updates';
     }
 
     protected function doOtherOperations() {

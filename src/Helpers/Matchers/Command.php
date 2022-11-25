@@ -11,7 +11,7 @@ class Command extends SimpleXMLElement {
     const WITH_UNDERSCORE_ARGS = 3;
 
     private static function prepareXml(?string $command, CommandUpdate $update, int $args): string {
-        if(preg_match('#^/(?<command>[a-zA-Z0-9_]+)(@[a-zA-Z0-9_]+bot)?(?<data> .*)?$#msu', $update->asArray()['message']['text'], $matches, PREG_OFFSET_CAPTURE) === 1) {
+        if(preg_match('#^/(?<command>[a-zA-Z0-9_]+)(@[a-zA-Z0-9_]+bot)?(?<data> .*)?$#msu', $update['message']['text'], $matches, PREG_OFFSET_CAPTURE) === 1) {
             $matchCommand = $matches['command'][0];
             if ($args === self::WITHOUT_ARGS) {
                 if ($command === $matchCommand) return '<command>1</command>';

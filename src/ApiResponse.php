@@ -6,7 +6,7 @@ namespace Serogaq\TgBotApi;
 use Serogaq\TgBotApi\Exceptions\ApiResponseException;
 use function Serogaq\TgBotApi\Helpers\arrayToObject;
 
-class ApiResponse implements \Stringable {
+class ApiResponse implements \Stringable, \ArrayAccess {
 
     protected string $requestId;
     protected array $response;
@@ -32,8 +32,24 @@ class ApiResponse implements \Stringable {
         ]);
     }
 
-    public function asArray(): array {
-        return $this->response;
+    public function offsetSet(mixed $offset, mixed $value): void {
+        // Cannot be modified
+    }
+
+    public function offsetExists(mixed $offset): bool {
+        return isset($this->response[$offset]);
+    }
+
+    public function offsetUnset(mixed $offset): void {
+        // Cannot be deleted
+    }
+
+    public function offsetGet(mixed $offset): mixed {
+        return isset($this->response[$offset]) ? $this->response[$offset] : null;
+    }
+
+    public function getRequestId(): string {
+        return $this->requestId;
     }
     
     public function asObject(): object {

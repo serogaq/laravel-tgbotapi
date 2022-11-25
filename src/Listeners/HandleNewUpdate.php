@@ -6,13 +6,15 @@ namespace Serogaq\TgBotApi\Listeners;
 use Serogaq\TgBotApi\Facades\BotManager;
 use Serogaq\TgBotApi\Events\NewUpdateEvent;
 use Illuminate\Support\Facades\Log;
-use Serogaq\TgBotApi\Updates\{ TextUpdate, CommandUpdate };
+use Serogaq\TgBotApi\Traits\ProcessingInControllers;
 
 class HandleNewUpdate {
 
-    public function handle(NewUpdateEvent $event) {
+    use ProcessingInControllers;
+    
+    /*public function handle(NewUpdateEvent $event) {
         $logChannel = BotManager::getBotConfig($event->botApi->getBotId())['log_channel'] ?? config('logging.default');
         Log::channel($logChannel)->debug("TgBotApi Listener HandleNewUpdate:\n".(string)$event->update);
-    }
+    }*/
 
 }

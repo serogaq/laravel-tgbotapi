@@ -5,19 +5,17 @@ namespace Serogaq\TgBotApi\Console;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class InstallTgBotApi extends Command {
+class Install extends Command {
     protected $hidden = false;
 
     protected $signature = 'tgbotapi:install {--force}';
 
     protected $description = 'Install laravel-tgbotapi package';
 
-    private $reInstall = false;
-
     public function handle() {
         $force = $this->option('force');
         if ($this->alreadyInstalled() && $force !== true) {
-            $confirmOverwrite = $this->confirm('Package laravel-tgbotapi already installed. Do you want to overwrite config?', false);
+            $confirmOverwrite = $this->confirm('Package laravel-tgbotapi already installed. Do you want to overwrite config, update listener?', false);
             if ($confirmOverwrite === false) {
                 $this->info('Reinstall canceled');
                 return 0;
@@ -30,12 +28,14 @@ class InstallTgBotApi extends Command {
         } else {
             $this->info('Installing laravel-tgbotapi package...');
         }
-        //
         if (!$this->configExists('tgbotapi.php') || $confirmOverwrite) {
             $this->info('Publishing configuration...');
             $this->publish('tgbotapi-config', $force);
         }
-        //
+        if (!$this->listenerExists('HandleNewUpdate.php') || $confirmOverwrite) {
+            $this->info('Publishing listener...');
+            $this->publishUpdateListener();
+        }
         $this->info('Installed laravel-tgbotapi package');
     }
 
@@ -53,7 +53,7 @@ class InstallTgBotApi extends Command {
 
     private function publish($tag, $forcePublish = false) {
         $params = [
-            '--provider' => "Serogaq\TgBotApi\Providers\TgBotApiServiceProvider",
+            '--provider' => 'Serogaq\TgBotApi\Providers\TgBotApiServiceProvider',
             '--tag' => $tag,
         ];
         if ($forcePublish === true) {
@@ -62,29 +62,8 @@ class InstallTgBotApi extends Command {
         return $this->call('vendor:publish', $params);
     }
 
-    /*private function publishListener($name) {
-        $this->call('tgbotapi:makeupdatelistener', ['name' => $name]);
-    }*/
-
-    private function removeDirectory($directory) {
-        $directoryPath = $directory . DIRECTORY_SEPARATOR;
-        $dir = scandir($directoryPath);
-        $rel = ['.', '..'];
-        $files = array_diff($dir, $rel);
-        foreach ($files as $file) {
-            $path = $directoryPath . $file;
-            if (is_file($path)) {
-                unlink($path);
-            } elseif (is_dir($path)) {
-                $this->removeDirectory($path);
-            }
-        }
-        if (is_dir($directory = rtrim($directory, '\\/'))) {
-            if (is_link($directory)) {
-                unlink($directory);
-            } else {
-                rmdir($directory);
-            }
-        }
+    private function publishUpdateListener() {
+        $this->call('tgbotapi:makeupdatelistener', ['name' => 'HandleNewUpdate']);
     }
+
 }

@@ -5,8 +5,7 @@ namespace Serogaq\TgBotApi\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 //use Illuminate\Foundation\Console\AboutCommand;
-//use Serogaq\TgBotApi\Console\{DeleteWebhook, GetUpdates, InstallTgBotApi, MakeTgBotApiController, MakeUpdateProcessingListener, SetWebhook};
-use Serogaq\TgBotApi\Console\InstallTgBotApi;
+use Serogaq\TgBotApi\Console\{ Install, MakeUpdateController, MakeUpdateListener, SetWebhook };
 use Serogaq\TgBotApi\BotManager;
 use Serogaq\TgBotApi\Interfaces\HttpClient;
 use Serogaq\TgBotApi\Interfaces\OffsetStore;
@@ -26,10 +25,10 @@ class TgBotApiServiceProvider extends ServiceProvider {
                 __DIR__ . '/../../config/tgbotapi.php' => config_path('tgbotapi.php'),
             ], 'tgbotapi-config');
             $this->commands([
-                InstallTgBotApi::class,
-                //MakeUpdateProcessingListener::class,
-                //MakeTgBotApiController::class,
-                //SetWebhook::class,
+                Install::class,
+                MakeUpdateController::class,
+                MakeUpdateListener::class,
+                SetWebhook::class,
                 //DeleteWebhook::class,
                 //GetUpdates::class,
             ]);

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\App;
 use Serogaq\TgBotApi\Exceptions\UpdateException;
 use function Serogaq\TgBotApi\Helpers\arrayToObject;
 
-class Update implements IUpdate, \Stringable {
+class Update implements IUpdate, \Stringable, \ArrayAccess {
 
     protected array $update;
 
@@ -28,8 +28,20 @@ class Update implements IUpdate, \Stringable {
         ]);
     }
 
-    public function asArray(): array {
-        return $this->update;
+    public function offsetSet(mixed $offset, mixed $value): void {
+        // Cannot be modified
+    }
+
+    public function offsetExists(mixed $offset): bool {
+        return isset($this->update[$offset]);
+    }
+
+    public function offsetUnset(mixed $offset): void {
+        // Cannot be deleted
+    }
+
+    public function offsetGet(mixed $offset): mixed {
+        return isset($this->update[$offset]) ? $this->update[$offset] : null;
     }
 
     public function asObject(): object {

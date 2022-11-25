@@ -39,7 +39,7 @@ class BotApi {
         $arguments[0] = $data;
         $arguments[1] = $options;
         $apiResponse = $this->createRequest('getUpdates', $arguments)->send();
-        foreach ($apiResponse->asArray()['result'] as $update) {
+        foreach ($apiResponse['result'] as $update) {
             if (isset($update['update_id'])) $offsetStore->set($botId, (int) $update['update_id'] + 1);
             event(new NewUpdateEvent($this, Update::create($update), UpdateChannel::GETUPDATES));
         }

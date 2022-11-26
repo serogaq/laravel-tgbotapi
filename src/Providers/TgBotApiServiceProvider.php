@@ -2,7 +2,6 @@
 
 namespace Serogaq\TgBotApi\Providers;
 
-use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Serogaq\TgBotApi\BotManager;
@@ -27,18 +26,20 @@ class TgBotApiServiceProvider extends ServiceProvider {
      */
     public function boot() {
         if ($this->app->runningInConsole()) {
-            AboutCommand::add('TgBotApi', fn () => [
-                'Version' => \Composer\InstalledVersions::getVersion('serogaq/laravel-tgbotapi'),
-                'Configured bots' => function () {
-                    $count = 0;
-                    foreach (config('tgbotapi.bots') as $bot) {
-                        if (!empty($bot['username']) && !empty($bot['token'])) {
-                            $count++;
+            if ((int) explode('.', $this->app->version())[0] > 8) {
+                \Illuminate\Foundation\Console\AboutCommand::add('TgBotApi', fn () => [
+                    'Version' => \Composer\InstalledVersions::getVersion('serogaq/laravel-tgbotapi'),
+                    'Configured bots' => function () {
+                        $count = 0;
+                        foreach (config('tgbotapi.bots') as $bot) {
+                            if (!empty($bot['username']) && !empty($bot['token'])) {
+                                $count++;
+                            }
                         }
-                    }
-                    return $count;
-                },
-            ]);
+                        return $count;
+                    },
+                ]);
+            }
             $this->publishes([
                 __DIR__ . '/../../config/tgbotapi.php' => config_path('tgbotapi.php'),
             ], 'tgbotapi-config');

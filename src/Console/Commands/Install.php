@@ -1,6 +1,6 @@
 <?php
 
-namespace Serogaq\TgBotApi\Console;
+namespace Serogaq\TgBotApi\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -63,7 +63,7 @@ class Install extends Command {
     }
 
     private function publishUpdateListener() {
-        $this->call('tgbotapi:makeupdatelistener', ['name' => 'HandleNewUpdate']);
+        $this->call('make:tgbotapi:listener', ['name' => 'HandleNewUpdate']);
     }
 
 }

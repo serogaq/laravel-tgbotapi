@@ -4,8 +4,16 @@ namespace Serogaq\TgBotApi\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
-//use Illuminate\Foundation\Console\AboutCommand;
-use Serogaq\TgBotApi\Console\{ Install, MakeUpdateController, MakeUpdateListener, SetWebhook };
+use Illuminate\Foundation\Console\AboutCommand;
+use Serogaq\TgBotApi\Console\Commands\{
+    Install,
+    MakeUpdateController,
+    MakeUpdateListener,
+    MakeMiddleware,
+    SetWebhook,
+    DeleteWebhook,
+    GetUpdates
+};
 use Serogaq\TgBotApi\BotManager;
 use Serogaq\TgBotApi\Interfaces\HttpClient;
 use Serogaq\TgBotApi\Interfaces\OffsetStore;
@@ -19,8 +27,17 @@ class TgBotApiServiceProvider extends ServiceProvider {
      * Bootstrap the application services.
      */
     public function boot() {
-        //AboutCommand::add('TgBotApi', fn () => ['Version' => '2.0.0-alpha']);
         if ($this->app->runningInConsole()) {
+            AboutCommand::add('TgBotApi', fn () => [
+                'Version' => \Composer\InstalledVersions::getVersion('serogaq/laravel-tgbotapi'),
+                'Configured bots' => function () {
+                    $count = 0;
+                    foreach(config('tgbotapi.bots') as $bot) {
+                        if (!empty($bot['username']) && !empty($bot['token'])) $count++;
+                    }
+                    return $count;
+                },
+            ]);
             $this->publishes([
                 __DIR__ . '/../../config/tgbotapi.php' => config_path('tgbotapi.php'),
             ], 'tgbotapi-config');
@@ -28,9 +45,10 @@ class TgBotApiServiceProvider extends ServiceProvider {
                 Install::class,
                 MakeUpdateController::class,
                 MakeUpdateListener::class,
+                MakeMiddleware::class,
                 SetWebhook::class,
-                //DeleteWebhook::class,
-                //GetUpdates::class,
+                DeleteWebhook::class,
+                GetUpdates::class,
             ]);
         }
         $this->registerRoutes();

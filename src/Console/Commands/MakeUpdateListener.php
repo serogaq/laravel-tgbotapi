@@ -1,14 +1,25 @@
 <?php
 
-namespace Serogaq\TgBotApi\Console;
+namespace Serogaq\TgBotApi\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
 class MakeUpdateListener extends GeneratorCommand {
-    protected $name = 'tgbotapi:makeupdatelistener {name}';
 
-    protected $description = 'Create a new update listener';
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'make:tgbotapi:listener {name}';
 
+    protected $description = 'Create a new TgBotApi update listener';
+
+    /**
+     * The type of class being generated.
+     *
+     * @var string
+     */
     protected $type = 'Update Listener';
 
     public function handle() {
@@ -30,4 +41,5 @@ class MakeUpdateListener extends GeneratorCommand {
         $content = file_get_contents($path);
         file_put_contents($path, $content);
     }
+
 }

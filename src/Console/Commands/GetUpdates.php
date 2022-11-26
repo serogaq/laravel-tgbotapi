@@ -1,17 +1,21 @@
 <?php
 
-namespace Serogaq\TgBotApi\Console;
+namespace Serogaq\TgBotApi\Console\Commands;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
-use Serogaq\TgBotApi\Bot;
-use Serogaq\TgBotApi\BotManager;
-use Throwable;
+use Serogaq\TgBotApi\BotApi;
+use Serogaq\TgBotApi\ApiRequest;
+use Serogaq\TgBotApi\Facades\BotManager;
+use \Throwable;
 
 class GetUpdates extends Command {
-    protected $hidden = false;
-
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
     protected $signature = 'tgbotapi:getupdates {username : Bot Username} {--once} {--until-complete} {--sleep=0.1}';
 
     protected $description = 'Getting bot updates';
@@ -46,7 +50,7 @@ class GetUpdates extends Command {
      */
     protected string $batchId;
 
-    private Bot $bot;
+    private ?BotApi $botApi;
 
     private string $username;
 
@@ -61,7 +65,12 @@ class GetUpdates extends Command {
      */
     public function setUp(): void {
         $this->username = $this->argument('username');
-        $this->bot = BotManager::selectBot($this->username);
+        $this->logChannel = BotManager::getBotConfig($this->username)['log_channel'] ?? config('logging.default');
+        $this->botApi = BotManager::bot($this->username);
+        if (is_null($this->botApi)) {
+            $this->error("Bot '{$username}' not found in tgbotapi config");
+            exit(1);
+        }
     }
 
     /**
@@ -75,11 +84,14 @@ class GetUpdates extends Command {
             return;
         }
         try {
-            $this->bot->getUpdatesAndCreateEvents(['timeout' => 59]);
-        } catch(Throwable $t) {
-            report($t);
+            $this->botApi->getUpdatesAndCreateEvents(['timeout' => 59], [
+                ApiRequest::TIMEOUT => 70,
+                ApiRequest::CONNECT_TIMEOUT => 10
+            ]);
+        } catch(Throwable $e) {
+            report($e);
             $this->error('Something went wrong during work().');
-            $this->error($t->getMessage());
+            $this->error($e->getMessage());
         }
     }
 
@@ -167,7 +179,7 @@ class GetUpdates extends Command {
         }
         $formatted .= ' - ' . $string;
         parent::line($formatted, $style, $verbosity);
-        Log::channel($this->bot->getBotConf()->log_channel)->debug('TgBotApi GetUpdatesCommand' . ':' . $this->getBatchId() . "\n" . $string);
+        Log::channel($this->logChannel)->debug('TgBotApi GetUpdatesCommand:' . $this->getBatchId() . "\n" . $string);
     }
 
     /**

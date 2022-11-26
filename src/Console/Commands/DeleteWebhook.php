@@ -1,12 +1,16 @@
 <?php
 
-namespace Serogaq\TgBotApi\Console;
+namespace Serogaq\TgBotApi\Console\Commands;
 
 use Illuminate\Console\Command;
-use Serogaq\TgBotApi\BotManager;
-use Serogaq\TgBotApi\Exceptions\BotManagerConfigException;
+use Serogaq\TgBotApi\Facades\BotManager;
 
 class DeleteWebhook extends Command {
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
     protected $signature = 'tgbotapi:deletewebhook {username : Bot Username}';
 
     protected $description = 'Removing a webhook for a bot';
@@ -17,18 +21,17 @@ class DeleteWebhook extends Command {
 
     public function handle() {
         $username = $this->argument('username');
-        try {
-            $bot = BotManager::selectBot($username);
-        } catch(BotManagerConfigException $e) {
-            $this->error($e->getMessage());
+        $botApi = BotManager::bot($username);
+        if (is_null($botApi)) {
+            $this->error("Bot '{$username}' not found in tgbotapi config");
             return 1;
         }
-        $res = $bot->getWebhookInfo();
+        $res = $bot->getWebhookInfo()->send();
         $this->info('Current Webhook Info');
-        foreach ($res as $key => $value) {
+        foreach ($res['result'] as $key => $value) {
             $this->line("  {$key}: {$value}");
         }
-        if ($res->url === '') {
+        if ($res['result']['url'] === '') {
             $this->info('Webhook is not set');
             return;
         }
@@ -37,9 +40,9 @@ class DeleteWebhook extends Command {
             $data['drop_pending_updates'] = true;
         }
         if (!empty($data)) {
-            $res = $bot->deleteWebhook($data);
+            $res = $botApi->deleteWebhook($data)->send();
         } else {
-            $res = $bot->deleteWebhook();
+            $res = $botApi->deleteWebhook()->send();
         }
         dump($res);
     }

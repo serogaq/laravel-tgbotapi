@@ -1,11 +1,16 @@
 <?php
 
-namespace Serogaq\TgBotApi\Console;
+namespace Serogaq\TgBotApi\Console\Commands;
 
 use Illuminate\Console\Command;
 use Serogaq\TgBotApi\Facades\BotManager;
 
 class SetWebhook extends Command {
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
     protected $signature = 'tgbotapi:setwebhook {username : Bot Username} {--url= : Webhook URL}';
 
     protected $description = 'Setting up a webhook for a bot';
@@ -15,7 +20,7 @@ class SetWebhook extends Command {
         $botApi = BotManager::bot($username);
         if (is_null($botApi)) {
             $this->error("Bot '{$username}' not found in tgbotapi config");
-            return null;
+            return 1;
         }
         $res = $botApi->getWebhookInfo()->send();
         $this->info('Current Webhook Info');

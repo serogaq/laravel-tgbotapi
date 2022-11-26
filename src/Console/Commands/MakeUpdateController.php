@@ -1,21 +1,21 @@
 <?php
 
-namespace Serogaq\TgBotApi\Console;
+namespace Serogaq\TgBotApi\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
-use Illuminate\Support\Facades\Storage;
 
 class MakeUpdateController extends GeneratorCommand {
-    public $name;
+    
+    protected $selectedType;
 
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'make:tgbotapi-controller {name}';
+    protected $signature = 'make:tgbotapi:controller';
 
-    protected $description = 'Create a new update controller class';
+    protected $description = 'Create a new TgBotApi update controller class';
 
     /**
      * The type of class being generated.
@@ -25,7 +25,8 @@ class MakeUpdateController extends GeneratorCommand {
     protected $type = 'Update Controller';
 
     public function handle() {
-        $names = [
+        $updateTypes = [
+            'Update',
             'CallbackQueryUpdate',
             'ChannelPostUpdate',
             'ChosenInlineResultUpdate',
@@ -42,14 +43,9 @@ class MakeUpdateController extends GeneratorCommand {
             'ShippingQueryUpdate',
             'StickerUpdate',
             'TextUpdate',
-            'VenueUpdate',
-            'Update'
+            'VenueUpdate'
         ];
-        $this->name = $this->argument('name');
-        if (!in_array($this->name, $names)) {
-            $this->line('  <bg=red> ERROR </> Argument <options=bold>Name</> must be one of: <options=bold>' . implode(', ', $names) . '</>');
-            return 1;
-        }
+        $this->selectedType = $this->choice('Update Type', $updateTypes, 0);
         parent::handle();
         $this->doOtherOperations();
     }
@@ -63,9 +59,27 @@ class MakeUpdateController extends GeneratorCommand {
     }
 
     protected function doOtherOperations() {
-        $class = $this->qualifyClass($this->name);
+        $class = $this->qualifyClass($this->getNameInput());
         $path = $this->getPath($class);
         $content = file_get_contents($path);
         file_put_contents($path, $content);
+    }
+
+    /**
+     * Get the console command arguments.
+     *
+     * @return array
+     */
+    protected function getArguments() {
+        return [];
+    }
+
+    /**
+     * Get the desired class name from the input.
+     *
+     * @return string
+     */
+    protected function getNameInput() {
+        return $this->selectedType;
     }
 }

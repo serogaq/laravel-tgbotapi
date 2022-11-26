@@ -2,24 +2,23 @@
 
 namespace Serogaq\TgBotApi\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Console\AboutCommand;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\ServiceProvider;
+use Serogaq\TgBotApi\BotManager;
 use Serogaq\TgBotApi\Console\Commands\{
+    DeleteWebhook,
+    GetUpdates,
     Install,
+    MakeMiddleware,
     MakeUpdateController,
     MakeUpdateListener,
-    MakeMiddleware,
-    SetWebhook,
-    DeleteWebhook,
-    GetUpdates
+    SetWebhook
 };
-use Serogaq\TgBotApi\BotManager;
 use Serogaq\TgBotApi\Interfaces\HttpClient;
 use Serogaq\TgBotApi\Interfaces\OffsetStore;
-use Serogaq\TgBotApi\Providers\EventServiceProvider;
-use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Services\HttpClient\LaravelHttpClient;
+use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Services\OffsetStore\FileOffsetStore;
 
 class TgBotApiServiceProvider extends ServiceProvider {
@@ -32,8 +31,10 @@ class TgBotApiServiceProvider extends ServiceProvider {
                 'Version' => \Composer\InstalledVersions::getVersion('serogaq/laravel-tgbotapi'),
                 'Configured bots' => function () {
                     $count = 0;
-                    foreach(config('tgbotapi.bots') as $bot) {
-                        if (!empty($bot['username']) && !empty($bot['token'])) $count++;
+                    foreach (config('tgbotapi.bots') as $bot) {
+                        if (!empty($bot['username']) && !empty($bot['token'])) {
+                            $count++;
+                        }
                     }
                     return $count;
                 },
@@ -73,7 +74,7 @@ class TgBotApiServiceProvider extends ServiceProvider {
      */
     protected function registerRoutes() {
         Route::group($this->routeConfiguration(), function () {
-            $this->loadRoutesFrom(__DIR__.'/../../routes/tgbotapi.php');
+            $this->loadRoutesFrom(__DIR__ . '/../../routes/tgbotapi.php');
         });
     }
 

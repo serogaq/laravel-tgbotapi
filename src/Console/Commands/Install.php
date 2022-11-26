@@ -6,10 +6,9 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
 class Install extends Command {
-
     /**
      * The signature of the console command.
-     * 
+     *
      * @var string
      */
     protected $signature = 'tgbotapi:install {--force}';
@@ -26,8 +25,10 @@ class Install extends Command {
             }
             $force = true;
         }
-        if($force) $confirmOverwrite = true;
-        if(isset($confirmOverwrite) && $confirmOverwrite === true) {
+        if ($force) {
+            $confirmOverwrite = true;
+        }
+        if (isset($confirmOverwrite) && $confirmOverwrite === true) {
             $this->info('Reinstalling laravel-tgbotapi package...');
         } else {
             $this->info('Installing laravel-tgbotapi package...');
@@ -69,5 +70,4 @@ class Install extends Command {
     private function publishUpdateListener() {
         $this->call('make:tgbotapi:listener', ['name' => 'HandleNewUpdate']);
     }
-
 }

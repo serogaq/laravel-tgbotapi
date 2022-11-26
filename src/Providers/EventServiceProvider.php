@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serogaq\TgBotApi\Providers;
@@ -7,12 +8,11 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Serogaq\TgBotApi\Events\NewUpdateEvent;
 use Serogaq\TgBotApi\Listeners\HandleNewUpdate;
 
-class EventServiceProvider extends ServiceProvider
-{
+class EventServiceProvider extends ServiceProvider {
     protected $listen = [
         NewUpdateEvent::class => [
             HandleNewUpdate::class,
-        ]
+        ],
     ];
 
     /**
@@ -20,8 +20,7 @@ class EventServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         parent::boot();
     }
 }

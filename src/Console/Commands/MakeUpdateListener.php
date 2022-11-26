@@ -5,7 +5,6 @@ namespace Serogaq\TgBotApi\Console\Commands;
 use Illuminate\Console\GeneratorCommand;
 
 class MakeUpdateListener extends GeneratorCommand {
-
     /**
      * The name and signature of the console command.
      *
@@ -26,7 +25,7 @@ class MakeUpdateListener extends GeneratorCommand {
         parent::handle();
         $this->doOtherOperations();
     }
-    
+
     protected function getStub() {
         return __DIR__ . '/stubs/UpdateListener.stub';
     }
@@ -41,5 +40,4 @@ class MakeUpdateListener extends GeneratorCommand {
         $content = file_get_contents($path);
         file_put_contents($path, $content);
     }
-
 }

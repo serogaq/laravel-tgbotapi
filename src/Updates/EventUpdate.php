@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serogaq\TgBotApi\Updates;
@@ -6,7 +7,6 @@ namespace Serogaq\TgBotApi\Updates;
 use Serogaq\TgBotApi\Constants\EventType;
 
 final class EventUpdate extends Update {
-    
     protected int $typeFlags = 0;
 
     public function __construct(array $update) {
@@ -98,5 +98,4 @@ final class EventUpdate extends Update {
             }
         }
     }
-
 }

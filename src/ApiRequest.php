@@ -1,33 +1,46 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serogaq\TgBotApi;
 
-use Serogaq\TgBotApi\Services\Middleware;
-use Serogaq\TgBotApi\Interfaces\HttpClient;
 use Illuminate\Support\Facades\Log;
+use Serogaq\TgBotApi\Interfaces\HttpClient;
+use Serogaq\TgBotApi\Services\Middleware;
 
 class ApiRequest implements \Stringable {
-
     const FILES = 'files';
+
     const TIMEOUT = 'request_timeout';
+
     const CONNECT_TIMEOUT = 'request_connect_timeout';
 
     protected string $requestId;
+
     protected HttpClient $httpClient;
+
     protected int $botId;
+
     protected BotManager $botManager;
+
     protected array $botConfig;
 
     protected array $arguments;
+
     protected string $method;
+
     protected string $url;
+
     protected array $data = [];
+
     protected array $files = [];
+
     /** @var int Timeout of the request in seconds. */
     protected int $timeout = 60;
+
     /** @var int Connection timeout of the request in seconds. */
     protected int $connectTimeout = 10;
+
     protected bool $isAsyncRequest = false;
 
     public function __construct(string $method, array $arguments, int $botId) {
@@ -62,7 +75,7 @@ class ApiRequest implements \Stringable {
     }
 
     public function send(): ApiResponse {
-        Log::channel($this->botConfig['log_channel'] ?? config('logging.default'))->debug("TgBotApi ApiRequest send:\n".(string) $this);
+        Log::channel($this->botConfig['log_channel'] ?? config('logging.default'))->debug("TgBotApi ApiRequest send:\n" . (string) $this);
         $apiResponse = $this->httpClient
                 ->setRequestId($this->requestId)
                 ->setTimeout($this->timeout)
@@ -80,7 +93,9 @@ class ApiRequest implements \Stringable {
     protected function getDataFromArguments(array $arguments): array {
         $index = 0;
         // TODO: Exception if arguments[0] (data) is not array
-        if(isset($arguments[$index]) && !empty($arguments[$index]) && is_array($arguments[$index])) return $arguments[$index];
+        if (isset($arguments[$index]) && !empty($arguments[$index]) && is_array($arguments[$index])) {
+            return $arguments[$index];
+        }
         return [];
     }
 
@@ -88,7 +103,9 @@ class ApiRequest implements \Stringable {
         $index = 1;
         $key = self::FILES;
         // TODO: Exception if arguments[1][FILES] (files) is not array
-        if(isset($arguments[$index]) && !empty($arguments[$index]) && isset($arguments[$index][$key]) && is_array($arguments[$index][$key])) return $arguments[$index][$key];
+        if (isset($arguments[$index]) && !empty($arguments[$index]) && isset($arguments[$index][$key]) && is_array($arguments[$index][$key])) {
+            return $arguments[$index][$key];
+        }
         return [];
     }
 
@@ -96,16 +113,18 @@ class ApiRequest implements \Stringable {
         $index = 1;
         $key = self::TIMEOUT;
         // TODO: Exception if arguments[1][TIMEOUT] (request_timeout) is not integer
-        if(isset($arguments[$index]) && !empty($arguments[$index]) && isset($arguments[$index][$key]) && is_int($arguments[$index][$key]))
+        if (isset($arguments[$index]) && !empty($arguments[$index]) && isset($arguments[$index][$key]) && is_int($arguments[$index][$key])) {
             $this->timeout = $arguments[$index][$key];
+        }
     }
 
     protected function setConnectTimeoutFromArguments(array $arguments): void {
         $index = 1;
         $key = self::CONNECT_TIMEOUT;
         // TODO: Exception if arguments[1][CONNECT_TIMEOUT] (request_connect_timeout) is not integer
-        if(isset($arguments[$index]) && !empty($arguments[$index]) && isset($arguments[$index][$key]) && is_int($arguments[$index][$key]))
+        if (isset($arguments[$index]) && !empty($arguments[$index]) && isset($arguments[$index][$key]) && is_int($arguments[$index][$key])) {
             $this->connectTimeout = $arguments[$index][$key];
+        }
     }
 
     public function getRequestId(): string {
@@ -131,12 +150,13 @@ class ApiRequest implements \Stringable {
 
     protected function middlewareResponse(ApiResponse $apiResponse): ApiResponse {
         $middleware = resolve(Middleware::class);
-        if(isset($this->botConfig['middleware']) && !empty($this->botConfig['middleware'])) {
-            foreach ($this->botConfig['middleware'] as $m) $middleware->addResponseMiddleware($m);
+        if (isset($this->botConfig['middleware']) && !empty($this->botConfig['middleware'])) {
+            foreach ($this->botConfig['middleware'] as $m) {
+                $middleware->addResponseMiddleware($m);
+            }
         }
         $apiResponse = $middleware->execResponseMiddlewares($apiResponse);
-        Log::channel($this->botConfig['log_channel'] ?? config('logging.default'))->debug("TgBotApi ApiResponse:\n".(string) $apiResponse);
+        Log::channel($this->botConfig['log_channel'] ?? config('logging.default'))->debug("TgBotApi ApiResponse:\n" . (string) $apiResponse);
         return $apiResponse;
     }
-
 }

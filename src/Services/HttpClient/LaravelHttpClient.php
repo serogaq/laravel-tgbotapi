@@ -1,19 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serogaq\TgBotApi\Services\HttpClient;
 
-use Serogaq\TgBotApi\Interfaces\HttpClient;
+use Illuminate\Http\Client\{ConnectionException, PendingRequest, RequestException};
 use Illuminate\Support\Facades\Http;
-use Illuminate\Http\Client\{ PendingRequest, ConnectionException, RequestException };
 use Serogaq\TgBotApi\ApiResponse;
-use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Exceptions\HttpClientException;
+use Serogaq\TgBotApi\Interfaces\HttpClient;
 
 class LaravelHttpClient implements HttpClient {
-
     protected string $requestId;
-    
+
     protected PendingRequest $request;
 
     /** @var int Timeout of the request in seconds. */
@@ -60,12 +59,14 @@ class LaravelHttpClient implements HttpClient {
                                     report($e);
                                     throw new HttpClientException($e->getMessage(), 1, $e);
                                 });
-            } catch (ConnectionException|RequestException $e) {
+            } catch (ConnectionException | RequestException $e) {
                 report($e);
                 throw new HttpClientException($e->getMessage(), 2, $e);
             }
         } elseif ($method === 'POST') {
-            if (!empty($data) || !empty($files)) $this->request->asMultipart();
+            if (!empty($data) || !empty($files)) {
+                $this->request->asMultipart();
+            }
             if (!empty($data)) {
                 $multipartData = [];
                 foreach ($data as $key => $value) {
@@ -88,12 +89,13 @@ class LaravelHttpClient implements HttpClient {
                                     report($e);
                                     throw new HttpClientException($e->getMessage(), 1, $e);
                                 });
-            } catch (ConnectionException|RequestException $e) {
+            } catch (ConnectionException | RequestException $e) {
                 report($e);
                 throw new HttpClientException($e->getMessage(), 2, $e);
             }
+        } else {
+            throw new HttpClientException("Unsupported Method '{$method}'", 3);
         }
-        else throw new HttpClientException("Unsupported Method '{$method}'", 3);
         return new ApiResponse($this->getRequestId(), $response->body());
     }
 
@@ -138,5 +140,4 @@ class LaravelHttpClient implements HttpClient {
         $this->request->connectTimeout($connectTimeout);
         return $this;
     }
-
 }

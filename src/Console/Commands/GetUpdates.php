@@ -5,10 +5,10 @@ namespace Serogaq\TgBotApi\Console\Commands;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
-use Serogaq\TgBotApi\BotApi;
 use Serogaq\TgBotApi\ApiRequest;
+use Serogaq\TgBotApi\BotApi;
 use Serogaq\TgBotApi\Facades\BotManager;
-use \Throwable;
+use Throwable;
 
 class GetUpdates extends Command {
     /**
@@ -86,7 +86,7 @@ class GetUpdates extends Command {
         try {
             $this->botApi->getUpdatesAndCreateEvents(['timeout' => 59], [
                 ApiRequest::TIMEOUT => 70,
-                ApiRequest::CONNECT_TIMEOUT => 10
+                ApiRequest::CONNECT_TIMEOUT => 10,
             ]);
         } catch(Throwable $e) {
             report($e);
@@ -148,7 +148,7 @@ class GetUpdates extends Command {
      * @return void
      */
     protected function listenForSignals(): void {
-        if(function_exists('pcntl_async_signals')) {
+        if (function_exists('pcntl_async_signals')) {
             \pcntl_async_signals(true);
             \pcntl_signal(SIGINT, [$this, 'shutdown']);
             \pcntl_signal(SIGTERM, [$this, 'shutdown']);

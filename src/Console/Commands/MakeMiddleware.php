@@ -5,7 +5,6 @@ namespace Serogaq\TgBotApi\Console\Commands;
 use Illuminate\Console\GeneratorCommand;
 
 class MakeMiddleware extends GeneratorCommand {
-    
     public $selectedType;
 
     /**

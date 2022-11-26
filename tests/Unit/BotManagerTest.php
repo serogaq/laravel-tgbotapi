@@ -2,14 +2,13 @@
 
 namespace Serogaq\TgBotApi\Tests\Unit;
 
-use Serogaq\TgBotApi\BotManager;
 use Serogaq\TgBotApi\BotApi;
+use Serogaq\TgBotApi\BotManager;
 use Serogaq\TgBotApi\Tests\TestCase;
-use function Serogaq\TgBotApi\Helpers\getBotIdFromToken;
 
 class BotManagerTest extends TestCase {
-
     protected array $botsConfig;
+
     /**
      * @var BotManager
      */
@@ -54,10 +53,10 @@ class BotManagerTest extends TestCase {
         $this->assertFalse($this->botManager->botExists('non_exists_bot'));
     }
 
-    /** @test */
+     /** @test */
      public function bot_manager_should_return_bot_api_class() {
-        $this->assertInstanceOf(BotApi::class, $this->botManager->bot('first_bot'));
-    }
+         $this->assertInstanceOf(BotApi::class, $this->botManager->bot('first_bot'));
+     }
 
     /** @test */
     public function bot_manager_must_return_config_of_an_existing_bot() {

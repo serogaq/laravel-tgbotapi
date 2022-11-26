@@ -1,15 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serogaq\TgBotApi\Updates;
 
-use Serogaq\TgBotApi\Interfaces\Update as IUpdate;
 use Illuminate\Support\Facades\App;
 use Serogaq\TgBotApi\Exceptions\UpdateException;
+use Serogaq\TgBotApi\Interfaces\Update as IUpdate;
 use function Serogaq\TgBotApi\Helpers\arrayToObject;
 
 class Update implements IUpdate, \Stringable, \ArrayAccess {
-
     protected array $update;
 
     /**
@@ -20,11 +20,11 @@ class Update implements IUpdate, \Stringable, \ArrayAccess {
     public function __construct(array $update) {
         $this->update = $update;
     }
-    
+
     public function __toString(): string {
         return json_encode([
             'type' => (new \ReflectionClass($this))->getShortName(),
-            'update' => $this->update
+            'update' => $this->update,
         ]);
     }
 
@@ -41,7 +41,7 @@ class Update implements IUpdate, \Stringable, \ArrayAccess {
     }
 
     public function offsetGet(mixed $offset): mixed {
-        return isset($this->update[$offset]) ? $this->update[$offset] : null;
+        return $this->update[$offset] ?? null;
     }
 
     public function asObject(): object {
@@ -125,5 +125,4 @@ class Update implements IUpdate, \Stringable, \ArrayAccess {
         }
         return self::createUpdate(Update::class, $update);
     }
-    
 }

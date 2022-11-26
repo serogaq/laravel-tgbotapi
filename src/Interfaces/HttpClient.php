@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serogaq\TgBotApi\Interfaces;
@@ -6,11 +7,10 @@ namespace Serogaq\TgBotApi\Interfaces;
 use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
 
 interface HttpClient {
-
     public function setRequestId(string $requestId): self;
 
     public function getRequestId(): string;
-    
+
     /**
      * Send HTTP request.
      *
@@ -58,5 +58,4 @@ interface HttpClient {
      * @return $this
      */
     public function setConnectTimeout(int $connectTimeout): self;
-
 }

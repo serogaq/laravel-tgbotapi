@@ -2,4 +2,5 @@
 
 namespace Serogaq\TgBotApi\Interfaces;
 
-interface TgBotApiException extends \Throwable {}
+interface TgBotApiException extends \Throwable {
+}

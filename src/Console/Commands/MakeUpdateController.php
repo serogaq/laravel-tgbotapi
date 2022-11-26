@@ -5,7 +5,6 @@ namespace Serogaq\TgBotApi\Console\Commands;
 use Illuminate\Console\GeneratorCommand;
 
 class MakeUpdateController extends GeneratorCommand {
-    
     protected $selectedType;
 
     /**
@@ -43,7 +42,7 @@ class MakeUpdateController extends GeneratorCommand {
             'ShippingQueryUpdate',
             'StickerUpdate',
             'TextUpdate',
-            'VenueUpdate'
+            'VenueUpdate',
         ];
         $this->selectedType = $this->choice('Update Type', $updateTypes, 0);
         parent::handle();

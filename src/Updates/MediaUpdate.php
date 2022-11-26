@@ -5,7 +5,6 @@ namespace Serogaq\TgBotApi\Updates;
 use Serogaq\TgBotApi\Constants\MediaType;
 
 final class MediaUpdate extends Update {
-    
     protected int $typeFlags = 0;
 
     public function __construct(array $update) {
@@ -44,5 +43,4 @@ final class MediaUpdate extends Update {
             $this->addFlag(MediaType::DOCUMENT);
         }
     }
-
 }

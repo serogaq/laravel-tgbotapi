@@ -130,12 +130,11 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/BotManager.php"><a href="files/src-botmanager.html"><abbr title="src/BotManager.php">BotManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
         
-    <section class="phpdocumentor-description"></section>
 
 
 
@@ -150,14 +149,7 @@
 </h3>
 
 <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Serogaq-TgBotApi-BotManager.html#property_botConf">$botConf</a>
-    <span>
-                        &nbsp;: object|null            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Serogaq-TgBotApi-BotManager.html#property_bots">$bots</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
@@ -165,32 +157,32 @@
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Serogaq-TgBotApi-BotManager.html#method_selectBot">selectBot()</a>
+    <a href="classes/Serogaq-TgBotApi-BotManager.html#method___construct">__construct()</a>
     <span>
-                                &nbsp;: <a href="classes/Serogaq-TgBotApi-Bot.html"><abbr title="\Serogaq\TgBotApi\Bot">Bot</abbr></a>|null    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>Create a new class BotManager instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Serogaq-TgBotApi-BotManager.html#method_selectBotByHash">selectBotByHash()</a>
+    <a href="classes/Serogaq-TgBotApi-BotManager.html#method_bot">bot()</a>
     <span>
-                                &nbsp;: <a href="classes/Serogaq-TgBotApi-Bot.html"><abbr title="\Serogaq\TgBotApi\Bot">Bot</abbr></a>|null    </span>
+                                &nbsp;: <a href="classes/Serogaq-TgBotApi-BotApi.html"><abbr title="\Serogaq\TgBotApi\BotApi">BotApi</abbr></a>|null    </span>
 </dt>
-<dd></dd>
+<dd>Getting the bot.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Serogaq-TgBotApi-BotManager.html#method_getBot">getBot()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Serogaq-TgBotApi-BotManager.html#method_botExists">botExists()</a>
     <span>
-                                &nbsp;: <a href="classes/Serogaq-TgBotApi-Bot.html"><abbr title="\Serogaq\TgBotApi\Bot">Bot</abbr></a>|null    </span>
+                                &nbsp;: bool    </span>
 </dt>
-<dd></dd>
+<dd>Checking that the bot is exists in the config.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Serogaq-TgBotApi-BotManager.html#method_getBotConf">getBotConf()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Serogaq-TgBotApi-BotManager.html#method_getBotConfig">getBotConfig()</a>
     <span>
-                                &nbsp;: object|null    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
 </dt>
-<dd></dd>
+<dd>Getting the bot config.</dd>
 
         </dl>
 
@@ -208,42 +200,8 @@
         class="
             phpdocumentor-element
             -property
-            -private
-            -static                                            "
->
-    <h4 class="phpdocumentor-element__name" id="property_botConf">
-        $botConf
-        <a href="classes/Serogaq-TgBotApi-BotManager.html#property_botConf" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/BotManager.php"><a href="files/src-botmanager.html"><abbr title="src/BotManager.php">BotManager.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">10</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">object|null</span>
-    <span class="phpdocumentor-signature__name">$botConf</span>
-     = <span class="phpdocumentor-signature__default-value">null</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-            -static                                            "
+            -protected
+                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="property_bots">
         $bots
@@ -254,19 +212,18 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/BotManager.php"><a href="files/src-botmanager.html"><abbr title="src/BotManager.php">BotManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
     <span class="phpdocumentor-signature__name">$bots</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <section class="phpdocumentor-description"></section>
 
     
@@ -283,42 +240,41 @@
         class="phpdocumentor-element
             -method
             -public
-                                    -static                    "
+                                                        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_selectBot">
-        selectBot()
-        <a href="classes/Serogaq-TgBotApi-BotManager.html#method_selectBot" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/Serogaq-TgBotApi-BotManager.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/BotManager.php"><a href="files/src-botmanager.html"><abbr title="src/BotManager.php">BotManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Create a new class BotManager instance.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">selectBot</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Serogaq-TgBotApi-Bot.html"><abbr title="\Serogaq\TgBotApi\Bot">Bot</abbr></a>|null</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bots</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$username</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
+                <span class="phpdocumentor-signature__argument__name">$bots</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Serogaq-TgBotApi-Bot.html"><abbr title="\Serogaq\TgBotApi\Bot">Bot</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
             &mdash;
         
     
@@ -327,34 +283,35 @@
         class="phpdocumentor-element
             -method
             -public
-                                    -static                    "
+                                                        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_selectBotByHash">
-        selectBotByHash()
-        <a href="classes/Serogaq-TgBotApi-BotManager.html#method_selectBotByHash" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_bot">
+        bot()
+        <a href="classes/Serogaq-TgBotApi-BotManager.html#method_bot" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/BotManager.php"><a href="files/src-botmanager.html"><abbr title="src/BotManager.php">BotManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Getting the bot.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">selectBotByHash</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hash</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Serogaq-TgBotApi-Bot.html"><abbr title="\Serogaq\TgBotApi\Bot">Bot</abbr></a>|null</span></code>
+                    <span class="phpdocumentor-signature__name">bot</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idOrUsername</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Serogaq-TgBotApi-BotApi.html"><abbr title="\Serogaq\TgBotApi\BotApi">BotApi</abbr></a>|null</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$hash</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                <span class="phpdocumentor-signature__argument__name">$idOrUsername</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Bot ID or Bot Username</p>
+</section>
 
             </dd>
             </dl>
@@ -362,75 +319,105 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Serogaq-TgBotApi-Bot.html"><abbr title="\Serogaq\TgBotApi\Bot">Bot</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/Serogaq-TgBotApi-BotApi.html"><abbr title="\Serogaq\TgBotApi\BotApi">BotApi</abbr></a>|null</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>BotApi instance</p>
+</section>
+
     
 </article>
                     <article
         class="phpdocumentor-element
             -method
-            -private
-                                    -static                    "
+            -public
+                                                        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getBot">
-        getBot()
-        <a href="classes/Serogaq-TgBotApi-BotManager.html#method_getBot" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_botExists">
+        botExists()
+        <a href="classes/Serogaq-TgBotApi-BotManager.html#method_botExists" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/BotManager.php"><a href="files/src-botmanager.html"><abbr title="src/BotManager.php">BotManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Checking that the bot is exists in the config.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getBot</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Serogaq-TgBotApi-Bot.html"><abbr title="\Serogaq\TgBotApi\Bot">Bot</abbr></a>|null</span></code>
-
-        <section class="phpdocumentor-description"></section>
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">botExists</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idOrUsername</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$idOrUsername</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Bot ID or Bot Username</p>
+</section>
+
+            </dd>
+            </dl>
+
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/Serogaq-TgBotApi-Bot.html"><abbr title="\Serogaq\TgBotApi\Bot">Bot</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">bool</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Bot existence flag in config</p>
+</section>
+
     
 </article>
                     <article
         class="phpdocumentor-element
             -method
-            -private
-                                    -static                    "
+            -public
+                                                        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getBotConf">
-        getBotConf()
-        <a href="classes/Serogaq-TgBotApi-BotManager.html#method_getBotConf" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getBotConfig">
+        getBotConfig()
+        <a href="classes/Serogaq-TgBotApi-BotManager.html#method_getBotConfig" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/BotManager.php"><a href="files/src-botmanager.html"><abbr title="src/BotManager.php">BotManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Getting the bot config.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getBotConf</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">object|null</span></code>
-
-        <section class="phpdocumentor-description"></section>
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getBotConfig</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$idOrUsername</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
 
     
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$idOrUsername</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Bot ID or Bot Username</p>
+</section>
+
+            </dd>
+            </dl>
+
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">object|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>Bot Config</p>
+</section>
+
     
 </article>
             </section>

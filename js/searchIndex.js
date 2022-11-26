@@ -1,710 +1,960 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot",
-            "name": "Bot",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest",
+            "name": "ApiRequest",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method___construct"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method___construct"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003A__call\u0028\u0029",
-            "name": "__call",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method___call"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method___toString"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003AarrayToObject\u0028\u0029",
-            "name": "arrayToObject",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003Asend\u0028\u0029",
+            "name": "send",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method_arrayToObject"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_send"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003AgetBotConf\u0028\u0029",
-            "name": "getBotConf",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AgetDataFromArguments\u0028\u0029",
+            "name": "getDataFromArguments",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method_getBotConf"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_getDataFromArguments"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003AgetBotId\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AgetFilesFromArguments\u0028\u0029",
+            "name": "getFilesFromArguments",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_getFilesFromArguments"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AsetTimeoutFromArguments\u0028\u0029",
+            "name": "setTimeoutFromArguments",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_setTimeoutFromArguments"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AsetConnectTimeoutFromArguments\u0028\u0029",
+            "name": "setConnectTimeoutFromArguments",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_setConnectTimeoutFromArguments"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AgetRequestId\u0028\u0029",
+            "name": "getRequestId",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_getRequestId"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AgetBotId\u0028\u0029",
             "name": "getBotId",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method_getBotId"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_getBotId"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003AapiRequest\u0028\u0029",
-            "name": "apiRequest",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AgetMethod\u0028\u0029",
+            "name": "getMethod",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method_apiRequest"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_getMethod"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003AgetOffsetStore\u0028\u0029",
-            "name": "getOffsetStore",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AgetArguments\u0028\u0029",
+            "name": "getArguments",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method_getOffsetStore"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_getArguments"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003AgetUpdates\u0028\u0029",
-            "name": "getUpdates",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method_getUpdates"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003AgetUpdatesAndCreateEvents\u0028\u0029",
-            "name": "getUpdatesAndCreateEvents",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method_getUpdatesAndCreateEvents"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003Aasync\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003Aasync\u0028\u0029",
             "name": "async",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method_async"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_async"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003AcountPendingAsyncRequests\u0028\u0029",
-            "name": "countPendingAsyncRequests",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AmiddlewareResponse\u0028\u0029",
+            "name": "middlewareResponse",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method_countPendingAsyncRequests"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_middlewareResponse"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003ArunAsyncRequests\u0028\u0029",
-            "name": "runAsyncRequests",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AFILES",
+            "name": "FILES",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#method_runAsyncRequests"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#constant_FILES"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003A\u0024botConf",
-            "name": "botConf",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003ATIMEOUT",
+            "name": "TIMEOUT",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#property_botConf"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#constant_TIMEOUT"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003A\u0024offsetStore",
-            "name": "offsetStore",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003ACONNECT_TIMEOUT",
+            "name": "CONNECT_TIMEOUT",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#property_offsetStore"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#constant_CONNECT_TIMEOUT"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003A\u0024asyncNextRequest",
-            "name": "asyncNextRequest",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024requestId",
+            "name": "requestId",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#property_asyncNextRequest"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_requestId"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Bot\u003A\u003A\u0024asyncRequest",
-            "name": "asyncRequest",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024httpClient",
+            "name": "httpClient",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Bot.html#property_asyncRequest"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_httpClient"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024botId",
+            "name": "botId",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_botId"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024botManager",
+            "name": "botManager",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_botManager"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024botConfig",
+            "name": "botConfig",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_botConfig"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024arguments",
+            "name": "arguments",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_arguments"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024method",
+            "name": "method",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_method"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024url",
+            "name": "url",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_url"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024data",
+            "name": "data",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_data"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024files",
+            "name": "files",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_files"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024timeout",
+            "name": "timeout",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_timeout"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024connectTimeout",
+            "name": "connectTimeout",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_connectTimeout"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003A\u0024isAsyncRequest",
+            "name": "isAsyncRequest",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#property_isAsyncRequest"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse",
+            "name": "ApiResponse",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method___construct"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method___toString"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003AoffsetSet\u0028\u0029",
+            "name": "offsetSet",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method_offsetSet"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003AoffsetExists\u0028\u0029",
+            "name": "offsetExists",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method_offsetExists"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003AoffsetUnset\u0028\u0029",
+            "name": "offsetUnset",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method_offsetUnset"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003AoffsetGet\u0028\u0029",
+            "name": "offsetGet",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method_offsetGet"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003AgetRequestId\u0028\u0029",
+            "name": "getRequestId",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method_getRequestId"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003AasObject\u0028\u0029",
+            "name": "asObject",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method_asObject"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003AasJson\u0028\u0029",
+            "name": "asJson",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method_asJson"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003A\u0024requestId",
+            "name": "requestId",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#property_requestId"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003A\u0024response",
+            "name": "response",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#property_response"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\BotApi",
+            "name": "BotApi",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-BotApi.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\BotApi\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020new\u0020class\u0020BotApi.",
+            "url": "classes/Serogaq-TgBotApi-BotApi.html#method___construct"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\BotApi\u003A\u003A__call\u0028\u0029",
+            "name": "__call",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-BotApi.html#method___call"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\BotApi\u003A\u003AgetBotId\u0028\u0029",
+            "name": "getBotId",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-BotApi.html#method_getBotId"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\BotApi\u003A\u003AgetUpdatesAndCreateEvents\u0028\u0029",
+            "name": "getUpdatesAndCreateEvents",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-BotApi.html#method_getUpdatesAndCreateEvents"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\BotApi\u003A\u003AcreateRequest\u0028\u0029",
+            "name": "createRequest",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-BotApi.html#method_createRequest"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\BotApi\u003A\u003A\u0024botConfig",
+            "name": "botConfig",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-BotApi.html#property_botConfig"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\BotManager",
             "name": "BotManager",
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-BotManager.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\BotManager\u003A\u003AselectBot\u0028\u0029",
-            "name": "selectBot",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-BotManager.html#method_selectBot"
+            "fqsen": "\\Serogaq\\TgBotApi\\BotManager\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020new\u0020class\u0020BotManager\u0020instance.",
+            "url": "classes/Serogaq-TgBotApi-BotManager.html#method___construct"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\BotManager\u003A\u003AselectBotByHash\u0028\u0029",
-            "name": "selectBotByHash",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-BotManager.html#method_selectBotByHash"
+            "fqsen": "\\Serogaq\\TgBotApi\\BotManager\u003A\u003AbotExists\u0028\u0029",
+            "name": "botExists",
+            "summary": "Checking\u0020that\u0020the\u0020bot\u0020is\u0020exists\u0020in\u0020the\u0020config.",
+            "url": "classes/Serogaq-TgBotApi-BotManager.html#method_botExists"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\BotManager\u003A\u003AgetBotConf\u0028\u0029",
-            "name": "getBotConf",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-BotManager.html#method_getBotConf"
+            "fqsen": "\\Serogaq\\TgBotApi\\BotManager\u003A\u003AgetBotConfig\u0028\u0029",
+            "name": "getBotConfig",
+            "summary": "Getting\u0020the\u0020bot\u0020config.",
+            "url": "classes/Serogaq-TgBotApi-BotManager.html#method_getBotConfig"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\BotManager\u003A\u003AgetBot\u0028\u0029",
-            "name": "getBot",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-BotManager.html#method_getBot"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\BotManager\u003A\u003A\u0024botConf",
-            "name": "botConf",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-BotManager.html#property_botConf"
+            "fqsen": "\\Serogaq\\TgBotApi\\BotManager\u003A\u003Abot\u0028\u0029",
+            "name": "bot",
+            "summary": "Getting\u0020the\u0020bot.",
+            "url": "classes/Serogaq-TgBotApi-BotManager.html#method_bot"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\BotManager\u003A\u003A\u0024bots",
             "name": "bots",
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-BotManager.html#property_bots"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\DeleteWebhook",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\DeleteWebhook",
             "name": "DeleteWebhook",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-DeleteWebhook.html"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-DeleteWebhook.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\DeleteWebhook\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\DeleteWebhook\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-DeleteWebhook.html#method___construct"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-DeleteWebhook.html#method___construct"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\DeleteWebhook\u003A\u003Ahandle\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\DeleteWebhook\u003A\u003Ahandle\u0028\u0029",
             "name": "handle",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-DeleteWebhook.html#method_handle"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-DeleteWebhook.html#method_handle"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\DeleteWebhook\u003A\u003A\u0024signature",
-            "name": "signature",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-DeleteWebhook.html#property_signature"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\DeleteWebhook\u003A\u003A\u0024description",
-            "name": "description",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-DeleteWebhook.html#property_description"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates",
-            "name": "GetUpdates",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method___construct"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003AsetUp\u0028\u0029",
-            "name": "setUp",
-            "summary": "Command\u0020setup\u0020to\u0020run\u0020before\u0020the\u0020work\u0020loop\u0020starts.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_setUp"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003Awork\u0028\u0029",
-            "name": "work",
-            "summary": "The\u0020work\u0020to\u0020do\u0020during\u0020the\u0020loop.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_work"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003AtearDown\u0028\u0029",
-            "name": "tearDown",
-            "summary": "Work\u0020to\u0020do\u0020after\u0020the\u0020loop\u0020ends.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_tearDown"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "Execute\u0020the\u0020console\u0020command.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003AlistenForSignals\u0028\u0029",
-            "name": "listenForSignals",
-            "summary": "Listen\u0020for\u0020system\u0020signals.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_listenForSignals"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003Ashutdown\u0028\u0029",
-            "name": "shutdown",
-            "summary": "Shutdown\u0020gracefully",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_shutdown"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003AgetSleep\u0028\u0029",
-            "name": "getSleep",
-            "summary": "Get\u0020the\u0020amount\u0020of\u0020time\u0020to\u0020sleep\u0020in\u0020seconds.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_getSleep"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003Aline\u0028\u0029",
-            "name": "line",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_line"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003AgetBatchId\u0028\u0029",
-            "name": "getBatchId",
-            "summary": "Get\u0020the\u0020batch\u0020id.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_getBatchId"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003AprintInfo\u0028\u0029",
-            "name": "printInfo",
-            "summary": "Print\u0020startup\u0020info\u0020to\u0020the\u0020console.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_printInfo"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A\u0024sleep",
-            "name": "sleep",
-            "summary": "The\u0020number\u0020of\u0020seconds\u0020to\u0020sleep\u0020for.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#property_sleep"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003AshouldContinue\u0028\u0029",
-            "name": "shouldContinue",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_shouldContinue"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003AshouldRunOnce\u0028\u0029",
-            "name": "shouldRunOnce",
-            "summary": "Determine\u0020if\u0020the\u0020loop\u0020should\u0020only\u0020run\u0020once.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_shouldRunOnce"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003AshouldRunUntilComplete\u0028\u0029",
-            "name": "shouldRunUntilComplete",
-            "summary": "Determine\u0020if\u0020the\u0020loop\u0020should\u0020run\u0020until\u0020complete.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_shouldRunUntilComplete"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003Acompleted\u0028\u0029",
-            "name": "completed",
-            "summary": "Mark\u0020the\u0020work\u0020as\u0020completed.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#method_completed"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A\u0024hidden",
-            "name": "hidden",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#property_hidden"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A\u0024signature",
-            "name": "signature",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#property_signature"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A\u0024description",
-            "name": "description",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#property_description"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A\u0024run",
-            "name": "run",
-            "summary": "Whether\u0020the\u0020loop\u0020should\u0020run.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#property_run"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A\u0024complete",
-            "name": "complete",
-            "summary": "Whether\u0020the\u0020work\u0020is\u0020complete.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#property_complete"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A\u0024runs",
-            "name": "runs",
-            "summary": "The\u0020iteration\u0020number.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#property_runs"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A\u0024started",
-            "name": "started",
-            "summary": "Whether\u0020the\u0020work\u0020has\u0020started\u0020or\u0020not.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#property_started"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A\u0024batchId",
-            "name": "batchId",
-            "summary": "Unique\u0020id\u0020of\u0020the\u0020current\u0020iteration.",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#property_batchId"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A\u0024bot",
-            "name": "bot",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#property_bot"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\GetUpdates\u003A\u003A\u0024username",
-            "name": "username",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-GetUpdates.html#property_username"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi",
-            "name": "InstallTgBotApi",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003AconfigExists\u0028\u0029",
-            "name": "configExists",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#method_configExists"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003AmigrationExists\u0028\u0029",
-            "name": "migrationExists",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#method_migrationExists"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003AlistenerExists\u0028\u0029",
-            "name": "listenerExists",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#method_listenerExists"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003AalreadyInstalled\u0028\u0029",
-            "name": "alreadyInstalled",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#method_alreadyInstalled"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003Apublish\u0028\u0029",
-            "name": "publish",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#method_publish"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003ApublishListener\u0028\u0029",
-            "name": "publishListener",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#method_publishListener"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003AremoveDirectory\u0028\u0029",
-            "name": "removeDirectory",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#method_removeDirectory"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003A\u0024hidden",
-            "name": "hidden",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#property_hidden"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003A\u0024signature",
-            "name": "signature",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#property_signature"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003A\u0024description",
-            "name": "description",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#property_description"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\InstallTgBotApi\u003A\u003A\u0024reInstall",
-            "name": "reInstall",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-InstallTgBotApi.html#property_reInstall"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeTgBotApiController",
-            "name": "MakeTgBotApiController",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeTgBotApiController.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeTgBotApiController\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeTgBotApiController.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeTgBotApiController\u003A\u003AgetStub\u0028\u0029",
-            "name": "getStub",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeTgBotApiController.html#method_getStub"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeTgBotApiController\u003A\u003AgetDefaultNamespace\u0028\u0029",
-            "name": "getDefaultNamespace",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeTgBotApiController.html#method_getDefaultNamespace"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeTgBotApiController\u003A\u003AdoOtherOperations\u0028\u0029",
-            "name": "doOtherOperations",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeTgBotApiController.html#method_doOtherOperations"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeTgBotApiController\u003A\u003A\u0024name",
-            "name": "name",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeTgBotApiController.html#property_name"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeTgBotApiController\u003A\u003A\u0024signature",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\DeleteWebhook\u003A\u003A\u0024signature",
             "name": "signature",
             "summary": "The\u0020name\u0020and\u0020signature\u0020of\u0020the\u0020console\u0020command.",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeTgBotApiController.html#property_signature"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-DeleteWebhook.html#property_signature"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeTgBotApiController\u003A\u003A\u0024description",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\DeleteWebhook\u003A\u003A\u0024description",
             "name": "description",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeTgBotApiController.html#property_description"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-DeleteWebhook.html#property_description"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeTgBotApiController\u003A\u003A\u0024type",
-            "name": "type",
-            "summary": "The\u0020type\u0020of\u0020class\u0020being\u0020generated.",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeTgBotApiController.html#property_type"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeUpdateProcessingListener",
-            "name": "MakeUpdateProcessingListener",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates",
+            "name": "GetUpdates",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeUpdateProcessingListener.html"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeUpdateProcessingListener\u003A\u003AgetStub\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method___construct"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003AsetUp\u0028\u0029",
+            "name": "setUp",
+            "summary": "Command\u0020setup\u0020to\u0020run\u0020before\u0020the\u0020work\u0020loop\u0020starts.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_setUp"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003Awork\u0028\u0029",
+            "name": "work",
+            "summary": "The\u0020work\u0020to\u0020do\u0020during\u0020the\u0020loop.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_work"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003AtearDown\u0028\u0029",
+            "name": "tearDown",
+            "summary": "Work\u0020to\u0020do\u0020after\u0020the\u0020loop\u0020ends.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_tearDown"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003Ahandle\u0028\u0029",
+            "name": "handle",
+            "summary": "Execute\u0020the\u0020console\u0020command.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_handle"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003AlistenForSignals\u0028\u0029",
+            "name": "listenForSignals",
+            "summary": "Listen\u0020for\u0020system\u0020signals.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_listenForSignals"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003Ashutdown\u0028\u0029",
+            "name": "shutdown",
+            "summary": "Shutdown\u0020gracefully",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_shutdown"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003AgetSleep\u0028\u0029",
+            "name": "getSleep",
+            "summary": "Get\u0020the\u0020amount\u0020of\u0020time\u0020to\u0020sleep\u0020in\u0020seconds.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_getSleep"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003Aline\u0028\u0029",
+            "name": "line",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_line"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003AgetBatchId\u0028\u0029",
+            "name": "getBatchId",
+            "summary": "Get\u0020the\u0020batch\u0020id.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_getBatchId"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003AprintInfo\u0028\u0029",
+            "name": "printInfo",
+            "summary": "Print\u0020startup\u0020info\u0020to\u0020the\u0020console.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_printInfo"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003A\u0024sleep",
+            "name": "sleep",
+            "summary": "The\u0020number\u0020of\u0020seconds\u0020to\u0020sleep\u0020for.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#property_sleep"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003AshouldContinue\u0028\u0029",
+            "name": "shouldContinue",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_shouldContinue"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003AshouldRunOnce\u0028\u0029",
+            "name": "shouldRunOnce",
+            "summary": "Determine\u0020if\u0020the\u0020loop\u0020should\u0020only\u0020run\u0020once.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_shouldRunOnce"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003AshouldRunUntilComplete\u0028\u0029",
+            "name": "shouldRunUntilComplete",
+            "summary": "Determine\u0020if\u0020the\u0020loop\u0020should\u0020run\u0020until\u0020complete.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_shouldRunUntilComplete"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003Acompleted\u0028\u0029",
+            "name": "completed",
+            "summary": "Mark\u0020the\u0020work\u0020as\u0020completed.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#method_completed"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003A\u0024signature",
+            "name": "signature",
+            "summary": "The\u0020name\u0020and\u0020signature\u0020of\u0020the\u0020console\u0020command.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#property_signature"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#property_description"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003A\u0024run",
+            "name": "run",
+            "summary": "Whether\u0020the\u0020loop\u0020should\u0020run.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#property_run"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003A\u0024complete",
+            "name": "complete",
+            "summary": "Whether\u0020the\u0020work\u0020is\u0020complete.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#property_complete"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003A\u0024runs",
+            "name": "runs",
+            "summary": "The\u0020iteration\u0020number.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#property_runs"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003A\u0024started",
+            "name": "started",
+            "summary": "Whether\u0020the\u0020work\u0020has\u0020started\u0020or\u0020not.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#property_started"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003A\u0024batchId",
+            "name": "batchId",
+            "summary": "Unique\u0020id\u0020of\u0020the\u0020current\u0020iteration.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#property_batchId"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003A\u0024botApi",
+            "name": "botApi",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#property_botApi"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\GetUpdates\u003A\u003A\u0024username",
+            "name": "username",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-GetUpdates.html#property_username"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\Install",
+            "name": "Install",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-Install.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\Install\u003A\u003Ahandle\u0028\u0029",
+            "name": "handle",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-Install.html#method_handle"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\Install\u003A\u003AconfigExists\u0028\u0029",
+            "name": "configExists",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-Install.html#method_configExists"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\Install\u003A\u003AlistenerExists\u0028\u0029",
+            "name": "listenerExists",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-Install.html#method_listenerExists"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\Install\u003A\u003AalreadyInstalled\u0028\u0029",
+            "name": "alreadyInstalled",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-Install.html#method_alreadyInstalled"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\Install\u003A\u003Apublish\u0028\u0029",
+            "name": "publish",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-Install.html#method_publish"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\Install\u003A\u003ApublishUpdateListener\u0028\u0029",
+            "name": "publishUpdateListener",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-Install.html#method_publishUpdateListener"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\Install\u003A\u003A\u0024signature",
+            "name": "signature",
+            "summary": "The\u0020signature\u0020of\u0020the\u0020console\u0020command.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-Install.html#property_signature"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\Install\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-Install.html#property_description"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeMiddleware",
+            "name": "MakeMiddleware",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeMiddleware.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeMiddleware\u003A\u003Ahandle\u0028\u0029",
+            "name": "handle",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeMiddleware.html#method_handle"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeMiddleware\u003A\u003AgetStub\u0028\u0029",
             "name": "getStub",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeUpdateProcessingListener.html#method_getStub"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeMiddleware.html#method_getStub"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeUpdateProcessingListener\u003A\u003AgetDefaultNamespace\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeMiddleware\u003A\u003AgetDefaultNamespace\u0028\u0029",
             "name": "getDefaultNamespace",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeUpdateProcessingListener.html#method_getDefaultNamespace"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeMiddleware.html#method_getDefaultNamespace"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeUpdateProcessingListener\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeUpdateProcessingListener.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeUpdateProcessingListener\u003A\u003AdoOtherOperations\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeMiddleware\u003A\u003AdoOtherOperations\u0028\u0029",
             "name": "doOtherOperations",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeUpdateProcessingListener.html#method_doOtherOperations"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeMiddleware.html#method_doOtherOperations"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeUpdateProcessingListener\u003A\u003A\u0024hidden",
-            "name": "hidden",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeMiddleware\u003A\u003A\u0024selectedType",
+            "name": "selectedType",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeUpdateProcessingListener.html#property_hidden"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeMiddleware.html#property_selectedType"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeUpdateProcessingListener\u003A\u003A\u0024name",
-            "name": "name",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeUpdateProcessingListener.html#property_name"
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeMiddleware\u003A\u003A\u0024signature",
+            "name": "signature",
+            "summary": "The\u0020name\u0020and\u0020signature\u0020of\u0020the\u0020console\u0020command.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeMiddleware.html#property_signature"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeUpdateProcessingListener\u003A\u003A\u0024description",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeMiddleware\u003A\u003A\u0024description",
             "name": "description",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeUpdateProcessingListener.html#property_description"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeMiddleware.html#property_description"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\MakeUpdateProcessingListener\u003A\u003A\u0024type",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeMiddleware\u003A\u003A\u0024type",
             "name": "type",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-MakeUpdateProcessingListener.html#property_type"
+            "summary": "The\u0020type\u0020of\u0020class\u0020being\u0020generated.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeMiddleware.html#property_type"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\SetWebhook",
-            "name": "SetWebhook",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateController",
+            "name": "MakeUpdateController",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-SetWebhook.html"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateController.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\SetWebhook\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-SetWebhook.html#method___construct"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\SetWebhook\u003A\u003Ahandle\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateController\u003A\u003Ahandle\u0028\u0029",
             "name": "handle",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-SetWebhook.html#method_handle"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateController.html#method_handle"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\SetWebhook\u003A\u003A\u0024signature",
-            "name": "signature",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateController\u003A\u003AgetStub\u0028\u0029",
+            "name": "getStub",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-SetWebhook.html#property_signature"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateController.html#method_getStub"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Console\\SetWebhook\u003A\u003A\u0024description",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateController\u003A\u003AgetDefaultNamespace\u0028\u0029",
+            "name": "getDefaultNamespace",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateController.html#method_getDefaultNamespace"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateController\u003A\u003AdoOtherOperations\u0028\u0029",
+            "name": "doOtherOperations",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateController.html#method_doOtherOperations"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateController\u003A\u003AgetArguments\u0028\u0029",
+            "name": "getArguments",
+            "summary": "Get\u0020the\u0020console\u0020command\u0020arguments.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateController.html#method_getArguments"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateController\u003A\u003AgetNameInput\u0028\u0029",
+            "name": "getNameInput",
+            "summary": "Get\u0020the\u0020desired\u0020class\u0020name\u0020from\u0020the\u0020input.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateController.html#method_getNameInput"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateController\u003A\u003A\u0024selectedType",
+            "name": "selectedType",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateController.html#property_selectedType"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateController\u003A\u003A\u0024signature",
+            "name": "signature",
+            "summary": "The\u0020name\u0020and\u0020signature\u0020of\u0020the\u0020console\u0020command.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateController.html#property_signature"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateController\u003A\u003A\u0024description",
             "name": "description",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Console-SetWebhook.html#property_description"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateController.html#property_description"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Events\\NewUpdateReceived",
-            "name": "NewUpdateReceived",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateController\u003A\u003A\u0024type",
+            "name": "type",
+            "summary": "The\u0020type\u0020of\u0020class\u0020being\u0020generated.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateController.html#property_type"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateListener",
+            "name": "MakeUpdateListener",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Events-NewUpdateReceived.html"
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateListener.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Events\\NewUpdateReceived\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateListener\u003A\u003Ahandle\u0028\u0029",
+            "name": "handle",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateListener.html#method_handle"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateListener\u003A\u003AgetStub\u0028\u0029",
+            "name": "getStub",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateListener.html#method_getStub"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateListener\u003A\u003AgetDefaultNamespace\u0028\u0029",
+            "name": "getDefaultNamespace",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateListener.html#method_getDefaultNamespace"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateListener\u003A\u003AdoOtherOperations\u0028\u0029",
+            "name": "doOtherOperations",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateListener.html#method_doOtherOperations"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateListener\u003A\u003A\u0024signature",
+            "name": "signature",
+            "summary": "The\u0020name\u0020and\u0020signature\u0020of\u0020the\u0020console\u0020command.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateListener.html#property_signature"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateListener\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateListener.html#property_description"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\MakeUpdateListener\u003A\u003A\u0024type",
+            "name": "type",
+            "summary": "The\u0020type\u0020of\u0020class\u0020being\u0020generated.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-MakeUpdateListener.html#property_type"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\SetWebhook",
+            "name": "SetWebhook",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-SetWebhook.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\SetWebhook\u003A\u003Ahandle\u0028\u0029",
+            "name": "handle",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-SetWebhook.html#method_handle"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\SetWebhook\u003A\u003A\u0024signature",
+            "name": "signature",
+            "summary": "The\u0020name\u0020and\u0020signature\u0020of\u0020the\u0020console\u0020command.",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-SetWebhook.html#property_signature"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands\\SetWebhook\u003A\u003A\u0024description",
+            "name": "description",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Console-Commands-SetWebhook.html#property_description"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType",
+            "name": "EventType",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003ANEW_CHAT_MEMBERS",
+            "name": "NEW_CHAT_MEMBERS",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_NEW_CHAT_MEMBERS"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003ALEFT_CHAT_MEMBER",
+            "name": "LEFT_CHAT_MEMBER",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_LEFT_CHAT_MEMBER"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003APINNED_MESSAGE",
+            "name": "PINNED_MESSAGE",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_PINNED_MESSAGE"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003AEDITED_MESSAGE",
+            "name": "EDITED_MESSAGE",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_EDITED_MESSAGE"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003AEDITED_CHANNEL_POST",
+            "name": "EDITED_CHANNEL_POST",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_EDITED_CHANNEL_POST"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003ACHAT_JOIN_REQUEST",
+            "name": "CHAT_JOIN_REQUEST",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_CHAT_JOIN_REQUEST"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003ACHAT_MIGRATE",
+            "name": "CHAT_MIGRATE",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_CHAT_MIGRATE"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003AFORUM_TOPIC_CREATED",
+            "name": "FORUM_TOPIC_CREATED",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_FORUM_TOPIC_CREATED"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003AFORUM_TOPIC_CLOSED",
+            "name": "FORUM_TOPIC_CLOSED",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_FORUM_TOPIC_CLOSED"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003AFORUM_TOPIC_REOPENED",
+            "name": "FORUM_TOPIC_REOPENED",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_FORUM_TOPIC_REOPENED"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003ABOT_LEFT",
+            "name": "BOT_LEFT",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_BOT_LEFT"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003ABOT_JOINED",
+            "name": "BOT_JOINED",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_BOT_JOINED"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003ABOT_BLOCKED",
+            "name": "BOT_BLOCKED",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_BOT_BLOCKED"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003ABOT_UNBLOCKED",
+            "name": "BOT_UNBLOCKED",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_BOT_UNBLOCKED"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003ACHANGE_ADMINISTRATOR",
+            "name": "CHANGE_ADMINISTRATOR",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_CHANGE_ADMINISTRATOR"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003ACHANGE_RESTRICTED",
+            "name": "CHANGE_RESTRICTED",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_CHANGE_RESTRICTED"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003ACHANGE_KICKED",
+            "name": "CHANGE_KICKED",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_CHANGE_KICKED"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\EventType\u003A\u003AANY",
+            "name": "ANY",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-EventType.html#constant_ANY"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\MediaType",
+            "name": "MediaType",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-MediaType.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\MediaType\u003A\u003APHOTO",
+            "name": "PHOTO",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-MediaType.html#constant_PHOTO"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\MediaType\u003A\u003AVIDEO",
+            "name": "VIDEO",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-MediaType.html#constant_VIDEO"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\MediaType\u003A\u003AVIDEO_NOTE",
+            "name": "VIDEO_NOTE",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-MediaType.html#constant_VIDEO_NOTE"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\MediaType\u003A\u003AVOICE",
+            "name": "VOICE",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-MediaType.html#constant_VOICE"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\MediaType\u003A\u003ADOCUMENT",
+            "name": "DOCUMENT",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-MediaType.html#constant_DOCUMENT"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\MediaType\u003A\u003AANY",
+            "name": "ANY",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-MediaType.html#constant_ANY"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\UpdateChannel",
+            "name": "UpdateChannel",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-UpdateChannel.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\UpdateChannel\u003A\u003AWEBHOOK",
+            "name": "WEBHOOK",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-UpdateChannel.html#constant_WEBHOOK"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\UpdateChannel\u003A\u003AGETUPDATES",
+            "name": "GETUPDATES",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-UpdateChannel.html#constant_GETUPDATES"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants\\UpdateChannel\u003A\u003AINTERNAL",
+            "name": "INTERNAL",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Constants-UpdateChannel.html#constant_INTERNAL"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Events\\NewUpdateEvent",
+            "name": "NewUpdateEvent",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Events-NewUpdateEvent.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Events\\NewUpdateEvent\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "Create\u0020a\u0020new\u0020event\u0020instance.",
-            "url": "classes/Serogaq-TgBotApi-Events-NewUpdateReceived.html#method___construct"
+            "url": "classes/Serogaq-TgBotApi-Events-NewUpdateEvent.html#method___construct"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Events\\NewUpdateReceived\u003A\u003A\u0024bot",
-            "name": "bot",
+            "fqsen": "\\Serogaq\\TgBotApi\\Events\\NewUpdateEvent\u003A\u003A\u0024botApi",
+            "name": "botApi",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Events-NewUpdateReceived.html#property_bot"
+            "url": "classes/Serogaq-TgBotApi-Events-NewUpdateEvent.html#property_botApi"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Events\\NewUpdateReceived\u003A\u003A\u0024update",
+            "fqsen": "\\Serogaq\\TgBotApi\\Events\\NewUpdateEvent\u003A\u003A\u0024update",
             "name": "update",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Events-NewUpdateReceived.html#property_update"
+            "url": "classes/Serogaq-TgBotApi-Events-NewUpdateEvent.html#property_update"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Events\\NewUpdateReceived\u003A\u003A\u0024updateChannel",
+            "fqsen": "\\Serogaq\\TgBotApi\\Events\\NewUpdateEvent\u003A\u003A\u0024updateChannel",
             "name": "updateChannel",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Events-NewUpdateReceived.html#property_updateChannel"
+            "url": "classes/Serogaq-TgBotApi-Events-NewUpdateEvent.html#property_updateChannel"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotException",
-            "name": "BotException",
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\ApiResponseException",
+            "name": "ApiResponseException",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Exceptions-BotException.html"
+            "url": "classes/Serogaq-TgBotApi-Exceptions-ApiResponseException.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotException\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\ApiResponseException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Exceptions-BotException.html#method___construct"
+            "url": "classes/Serogaq-TgBotApi-Exceptions-ApiResponseException.html#method___construct"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotManagerConfigException",
-            "name": "BotManagerConfigException",
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotApiException",
+            "name": "BotApiException",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Exceptions-BotManagerConfigException.html"
+            "url": "classes/Serogaq-TgBotApi-Exceptions-BotApiException.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotManagerConfigException\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotApiException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Exceptions-BotManagerConfigException.html#method___construct"
+            "url": "classes/Serogaq-TgBotApi-Exceptions-BotApiException.html#method___construct"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotManagerException",
-            "name": "BotManagerException",
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\HttpClientException",
+            "name": "HttpClientException",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Exceptions-BotManagerException.html"
+            "url": "classes/Serogaq-TgBotApi-Exceptions-HttpClientException.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotManagerException\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\HttpClientException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Exceptions-BotManagerException.html#method___construct"
+            "url": "classes/Serogaq-TgBotApi-Exceptions-HttpClientException.html#method___construct"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotRequestException",
-            "name": "BotRequestException",
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\MiddlewareException",
+            "name": "MiddlewareException",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Exceptions-BotRequestException.html"
+            "url": "classes/Serogaq-TgBotApi-Exceptions-MiddlewareException.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotRequestException\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\MiddlewareException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Exceptions-BotRequestException.html#method___construct"
+            "url": "classes/Serogaq-TgBotApi-Exceptions-MiddlewareException.html#method___construct"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotUpdateException",
-            "name": "BotUpdateException",
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\TgBotApiException",
+            "name": "TgBotApiException",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Exceptions-BotUpdateException.html"
+            "url": "classes/Serogaq-TgBotApi-Exceptions-TgBotApiException.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\BotUpdateException\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\UpdateException",
+            "name": "UpdateException",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Exceptions-UpdateException.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\UpdateException\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Exceptions-BotUpdateException.html#method___construct"
+            "url": "classes/Serogaq-TgBotApi-Exceptions-UpdateException.html#method___construct"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Facades\\BotManager",
+            "name": "BotManager",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Facades-BotManager.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Facades\\BotManager\u003A\u003AgetFacadeAccessor\u0028\u0029",
+            "name": "getFacadeAccessor",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Facades-BotManager.html#method_getFacadeAccessor"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\getBotIdFromToken\u0028\u0029",
+            "name": "getBotIdFromToken",
+            "summary": "Getting\u0020the\u0020bot\u0020ID\u0020from\u0020its\u0020token.",
+            "url": "namespaces/serogaq-tgbotapi-helpers.html#function_getBotIdFromToken"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\arrayToObject\u0028\u0029",
+            "name": "arrayToObject",
+            "summary": "",
+            "url": "namespaces/serogaq-tgbotapi-helpers.html#function_arrayToObject"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Command",
+            "name": "Command",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Command.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Command\u003A\u003AprepareXml\u0028\u0029",
+            "name": "prepareXml",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Command.html#method_prepareXml"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Command\u003A\u003AgetMatches\u0028\u0029",
+            "name": "getMatches",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Command.html#method_getMatches"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Command\u003A\u003Ais\u0028\u0029",
+            "name": "is",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Command.html#method_is"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Command\u003A\u003AWITHOUT_ARGS",
+            "name": "WITHOUT_ARGS",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Command.html#constant_WITHOUT_ARGS"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Command\u003A\u003AWITH_ARGS",
+            "name": "WITH_ARGS",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Command.html#constant_WITH_ARGS"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Command\u003A\u003AWITH_SPACE_ARGS",
+            "name": "WITH_SPACE_ARGS",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Command.html#constant_WITH_SPACE_ARGS"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Command\u003A\u003AWITH_UNDERSCORE_ARGS",
+            "name": "WITH_UNDERSCORE_ARGS",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Command.html#constant_WITH_UNDERSCORE_ARGS"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Event",
+            "name": "Event",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Event.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Event\u003A\u003AanyOf\u0028\u0029",
+            "name": "anyOf",
+            "summary": "Checks\u0020if\u0020EventUpdate\u0020matches\u0020any\u0020of\u0020the\u0020passed\u0020EventType\u0027s.",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Event.html#method_anyOf"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Event\u003A\u003AallOf\u0028\u0029",
+            "name": "allOf",
+            "summary": "Checks\u0020if\u0020EventUpdate\u0020matches\u0020all\u0020of\u0020the\u0020passed\u0020EventType\u0027s.",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Event.html#method_allOf"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Media",
+            "name": "Media",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Media.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Media\u003A\u003AanyOf\u0028\u0029",
+            "name": "anyOf",
+            "summary": "Checks\u0020if\u0020MediaUpdate\u0020matches\u0020any\u0020of\u0020the\u0020passed\u0020EventType\u0027s.",
+            "url": "classes/Serogaq-TgBotApi-Helpers-Matchers-Media.html#method_anyOf"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Controller",
             "name": "Controller",
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Http-Controllers-Controller.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\CallbackQueryUpdate",
-            "name": "CallbackQueryUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-CallbackQueryUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\CallbackQueryUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-CallbackQueryUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\ChosenInlineResultUpdate",
-            "name": "ChosenInlineResultUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-ChosenInlineResultUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\ChosenInlineResultUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-ChosenInlineResultUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\CommandUpdate",
-            "name": "CommandUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-CommandUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\CommandUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-CommandUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\ContactUpdate",
-            "name": "ContactUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-ContactUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\ContactUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-ContactUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\Controller",
-            "name": "Controller",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-Controller.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\Controller\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-Controller.html#method___construct"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\Controller\u003A\u003A\u0024bot",
-            "name": "bot",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-Controller.html#property_bot"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\Controller\u003A\u003A\u0024update",
-            "name": "update",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-Controller.html#property_update"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\Controller\u003A\u003A\u0024updateChannel",
-            "name": "updateChannel",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-Controller.html#property_updateChannel"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\EventUpdate",
-            "name": "EventUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-EventUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\EventUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-EventUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\GameUpdate",
-            "name": "GameUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-GameUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\GameUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-GameUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\InlineQueryUpdate",
-            "name": "InlineQueryUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-InlineQueryUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\InlineQueryUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-InlineQueryUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\LocationUpdate",
-            "name": "LocationUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-LocationUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\LocationUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-LocationUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\MediaUpdate",
-            "name": "MediaUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-MediaUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\MediaUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-MediaUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\OtherUpdate",
-            "name": "OtherUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-OtherUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\OtherUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-OtherUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\PreCheckoutQueryUpdate",
-            "name": "PreCheckoutQueryUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-PreCheckoutQueryUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\PreCheckoutQueryUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-PreCheckoutQueryUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\StickerUpdate",
-            "name": "StickerUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-StickerUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\StickerUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-StickerUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\TextUpdate",
-            "name": "TextUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-TextUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\TextUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-TextUpdate.html#method_handle"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\VenueUpdate",
-            "name": "VenueUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-VenueUpdate.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates\\VenueUpdate\u003A\u003Ahandle\u0028\u0029",
-            "name": "handle",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Http-Controllers-Updates-VenueUpdate.html#method_handle"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\WebhookController",
             "name": "WebhookController",
@@ -716,20 +966,120 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Http-Controllers-WebhookController.html#method_webhook"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Listeners\\UpdateProcessing",
-            "name": "UpdateProcessing",
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\HttpClient",
+            "name": "HttpClient",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Listeners-UpdateProcessing.html"
+            "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Listeners\\UpdateProcessing\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Create\u0020the\u0020event\u0020listener.",
-            "url": "classes/Serogaq-TgBotApi-Listeners-UpdateProcessing.html#method___construct"
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\HttpClient\u003A\u003AsetRequestId\u0028\u0029",
+            "name": "setRequestId",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_setRequestId"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Listeners\\UpdateProcessing\u003A\u003Ahandle\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\HttpClient\u003A\u003AgetRequestId\u0028\u0029",
+            "name": "getRequestId",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_getRequestId"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\HttpClient\u003A\u003Asend\u0028\u0029",
+            "name": "send",
+            "summary": "Send\u0020HTTP\u0020request.",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_send"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\HttpClient\u003A\u003AgetTimeout\u0028\u0029",
+            "name": "getTimeout",
+            "summary": "Get\u0020Timeout.",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_getTimeout"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\HttpClient\u003A\u003AsetTimeout\u0028\u0029",
+            "name": "setTimeout",
+            "summary": "Set\u0020Timeout.",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_setTimeout"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\HttpClient\u003A\u003AgetConnectTimeout\u0028\u0029",
+            "name": "getConnectTimeout",
+            "summary": "Get\u0020Connection\u0020Timeout.",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_getConnectTimeout"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\HttpClient\u003A\u003AsetConnectTimeout\u0028\u0029",
+            "name": "setConnectTimeout",
+            "summary": "Set\u0020Connection\u0020Timeout.",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_setConnectTimeout"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\OffsetStore",
+            "name": "OffsetStore",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-OffsetStore.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\OffsetStore\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-OffsetStore.html#method_set"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\OffsetStore\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-OffsetStore.html#method_get"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\RequestMiddleware",
+            "name": "RequestMiddleware",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-RequestMiddleware.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\RequestMiddleware\u003A\u003Ahandle\u0028\u0029",
             "name": "handle",
-            "summary": "Handle\u0020the\u0020event.",
-            "url": "classes/Serogaq-TgBotApi-Listeners-UpdateProcessing.html#method_handle"
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-RequestMiddleware.html#method_handle"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\ResponseMiddleware",
+            "name": "ResponseMiddleware",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-ResponseMiddleware.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\ResponseMiddleware\u003A\u003Ahandle\u0028\u0029",
+            "name": "handle",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-ResponseMiddleware.html#method_handle"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\TgBotApiException",
+            "name": "TgBotApiException",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-TgBotApiException.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\Update",
+            "name": "Update",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-Update.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\Update\u003A\u003AasObject\u0028\u0029",
+            "name": "asObject",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-Update.html#method_asObject"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\Update\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-Update.html#method___toString"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\UpdateController",
+            "name": "UpdateController",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-UpdateController.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\UpdateController\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-UpdateController.html#method___construct"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\UpdateController\u003A\u003Ahandle\u0028\u0029",
+            "name": "handle",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-UpdateController.html#method_handle"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Listeners\\HandleNewUpdate",
+            "name": "HandleNewUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Listeners-HandleNewUpdate.html"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Objects\\Update",
             "name": "Update",
@@ -1106,170 +1456,175 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Providers-EventServiceProvider.html#property_listen"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\TgBotApiFacade",
-            "name": "TgBotApiFacade",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-TgBotApiFacade.html"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\TgBotApiFacade\u003A\u003AgetFacadeAccessor\u0028\u0029",
-            "name": "getFacadeAccessor",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-TgBotApiFacade.html#method_getFacadeAccessor"
-        },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\TgBotApiServiceProvider",
+            "fqsen": "\\Serogaq\\TgBotApi\\Providers\\TgBotApiServiceProvider",
             "name": "TgBotApiServiceProvider",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-TgBotApiServiceProvider.html"
+            "url": "classes/Serogaq-TgBotApi-Providers-TgBotApiServiceProvider.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\TgBotApiServiceProvider\u003A\u003Aboot\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Providers\\TgBotApiServiceProvider\u003A\u003Aboot\u0028\u0029",
             "name": "boot",
             "summary": "Bootstrap\u0020the\u0020application\u0020services.",
-            "url": "classes/Serogaq-TgBotApi-TgBotApiServiceProvider.html#method_boot"
+            "url": "classes/Serogaq-TgBotApi-Providers-TgBotApiServiceProvider.html#method_boot"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\TgBotApiServiceProvider\u003A\u003Aregister\u0028\u0029",
+            "fqsen": "\\Serogaq\\TgBotApi\\Providers\\TgBotApiServiceProvider\u003A\u003Aregister\u0028\u0029",
             "name": "register",
             "summary": "Register\u0020the\u0020application\u0020services.",
-            "url": "classes/Serogaq-TgBotApi-TgBotApiServiceProvider.html#method_register"
+            "url": "classes/Serogaq-TgBotApi-Providers-TgBotApiServiceProvider.html#method_register"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingCallbackQueryUpdate",
-            "name": "HandlingCallbackQueryUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingCallbackQueryUpdate.html"
+            "fqsen": "\\Serogaq\\TgBotApi\\Providers\\TgBotApiServiceProvider\u003A\u003AregisterRoutes\u0028\u0029",
+            "name": "registerRoutes",
+            "summary": "Register\u0020routes.",
+            "url": "classes/Serogaq-TgBotApi-Providers-TgBotApiServiceProvider.html#method_registerRoutes"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingCallbackQueryUpdate\u003A\u003AhandleCallbackQueryUpdate\u0028\u0029",
-            "name": "handleCallbackQueryUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingCallbackQueryUpdate.html#method_handleCallbackQueryUpdate"
+            "fqsen": "\\Serogaq\\TgBotApi\\Providers\\TgBotApiServiceProvider\u003A\u003ArouteConfiguration\u0028\u0029",
+            "name": "routeConfiguration",
+            "summary": "Get\u0020route\u0020configuration.",
+            "url": "classes/Serogaq-TgBotApi-Providers-TgBotApiServiceProvider.html#method_routeConfiguration"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingChosenInlineResultUpdate",
-            "name": "HandlingChosenInlineResultUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingChosenInlineResultUpdate.html"
+            "fqsen": "\\Serogaq\\TgBotApi\\Providers\\TgBotApiServiceProvider\u003A\u003AbindingInterfaces\u0028\u0029",
+            "name": "bindingInterfaces",
+            "summary": "Binding\u0020Interfaces.",
+            "url": "classes/Serogaq-TgBotApi-Providers-TgBotApiServiceProvider.html#method_bindingInterfaces"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingChosenInlineResultUpdate\u003A\u003AhandleChosenInlineResultUpdate\u0028\u0029",
-            "name": "handleChosenInlineResultUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient",
+            "name": "LaravelHttpClient",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingChosenInlineResultUpdate.html#method_handleChosenInlineResultUpdate"
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingCommandUpdate",
-            "name": "HandlingCommandUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingCommandUpdate.html"
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method___construct"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingCommandUpdate\u003A\u003AhandleCommandUpdate\u0028\u0029",
-            "name": "handleCommandUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003AsetRequestId\u0028\u0029",
+            "name": "setRequestId",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingCommandUpdate.html#method_handleCommandUpdate"
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method_setRequestId"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingContactUpdate",
-            "name": "HandlingContactUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003AgetRequestId\u0028\u0029",
+            "name": "getRequestId",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingContactUpdate.html"
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method_getRequestId"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingContactUpdate\u003A\u003AhandleContactUpdate\u0028\u0029",
-            "name": "handleContactUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingContactUpdate.html#method_handleContactUpdate"
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003Asend\u0028\u0029",
+            "name": "send",
+            "summary": "Send\u0020HTTP\u0020request.",
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method_send"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingEventUpdate",
-            "name": "HandlingEventUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingEventUpdate.html"
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003AgetTimeout\u0028\u0029",
+            "name": "getTimeout",
+            "summary": "Get\u0020Timeout.",
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method_getTimeout"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingEventUpdate\u003A\u003AhandleEventUpdate\u0028\u0029",
-            "name": "handleEventUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingEventUpdate.html#method_handleEventUpdate"
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003AsetTimeout\u0028\u0029",
+            "name": "setTimeout",
+            "summary": "Set\u0020Timeout.",
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method_setTimeout"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingGameUpdate",
-            "name": "HandlingGameUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingGameUpdate.html"
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003AgetConnectTimeout\u0028\u0029",
+            "name": "getConnectTimeout",
+            "summary": "Get\u0020Connection\u0020Timeout.",
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method_getConnectTimeout"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingGameUpdate\u003A\u003AhandleGameUpdate\u0028\u0029",
-            "name": "handleGameUpdate",
-            "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingGameUpdate.html#method_handleGameUpdate"
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003AsetConnectTimeout\u0028\u0029",
+            "name": "setConnectTimeout",
+            "summary": "Set\u0020Connection\u0020Timeout.",
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method_setConnectTimeout"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingInlineQueryUpdate",
-            "name": "HandlingInlineQueryUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003A\u0024requestId",
+            "name": "requestId",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingInlineQueryUpdate.html"
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#property_requestId"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingInlineQueryUpdate\u003A\u003AhandleInlineQueryUpdate\u0028\u0029",
-            "name": "handleInlineQueryUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003A\u0024request",
+            "name": "request",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingInlineQueryUpdate.html#method_handleInlineQueryUpdate"
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#property_request"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingLocationUpdate",
-            "name": "HandlingLocationUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003A\u0024timeout",
+            "name": "timeout",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingLocationUpdate.html"
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#property_timeout"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingLocationUpdate\u003A\u003AhandleLocationUpdate\u0028\u0029",
-            "name": "handleLocationUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003A\u0024connectTimeout",
+            "name": "connectTimeout",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingLocationUpdate.html#method_handleLocationUpdate"
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#property_connectTimeout"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingMediaUpdate",
-            "name": "HandlingMediaUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\Middleware",
+            "name": "Middleware",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingMediaUpdate.html"
+            "url": "classes/Serogaq-TgBotApi-Services-Middleware.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingMediaUpdate\u003A\u003AhandleMediaUpdate\u0028\u0029",
-            "name": "handleMediaUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\Middleware\u003A\u003AaddRequestMiddleware\u0028\u0029",
+            "name": "addRequestMiddleware",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingMediaUpdate.html#method_handleMediaUpdate"
+            "url": "classes/Serogaq-TgBotApi-Services-Middleware.html#method_addRequestMiddleware"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingOtherUpdate",
-            "name": "HandlingOtherUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\Middleware\u003A\u003AaddResponseMiddleware\u0028\u0029",
+            "name": "addResponseMiddleware",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingOtherUpdate.html"
+            "url": "classes/Serogaq-TgBotApi-Services-Middleware.html#method_addResponseMiddleware"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingOtherUpdate\u003A\u003AhandleOtherUpdate\u0028\u0029",
-            "name": "handleOtherUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\Middleware\u003A\u003AflushAll\u0028\u0029",
+            "name": "flushAll",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingOtherUpdate.html#method_handleOtherUpdate"
+            "url": "classes/Serogaq-TgBotApi-Services-Middleware.html#method_flushAll"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingPreCheckoutQueryUpdate",
-            "name": "HandlingPreCheckoutQueryUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\Middleware\u003A\u003AisAlreadyAdded\u0028\u0029",
+            "name": "isAlreadyAdded",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingPreCheckoutQueryUpdate.html"
+            "url": "classes/Serogaq-TgBotApi-Services-Middleware.html#method_isAlreadyAdded"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingPreCheckoutQueryUpdate\u003A\u003AhandlePreCheckoutQueryUpdate\u0028\u0029",
-            "name": "handlePreCheckoutQueryUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\Middleware\u003A\u003AexecRequestMiddlewares\u0028\u0029",
+            "name": "execRequestMiddlewares",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingPreCheckoutQueryUpdate.html#method_handlePreCheckoutQueryUpdate"
+            "url": "classes/Serogaq-TgBotApi-Services-Middleware.html#method_execRequestMiddlewares"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingStickerUpdate",
-            "name": "HandlingStickerUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\Middleware\u003A\u003AexecResponseMiddlewares\u0028\u0029",
+            "name": "execResponseMiddlewares",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingStickerUpdate.html"
+            "url": "classes/Serogaq-TgBotApi-Services-Middleware.html#method_execResponseMiddlewares"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingStickerUpdate\u003A\u003AhandleStickerUpdate\u0028\u0029",
-            "name": "handleStickerUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\Middleware\u003A\u003A\u0024requestMiddleware",
+            "name": "requestMiddleware",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingStickerUpdate.html#method_handleStickerUpdate"
+            "url": "classes/Serogaq-TgBotApi-Services-Middleware.html#property_requestMiddleware"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingTextUpdate",
-            "name": "HandlingTextUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\Middleware\u003A\u003A\u0024responseMiddleware",
+            "name": "responseMiddleware",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingTextUpdate.html"
+            "url": "classes/Serogaq-TgBotApi-Services-Middleware.html#property_responseMiddleware"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingTextUpdate\u003A\u003AhandleTextUpdate\u0028\u0029",
-            "name": "handleTextUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\OffsetStore\\FileOffsetStore",
+            "name": "FileOffsetStore",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingTextUpdate.html#method_handleTextUpdate"
+            "url": "classes/Serogaq-TgBotApi-Services-OffsetStore-FileOffsetStore.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingVenueUpdate",
-            "name": "HandlingVenueUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\OffsetStore\\FileOffsetStore\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingVenueUpdate.html"
+            "url": "classes/Serogaq-TgBotApi-Services-OffsetStore-FileOffsetStore.html#method___construct"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Traits\\HandlingVenueUpdate\u003A\u003AhandleVenueUpdate\u0028\u0029",
-            "name": "handleVenueUpdate",
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\OffsetStore\\FileOffsetStore\u003A\u003Aset\u0028\u0029",
+            "name": "set",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-Traits-HandlingVenueUpdate.html#method_handleVenueUpdate"
+            "url": "classes/Serogaq-TgBotApi-Services-OffsetStore-FileOffsetStore.html#method_set"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\OffsetStore\\FileOffsetStore\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Services-OffsetStore-FileOffsetStore.html#method_get"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\OffsetStore\\FileOffsetStore\u003A\u003AcreateOffsetFileIfNotExists\u0028\u0029",
+            "name": "createOffsetFileIfNotExists",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Services-OffsetStore-FileOffsetStore.html#method_createOffsetFileIfNotExists"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\OffsetStore\\FileOffsetStore\u003A\u003A\u0024disk",
+            "name": "disk",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Services-OffsetStore-FileOffsetStore.html#property_disk"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Traits\\ProcessingInControllers",
             "name": "ProcessingInControllers",
@@ -1280,6 +1635,206 @@ Search.appendIndex(
             "name": "handle",
             "summary": "Handle\u0020the\u0020event.",
             "url": "classes/Serogaq-TgBotApi-Traits-ProcessingInControllers.html#method_handle"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\CallbackQueryUpdate",
+            "name": "CallbackQueryUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-CallbackQueryUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\ChannelPostUpdate",
+            "name": "ChannelPostUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-ChannelPostUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\ChosenInlineResultUpdate",
+            "name": "ChosenInlineResultUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-ChosenInlineResultUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\CommandUpdate",
+            "name": "CommandUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-CommandUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\ContactUpdate",
+            "name": "ContactUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-ContactUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\DiceUpdate",
+            "name": "DiceUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-DiceUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\EventUpdate",
+            "name": "EventUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-EventUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\EventUpdate\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020new\u0020class\u0020Update\u0020instance.",
+            "url": "classes/Serogaq-TgBotApi-Updates-EventUpdate.html#method___construct"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\EventUpdate\u003A\u003AgetEventTypeFlags\u0028\u0029",
+            "name": "getEventTypeFlags",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-EventUpdate.html#method_getEventTypeFlags"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\EventUpdate\u003A\u003AaddFlag\u0028\u0029",
+            "name": "addFlag",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-EventUpdate.html#method_addFlag"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\EventUpdate\u003A\u003AremoveFlag\u0028\u0029",
+            "name": "removeFlag",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-EventUpdate.html#method_removeFlag"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\EventUpdate\u003A\u003AdetectEventTypes\u0028\u0029",
+            "name": "detectEventTypes",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-EventUpdate.html#method_detectEventTypes"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\EventUpdate\u003A\u003A\u0024typeFlags",
+            "name": "typeFlags",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-EventUpdate.html#property_typeFlags"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\GameUpdate",
+            "name": "GameUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-GameUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\InlineQueryUpdate",
+            "name": "InlineQueryUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-InlineQueryUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\LocationUpdate",
+            "name": "LocationUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-LocationUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\MediaUpdate",
+            "name": "MediaUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-MediaUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\MediaUpdate\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020new\u0020class\u0020Update\u0020instance.",
+            "url": "classes/Serogaq-TgBotApi-Updates-MediaUpdate.html#method___construct"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\MediaUpdate\u003A\u003AgetMediaTypeFlags\u0028\u0029",
+            "name": "getMediaTypeFlags",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-MediaUpdate.html#method_getMediaTypeFlags"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\MediaUpdate\u003A\u003AaddFlag\u0028\u0029",
+            "name": "addFlag",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-MediaUpdate.html#method_addFlag"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\MediaUpdate\u003A\u003AremoveFlag\u0028\u0029",
+            "name": "removeFlag",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-MediaUpdate.html#method_removeFlag"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\MediaUpdate\u003A\u003AdetectMediaTypes\u0028\u0029",
+            "name": "detectMediaTypes",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-MediaUpdate.html#method_detectMediaTypes"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\MediaUpdate\u003A\u003A\u0024typeFlags",
+            "name": "typeFlags",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-MediaUpdate.html#property_typeFlags"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\PollUpdate",
+            "name": "PollUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-PollUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\PreCheckoutQueryUpdate",
+            "name": "PreCheckoutQueryUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-PreCheckoutQueryUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\ShippingQueryUpdate",
+            "name": "ShippingQueryUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-ShippingQueryUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\StickerUpdate",
+            "name": "StickerUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-StickerUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\TextUpdate",
+            "name": "TextUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-TextUpdate.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update",
+            "name": "Update",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Create\u0020a\u0020new\u0020class\u0020Update\u0020instance.",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html#method___construct"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html#method___toString"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003AoffsetSet\u0028\u0029",
+            "name": "offsetSet",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html#method_offsetSet"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003AoffsetExists\u0028\u0029",
+            "name": "offsetExists",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html#method_offsetExists"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003AoffsetUnset\u0028\u0029",
+            "name": "offsetUnset",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html#method_offsetUnset"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003AoffsetGet\u0028\u0029",
+            "name": "offsetGet",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html#method_offsetGet"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003AasObject\u0028\u0029",
+            "name": "asObject",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html#method_asObject"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003AcreateUpdate\u0028\u0029",
+            "name": "createUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html#method_createUpdate"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html#method_create"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003A\u0024update",
+            "name": "update",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html#property_update"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\VenueUpdate",
+            "name": "VenueUpdate",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-VenueUpdate.html"
         },                {
             "fqsen": "\\",
             "name": "\\",
@@ -1296,10 +1851,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/serogaq.html"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Console\\Commands",
+            "name": "Commands",
+            "summary": "",
+            "url": "namespaces/serogaq-tgbotapi-console-commands.html"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Console",
             "name": "Console",
             "summary": "",
             "url": "namespaces/serogaq-tgbotapi-console.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Constants",
+            "name": "Constants",
+            "summary": "",
+            "url": "namespaces/serogaq-tgbotapi-constants.html"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Events",
             "name": "Events",
@@ -1311,6 +1876,21 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/serogaq-tgbotapi-exceptions.html"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Facades",
+            "name": "Facades",
+            "summary": "",
+            "url": "namespaces/serogaq-tgbotapi-facades.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers",
+            "name": "Helpers",
+            "summary": "",
+            "url": "namespaces/serogaq-tgbotapi-helpers.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers",
+            "name": "Matchers",
+            "summary": "",
+            "url": "namespaces/serogaq-tgbotapi-helpers-matchers.html"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers",
             "name": "Controllers",
             "summary": "",
@@ -1321,10 +1901,10 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/serogaq-tgbotapi-http.html"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\Http\\Controllers\\Updates",
-            "name": "Updates",
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces",
+            "name": "Interfaces",
             "summary": "",
-            "url": "namespaces/serogaq-tgbotapi-http-controllers-updates.html"
+            "url": "namespaces/serogaq-tgbotapi-interfaces.html"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Listeners",
             "name": "Listeners",
@@ -1341,9 +1921,29 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/serogaq-tgbotapi-providers.html"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient",
+            "name": "HttpClient",
+            "summary": "",
+            "url": "namespaces/serogaq-tgbotapi-services-httpclient.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services",
+            "name": "Services",
+            "summary": "",
+            "url": "namespaces/serogaq-tgbotapi-services.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\OffsetStore",
+            "name": "OffsetStore",
+            "summary": "",
+            "url": "namespaces/serogaq-tgbotapi-services-offsetstore.html"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Traits",
             "name": "Traits",
             "summary": "",
             "url": "namespaces/serogaq-tgbotapi-traits.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates",
+            "name": "Updates",
+            "summary": "",
+            "url": "namespaces/serogaq-tgbotapi-updates.html"
         }            ]
 );

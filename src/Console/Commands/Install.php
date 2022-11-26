@@ -6,8 +6,12 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
 class Install extends Command {
-    protected $hidden = false;
 
+    /**
+     * The signature of the console command.
+     * 
+     * @var string
+     */
     protected $signature = 'tgbotapi:install {--force}';
 
     protected $description = 'Install laravel-tgbotapi package';

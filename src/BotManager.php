@@ -10,9 +10,9 @@ class BotManager {
     /**
      * Create a new class BotManager instance.
      *
-     * @param  array  $config
+     * @param  array  $bots
      */
-    public function __construct(protected array $config) {}
+    public function __construct(protected array $bots = []) {}
 
     /**
      * Checking that the bot is exists in the config.
@@ -21,12 +21,12 @@ class BotManager {
      * @return  bool  Bot existence flag in config
      */
     public function botExists(int|string $idOrUsername): bool {
-        foreach ($this->config['bots'] as $bot) {
+        foreach ($this->bots as $bot) {
             if (
                 (is_int($idOrUsername) && getBotIdFromToken($bot['token']) === $idOrUsername) ||
                 (is_string($idOrUsername) && $bot['username'] === $idOrUsername)
             ) {
-                return true;
+                return (isset($bot['username']) && isset($bot['token']) && mb_strtolower(mb_substr($bot['username'], -3)) === 'bot') ? true : false;
             }
         }
         return false;
@@ -40,7 +40,7 @@ class BotManager {
      */
     public function getBotConfig(int|string $idOrUsername): ?array {
         if(!$this->botExists($idOrUsername)) return null;
-        foreach ($this->config['bots'] as $bot) {
+        foreach ($this->bots as $bot) {
             if (
                 (is_int($idOrUsername) && getBotIdFromToken($bot['token']) === $idOrUsername) ||
                 (is_string($idOrUsername) && $bot['username'] === $idOrUsername)

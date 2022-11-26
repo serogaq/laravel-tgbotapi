@@ -60,7 +60,7 @@ class TgBotApiServiceProvider extends ServiceProvider {
     public function register() {
         $this->mergeConfigFrom(__DIR__ . '/../../config/tgbotapi.php', 'tgbotapi');
         $this->app->singleton(BotManager::class, function ($app) {
-            return new BotManager(config('tgbotapi'));
+            return new BotManager(config('tgbotapi.bots'));
         });
         $middleware = new Middleware();
         $this->app->instance(Middleware::class, $middleware);

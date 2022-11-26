@@ -2,7 +2,7 @@ name: Docs update on GitHub Pages
 
 on:
   push:
-    branches: [ v1 ]
+    branches: [ v2 ]
     paths:
       - 'src/**'
       - 'docs/**'

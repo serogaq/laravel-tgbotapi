@@ -4,7 +4,7 @@
 [![License](http://poser.pugx.org/serogaq/laravel-tgbotapi/license)](https://packagist.org/packages/serogaq/laravel-tgbotapi)
 
 This package provides methods for working with the telegram bot api, and helpers for receiving updates via webhooks or the polling method  
-Tested for Laravel 8+
+Requires `PHP >= 8.0.2` and `Laravel >= 8`
 
 ## Installation
 
@@ -24,16 +24,16 @@ php artisan tgbotapi:install
 
 Set up your bot in `config/tgbotapi.php`  
 
-Add a listener for the new update received event:
+Add a listener for the new update event:
 
 ```php
 // app/Providers/EventServiceProvider.php
-use App\Listeners\UpdateProcessing;
-use Serogaq\TgBotApi\Events\NewUpdateReceived;
+use App\Listeners\HandleNewUpdate;
+use Serogaq\TgBotApi\Events\NewUpdateEvent;
 class EventServiceProvider extends ServiceProvider {
 	protected $listen = [
-		NewUpdateReceived::class => [
-			UpdateProcessing::class,
+		NewUpdateEvent::class => [
+			HandleNewUpdate::class,
 		],
 	];
 }
@@ -56,45 +56,41 @@ class Kernel extends ConsoleKernel {
 }
 ```
 
-Events will be sent to `app/Listeners/UpdateProcessing.php` where you can process them.
+Events will be sent to `app/Listeners/HandleNewUpdate.php` where you can process them.
 
-There are helpers for handling update events in controllers for each group of UpdateType's:
+Package provides the logic for handling updates in controllers:
 
 ```php
-// app/Listeners/UpdateProcessing.php
+// app/Listeners/HandleNewUpdate.php
+use Serogaq\TgBotApi\Facades\BotManager;
+use Serogaq\TgBotApi\Events\NewUpdateEvent;
 use Serogaq\TgBotApi\Traits\ProcessingInControllers;
-use Serogaq\TgBotApi\Traits\{HandlingCommandUpdate, HandlingEventUpdate};
-class UpdateProcessing {
+class HandleNewUpdate {
 	use ProcessingInControllers;
-	use HandlingCommandUpdate, HandlingEventUpdate;
 }
 ```
 
-Next, create handler controllers for the two UpdateType's:
+Next, create controller for the update:
 
 ```bash
-$ php artisan make:tgbotapi-controller CommandUpdate
-$ php artisan make:tgbotapi-controller EventUpdate
+$ php artisan make:tgbotapi:controller CommandUpdate
 ```
 
-Now you can process all events in the handle method in the corresponding controller:
+All updates with type CommandUpdate, i.e. commands, will be processed in the controller:
 
 ```php
-// app/Http/Controllers/TgBotApi/CommandUpdate.php
-use Serogaq\TgBotApi\Bot;
-use Serogaq\TgBotApi\Objects\UpdateType;
-use Serogaq\TgBotApi\Http\Controllers\Updates\CommandUpdate as AbstractUpdate;
-class CommandUpdate extends AbstractUpdate {
-	public function handle() {
-		# /start
-		if($this->update->commandMatch('start') && $this->update->isUpdateType(UpdateType::COMMAND_WITHOUT_ARGS)) $this->startCommand($this->bot, $this->update->message->chat->id);
-		# /start args
-		if($this->update->commandMatch('start') && $this->update->isUpdateType(UpdateType::COMMAND_WITH_ARGS_SPACE)) $this->startCommand($this->bot, $this->update->message->chat->id, $this->update->getMatches());
+// app/TgBotApi/Updates/CommandUpdate.php
+use Serogaq\TgBotApi\Events\NewUpdateEvent;
+use Serogaq\TgBotApi\Facades\BotManager;
+use Serogaq\TgBotApi\Interfaces\UpdateController;
+class CommandUpdate implements UpdateController {
+	public function __construct(protected NewUpdateEvent $event) {}
+	public function handle(): void {
+		BotManager::bot('username_bot')?->sendMessage([
+			'text' => $this->event->update['message']['text'],
+			'chat_id' => $this->event->update['message']['chat']['id']
+		])->send();
 	}
-	public function startCommand(Bot $bot, int $chat_id, ?string $start = null) {
-		$bot->sendMessage(['text' => 'Hello!', 'parse_mode' => 'HTML', 'chat_id' => $chat_id]);
-	}
-
 }
 ```
 
@@ -104,19 +100,20 @@ class CommandUpdate extends AbstractUpdate {
 composer test
 ```
 
-### Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING][link-contributing] for details.
 
 ### Troubleshooting
 
 If you like living on the edge, please report any bugs you find on the
-[issues](https://github.com/serogaq/laravel-tgbotapi/issues) page.
+[issues][link-issues] page.
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File][link-license] for more information.
+
+[link-repo]: https://github.com/serogaq/laravel-tgbotapi
+[link-issues]: https://github.com/serogaq/laravel-tgbotapi/issues
+[link-license]: https://github.com/serogaq/laravel-tgbotapi/blob/v1/LICENSE.md
+[link-contributing]: https://github.com/serogaq/laravel-tgbotapi/blob/v1/CONTRIBUTING.md

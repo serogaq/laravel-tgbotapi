@@ -50,7 +50,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-v2": "2.x-dev"
+            "dev-v1": "1.x-dev"
         },
         "laravel": {
             "providers": [
@@ -61,6 +61,6 @@
             }
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "beta",
     "prefer-stable": true
 }

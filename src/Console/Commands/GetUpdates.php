@@ -148,9 +148,11 @@ class GetUpdates extends Command {
      * @return void
      */
     protected function listenForSignals(): void {
-        pcntl_async_signals(true);
-        pcntl_signal(SIGINT, [$this, 'shutdown']);
-        pcntl_signal(SIGTERM, [$this, 'shutdown']);
+        if(function_exists('pcntl_async_signals')) {
+            \pcntl_async_signals(true);
+            \pcntl_signal(SIGINT, [$this, 'shutdown']);
+            \pcntl_signal(SIGTERM, [$this, 'shutdown']);
+        }
     }
 
     /**

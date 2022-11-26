@@ -32,7 +32,10 @@
     "autoload-dev": {
         "psr-4": {
             "Serogaq\\TgBotApi\\Tests\\": "tests"
-        }
+        },
+        "files": [
+            "src/Helpers/Helpers.php"
+        ]
     },
     "scripts": {
         "php:syntax": "parallel-lint . --blame --colors --exclude vendor",

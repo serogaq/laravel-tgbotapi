@@ -28,12 +28,19 @@
 		<testsuite name="Unit">
 			<directory suffix="Test.php">./tests/Unit</directory>
 		</testsuite>
+		<testsuite name="Feature">
+			<directory suffix="Test.php">./tests/Feature</directory>
+		</testsuite>
 	</testsuites>
 	<php>
-		<env name="APP_ENV" value="testing"/>
-		<env name="APP_KEY" value="base64:2fl+Ktvkfl+Fuz4Qp/A75G2RTiWVA/ZoKZvp6fiiM10="/>
-		<env name="CACHE_DRIVER" value="array"/>
-		<env name="SESSION_DRIVER" value="array"/>
-		<env name="QUEUE_DRIVER" value="sync"/>
+		<env name="APP_ENV" value="testing" force="true" />
+		<env name="APP_KEY" value="base64:2fl+Ktvkfl+Fuz4Qp/A75G2RTiWVA/ZoKZvp6fiiM10=" />
+		<env name="CACHE_DRIVER" value="array" />
+		<env name="SESSION_DRIVER" value="array" />
+		<env name="QUEUE_DRIVER" value="sync" />
+		<env name="DB_CONNECTION" value="sqlite" />
+        <env name="DB_DATABASE" value=":memory:" />
+        <env name="MAIL_DRIVER" value="log" />
+        <ini name="memory_limit" value="512M" />
 	</php>
 </phpunit>

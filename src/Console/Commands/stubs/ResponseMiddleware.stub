@@ -1,0 +1,15 @@
+<?php
+declare(strict_types=1);
+
+namespace DummyNamespace;
+
+use Serogaq\TgBotApi\Interfaces\ResponseMiddleware;
+use Serogaq\TgBotApi\ApiResponse;
+
+class DummyClass implements ResponseMiddleware {
+
+    public function handle(ApiResponse $apiResponse): ApiResponse {
+        //
+    }
+
+}

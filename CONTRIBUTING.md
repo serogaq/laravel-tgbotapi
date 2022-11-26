@@ -46,4 +46,6 @@ If the project maintainer has any additional requirements, you will find them li
 
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
 
+- **Branch name must match the pattern** - Create a new branch named `issue-***`, for example issue-99, issue-100/feature, issue-101/bugfix.
+
 **Happy coding**!

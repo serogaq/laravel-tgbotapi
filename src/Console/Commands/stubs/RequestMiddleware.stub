@@ -1,0 +1,15 @@
+<?php
+declare(strict_types=1);
+
+namespace DummyNamespace;
+
+use Serogaq\TgBotApi\Interfaces\RequestMiddleware;
+use Serogaq\TgBotApi\ApiRequest;
+
+class DummyClass implements RequestMiddleware {
+
+    public function handle(ApiRequest $apiRequest): ApiRequest {
+        //
+    }
+
+}

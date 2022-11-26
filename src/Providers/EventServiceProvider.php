@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Serogaq\TgBotApi\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Serogaq\TgBotApi\Events\NewUpdateReceived;
-use Serogaq\TgBotApi\Listeners\UpdateProcessing;
+use Serogaq\TgBotApi\Events\NewUpdateEvent;
+use Serogaq\TgBotApi\Listeners\HandleNewUpdate;
 
 class EventServiceProvider extends ServiceProvider {
     protected $listen = [
-        NewUpdateReceived::class => [
-            UpdateProcessing::class,
+        NewUpdateEvent::class => [
+            HandleNewUpdate::class,
         ],
     ];
 

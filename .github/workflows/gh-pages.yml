@@ -2,7 +2,8 @@ name: Docs update on GitHub Pages
 
 on:
   push:
-    branches: [ v1 ]
+    branches:
+      - 'v1'
     paths:
       - 'src/**'
       - 'docs/**'
@@ -15,7 +16,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: true
 
 jobs:

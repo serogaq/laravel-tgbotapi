@@ -1,0 +1,18 @@
+<?php
+declare(strict_types=1);
+
+namespace DummyNamespace;
+
+use Serogaq\TgBotApi\Facades\BotManager;
+use Serogaq\TgBotApi\Events\NewUpdateEvent;
+// use Serogaq\TgBotApi\Traits\ProcessingInControllers;
+
+class DummyClass {
+
+    // use ProcessingInControllers;
+
+    public function handle(NewUpdateEvent $event): void {
+        //
+    }
+
+}

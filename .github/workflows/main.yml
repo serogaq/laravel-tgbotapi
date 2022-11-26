@@ -3,7 +3,7 @@ name: Run Tests
 on:
   push:
     branches:
-      - 'v2'
+      - 'v1'
     paths:
       - 'src/**'
       - 'config/**'

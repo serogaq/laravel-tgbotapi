@@ -3,7 +3,7 @@ name: Laravel Pint
 on:
   push:
     branches:
-      - 'v2'
+      - 'v1'
     paths:
       - 'src/**'
       - 'routes/**'

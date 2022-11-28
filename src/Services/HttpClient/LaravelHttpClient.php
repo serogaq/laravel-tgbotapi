@@ -159,7 +159,7 @@ class LaravelHttpClient implements HttpClient {
      */
     public function setConnectTimeout(int $connectTimeout): self {
         $this->connectTimeout = $connectTimeout;
-        $this->request->connectTimeout($connectTimeout);
+        // $this->request->connectTimeout($connectTimeout);
         return $this;
     }
 

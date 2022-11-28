@@ -9,7 +9,6 @@ use Serogaq\TgBotApi\Tests\TestCase;
  * @coversDefaultClass \Serogaq\TgBotApi\Services\OffsetStore\FileOffsetStore
  */
 class FileOffsetStoreTest extends TestCase {
-
     protected $offsetStore;
 
     public function setUp(): void {

@@ -4,8 +4,8 @@ namespace Serogaq\TgBotApi\Tests\Unit;
 
 use Serogaq\TgBotApi\Tests\TestCase;
 use function Serogaq\TgBotApi\Helpers\{
-    getBotIdFromToken,
     arrayToObject,
+    getBotIdFromToken,
     isValidBotConfig
 };
 
@@ -60,8 +60,8 @@ class HelpersTest extends TestCase {
             'key' => 'value',
             'array' => [
                 ['key' => 'value'],
-                ['key' => 'value']
-            ]
+                ['key' => 'value'],
+            ],
         ]));
     }
 
@@ -78,15 +78,15 @@ class HelpersTest extends TestCase {
         $this->assertFalse(isValidBotConfig([]));
         $this->assertFalse(isValidBotConfig([
             'username' => 'username',
-            'username' => '11111111:AAFOH-Q_VxUMvOT3L2FsTAN7DKWYJpEiSQ44'
+            'username' => '11111111:AAFOH-Q_VxUMvOT3L2FsTAN7DKWYJpEiSQ44',
         ]));
         $this->assertFalse(isValidBotConfig([
             'username' => 'usernamebot',
-            'username' => '111111:AAFOH-Q_VxUMvOT3L2FsTAN7DKWYJpEiSQ44'
+            'username' => '111111:AAFOH-Q_VxUMvOT3L2FsTAN7DKWYJpEiSQ44',
         ]));
         $this->assertFalse(isValidBotConfig([
             'username' => 'usernamebot',
-            'username' => '111111111:AAFOH-Q_VxUMvOT3L2FsT'
+            'username' => '111111111:AAFOH-Q_VxUMvOT3L2FsT',
         ]));
     }
 }

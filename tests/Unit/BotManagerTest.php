@@ -70,7 +70,7 @@ class BotManagerTest extends TestCase {
       * @covers ::bot
       */
      public function bot_manager_should_return_bot_api_class() {
-        $this->assertInstanceOf(BotApi::class, $this->botManager->bot('first_bot'));
+         $this->assertInstanceOf(BotApi::class, $this->botManager->bot('first_bot'));
      }
 
     /**

@@ -3,10 +3,10 @@
 namespace Serogaq\TgBotApi\Tests\Unit\Services;
 
 use Illuminate\Support\Facades\Config;
-use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Interfaces\{ RequestMiddleware, ResponseMiddleware };
-use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
+use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Tests\TestCase;
+use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
 
 /**
  * @coversDefaultClass \Serogaq\TgBotApi\Services\Middleware
@@ -29,14 +29,14 @@ class MiddlewareTest extends TestCase {
                     'middleware' => [],
                     'log_channel' => 'null',
                     'api_url' => null,
-                ]
-            ]
+                ],
+            ],
         ]);
         $this->middleware = resolve(Middleware::class);
         $this->testMiddlewares = [
             \Serogaq\TgBotApi\Tests\TestRequestMiddleware1::class,
             \Serogaq\TgBotApi\Tests\TestRequestMiddleware2::class,
-            \Serogaq\TgBotApi\Tests\TestResponseMiddleware::class
+            \Serogaq\TgBotApi\Tests\TestResponseMiddleware::class,
         ];
     }
 

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Serogaq\TgBotApi;
 
 use Illuminate\Support\Facades\Log;
-use Serogaq\TgBotApi\Interfaces\HttpClient;
 use Serogaq\TgBotApi\Exceptions\{ ApiRequestException, HttpClientException };
+use Serogaq\TgBotApi\Interfaces\HttpClient;
 use Serogaq\TgBotApi\Services\Middleware;
 
 class ApiRequest implements \Stringable {
@@ -49,7 +49,9 @@ class ApiRequest implements \Stringable {
         $this->botId = $botId;
         $this->httpClient = resolve(HttpClient::class);
         $this->botManager = resolve(BotManager::class);
-        if (!$this->botManager->botExists($botId)) throw new ApiRequestException('Incorrect bot configuration', 0);
+        if (!$this->botManager->botExists($botId)) {
+            throw new ApiRequestException('Incorrect bot configuration', 0);
+        }
         $this->botConfig = $this->botManager->getBotConfig($botId);
         $this->method = $method;
         $this->arguments = $arguments;

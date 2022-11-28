@@ -19,7 +19,9 @@ class BotApi {
      * @param  array  $botConfig  Bot configuration
      */
     public function __construct(protected array $botConfig) {
-        if (!isValidBotConfig($botConfig)) throw new BotApiException('Incorrect bot configuration', 0);
+        if (!isValidBotConfig($botConfig)) {
+            throw new BotApiException('Incorrect bot configuration', 0);
+        }
     }
 
     public function __call(string $method, array $arguments = []): mixed {

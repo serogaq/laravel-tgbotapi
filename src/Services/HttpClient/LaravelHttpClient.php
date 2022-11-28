@@ -25,7 +25,8 @@ class LaravelHttpClient implements HttpClient {
     protected int $connectTimeout = 10;
 
     public function __construct() {
-        $this->request = Http::withOptions([])->acceptJson()->timeout($this->timeout)->connectTimeout($this->connectTimeout);
+        // TODO: ConnectTimeout
+        $this->request = Http::withOptions([])->acceptJson()->timeout($this->timeout);
     }
 
     public function setRequestHash(string $requestHash): self {

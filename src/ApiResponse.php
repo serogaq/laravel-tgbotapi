@@ -8,24 +8,25 @@ use Serogaq\TgBotApi\Exceptions\ApiResponseException;
 use function Serogaq\TgBotApi\Helpers\arrayToObject;
 
 class ApiResponse implements \Stringable, \ArrayAccess {
-    protected string $requestId;
+    protected ?string $requestId;
 
     protected array $response;
 
-    public function __construct(string $requestId, string|array $body) {
+    public function __construct(string|array $body, ?string $requestId = null) {
         if (is_string($body)) {
             try {
-                $this->response = json_decode($body, associative: true, flags: JSON_THROW_ON_ERROR);
+                $response = json_decode($body, associative: true, flags: JSON_THROW_ON_ERROR);
             } catch (\JsonException $e) {
                 report($e);
                 throw new ApiResponseException('Json parsing error', 0, $e);
             }
-        } else {
-            $this->response = $body;
+        } elseif (is_array($body) && !empty($body)) {
+            $response = $body;
         }
-        if (!is_array($this->response)) {
-            throw new ApiResponseException("Incorrect response type:\n" . var_export($this->response, true), 1);
+        if (!isset($response) || !is_array($response)) {
+            throw new ApiResponseException("Invalid body:\n" . var_export($body, true), 1);
         }
+        $this->response = $response;
         $this->requestId = $requestId;
     }
 
@@ -52,15 +53,19 @@ class ApiResponse implements \Stringable, \ArrayAccess {
         return $this->response[$offset] ?? null;
     }
 
-    public function getRequestId(): string {
+    public function getRequestId(): ?string {
         return $this->requestId;
+    }
+
+    public function asArray(): array {
+        return $this->response;
     }
 
     public function asObject(): object {
         return arrayToObject($this->response);
     }
 
-    public function asJson(): array {
+    public function asJson(): string {
         return json_encode($this->response);
     }
 }

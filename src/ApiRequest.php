@@ -6,6 +6,7 @@ namespace Serogaq\TgBotApi;
 
 use Illuminate\Support\Facades\Log;
 use Serogaq\TgBotApi\Interfaces\HttpClient;
+use Serogaq\TgBotApi\Exceptions\{ ApiRequestException, HttpClientException };
 use Serogaq\TgBotApi\Services\Middleware;
 
 class ApiRequest implements \Stringable {
@@ -43,15 +44,16 @@ class ApiRequest implements \Stringable {
 
     protected bool $isAsyncRequest = false;
 
-    public function __construct(string $method, array $arguments, int $botId) {
+    public function __construct(int $botId, string $method, array $arguments = []) {
         $this->requestId = mb_substr(md5(random_bytes(10)), 0, 10);
         $this->botId = $botId;
         $this->httpClient = resolve(HttpClient::class);
         $this->botManager = resolve(BotManager::class);
+        if (!$this->botManager->botExists($botId)) throw new ApiRequestException('Incorrect bot configuration', 0);
         $this->botConfig = $this->botManager->getBotConfig($botId);
         $this->method = $method;
         $this->arguments = $arguments;
-        $apiUrl = str_replace('{TOKEN}', $this->botConfig['token'], $this->botConfig['api_url'] ?? config('tgbotapi.api_url'));
+        $apiUrl = str_replace('{TOKEN}', $this->botConfig['token'], $this->botConfig['api_url'] ?? config('tgbotapi.api_url', 'https://api.telegram.org/bot{TOKEN}/{METHOD}'));
         $apiUrl = str_replace('{METHOD}', $this->method, $apiUrl);
         $this->url = $apiUrl;
         $this->data = $this->getDataFromArguments($arguments);
@@ -78,6 +80,7 @@ class ApiRequest implements \Stringable {
         Log::channel($this->botConfig['log_channel'] ?? config('logging.default'))->debug("TgBotApi ApiRequest send:\n" . (string) $this);
         $apiResponse = $this->httpClient
                 ->setRequestId($this->requestId)
+                ->setRequestHash($this->getRequestHash())
                 ->setTimeout($this->timeout)
                 ->setConnectTimeout($this->connectTimeout)
                 ->send(
@@ -87,9 +90,22 @@ class ApiRequest implements \Stringable {
                     $this->files,
                     $this->isAsyncRequest
                 );
-        return $this->middlewareResponse($apiResponse);
+        return $this->applyMiddlewares($apiResponse);
     }
 
+    public function withFakeResponse(ApiResponse|HttpClientException $responseOrException): self {
+        $this->httpClient
+            ->setRequestId($this->requestId)
+            ->setRequestHash($this->getRequestHash())
+            ->setTimeout($this->timeout)
+            ->setConnectTimeout($this->connectTimeout)
+            ->fake($responseOrException);
+        return $this;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
     protected function getDataFromArguments(array $arguments): array {
         $index = 0;
         // TODO: Exception if arguments[0] (data) is not array
@@ -99,6 +115,9 @@ class ApiRequest implements \Stringable {
         return [];
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     protected function getFilesFromArguments(array $arguments): array {
         $index = 1;
         $key = self::FILES;
@@ -109,6 +128,9 @@ class ApiRequest implements \Stringable {
         return [];
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     protected function setTimeoutFromArguments(array $arguments): void {
         $index = 1;
         $key = self::TIMEOUT;
@@ -118,6 +140,9 @@ class ApiRequest implements \Stringable {
         }
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     protected function setConnectTimeoutFromArguments(array $arguments): void {
         $index = 1;
         $key = self::CONNECT_TIMEOUT;
@@ -143,20 +168,37 @@ class ApiRequest implements \Stringable {
         return $this->arguments;
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function async(): self {
         $this->isAsyncRequest = true;
         return $this;
     }
 
-    protected function middlewareResponse(ApiResponse $apiResponse): ApiResponse {
+    public function getRequestHash(): string {
+        return md5(json_encode([
+            'botId' => $this->botId,
+            'url' => $this->url,
+            'method' => $this->method,
+            'data' => $this->data,
+            'files' => $this->files,
+            'timeout' => $this->timeout,
+            'connectTimeout' => $this->connectTimeout,
+            'isAsyncRequest' => $this->isAsyncRequest,
+        ]));
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    protected function applyMiddlewares(ApiResponse $apiResponse): ApiResponse {
         $middleware = resolve(Middleware::class);
-        if (isset($this->botConfig['middleware']) && !empty($this->botConfig['middleware'])) {
-            foreach ($this->botConfig['middleware'] as $m) {
-                $middleware->addResponseMiddleware($m);
-            }
-        }
-        $apiResponse = $middleware->execResponseMiddlewares($apiResponse);
-        Log::channel($this->botConfig['log_channel'] ?? config('logging.default'))->debug("TgBotApi ApiResponse:\n" . (string) $apiResponse);
-        return $apiResponse;
+        $response = $middleware->applyMiddlewares(
+            $apiResponse,
+            $this->botConfig['middleware'] ?? []
+        );
+        Log::channel($this->botConfig['log_channel'] ?? config('logging.default'))->debug("TgBotApi ApiResponse:\n" . (string) $response);
+        return $response;
     }
 }

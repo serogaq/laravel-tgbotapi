@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Serogaq\TgBotApi\Services\OffsetStore;
 
 use Illuminate\Support\Facades\Storage;
+use Serogaq\TgBotApi\Exceptions\OffsetStoreException;
 use Serogaq\TgBotApi\Interfaces\OffsetStore;
 
 class FileOffsetStore implements OffsetStore {
@@ -29,10 +30,20 @@ class FileOffsetStore implements OffsetStore {
         return (int) $this->disk->get($fileName);
     }
 
+    public function flush(int $botId): void {
+        $fileName = "tgbotapi_{$botId}.offset";
+        $this->set($botId, 0);
+    }
+
     protected function createOffsetFileIfNotExists(int $botId): void {
         $fileName = "tgbotapi_{$botId}.offset";
-        if ($this->disk->missing($fileName)) {
-            $this->disk->put($fileName, '0');
-        }
+        try {
+            if ($this->disk->missing($fileName)) {
+                $this->disk->put($fileName, '0');
+            }
+        } catch (\Exception $e) { // @codeCoverageIgnoreStart
+            report($e);
+            throw new OffsetStoreException('Could not create offset file', 1, $e);
+        } // @codeCoverageIgnoreEnd
     }
 }

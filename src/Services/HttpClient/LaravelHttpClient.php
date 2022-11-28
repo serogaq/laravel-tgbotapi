@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace Serogaq\TgBotApi\Services\HttpClient;
 
 use Illuminate\Http\Client\{ConnectionException, PendingRequest, RequestException};
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Serogaq\TgBotApi\ApiResponse;
 use Serogaq\TgBotApi\Exceptions\HttpClientException;
 use Serogaq\TgBotApi\Interfaces\HttpClient;
 
 class LaravelHttpClient implements HttpClient {
+    protected string $requestHash;
+    
     protected string $requestId;
 
     protected PendingRequest $request;
@@ -23,6 +26,15 @@ class LaravelHttpClient implements HttpClient {
 
     public function __construct() {
         $this->request = Http::withOptions([])->acceptJson()->timeout($this->timeout)->connectTimeout($this->connectTimeout);
+    }
+
+    public function setRequestHash(string $requestHash): self {
+        $this->requestHash = $requestHash;
+        return $this;
+    }
+
+    public function getRequestHash(): string {
+        return $this->requestHash;
     }
 
     public function setRequestId(string $requestId): self {
@@ -51,6 +63,15 @@ class LaravelHttpClient implements HttpClient {
         array $files = [],
         bool $isAsyncRequest = false
     ): ApiResponse {
+        $cacheFakeRequestKey = 'tgbotapi_httpclientfake_'.$this->getRequestHash();
+        if (Cache::has($cacheFakeRequestKey)) {
+            $responseOrException = json_decode(Cache::pull($cacheFakeRequestKey), true);
+            if ($responseOrException['type'] === 'ApiResponse') {
+                return new ApiResponse($responseOrException['body'], $responseOrException['requestId']);
+            } elseif ($responseOrException['type'] === 'HttpClientException') {
+                throw new HttpClientException($responseOrException['message'], $responseOrException['code']);
+            }
+        }
         if ($method === 'GET') {
             try {
                 $response = $this->request
@@ -96,7 +117,7 @@ class LaravelHttpClient implements HttpClient {
         } else {
             throw new HttpClientException("Unsupported Method '{$method}'", 3);
         }
-        return new ApiResponse($this->getRequestId(), $response->body());
+        return new ApiResponse($response->body(), $this->getRequestId());
     }
 
     /**
@@ -139,5 +160,18 @@ class LaravelHttpClient implements HttpClient {
         $this->connectTimeout = $connectTimeout;
         $this->request->connectTimeout($connectTimeout);
         return $this;
+    }
+
+    /**
+     * To create fake requests.
+     * 
+     * @param ApiResponse|HttpClientException $responseOrException
+     * @return void
+     */
+    public function fake(ApiResponse|HttpClientException $responseOrException): void {
+        Cache::put('tgbotapi_httpclientfake_'.$this->getRequestHash(), match (get_class($responseOrException)) {
+            ApiResponse::class => json_encode(['type' => 'ApiResponse', 'body' => $responseOrException->asJson(), 'requestId' => $this->getRequestId()]),
+            HttpClientException::class => json_encode(['type' => 'HttpClientException', 'message' => $responseOrException->getMessage(), 'code' => $responseOrException->getCode()])
+        }, 60);
     }
 }

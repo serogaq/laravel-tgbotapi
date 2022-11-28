@@ -21,6 +21,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_send"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AwithFakeResponse\u0028\u0029",
+            "name": "withFakeResponse",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_withFakeResponse"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AgetDataFromArguments\u0028\u0029",
             "name": "getDataFromArguments",
             "summary": "",
@@ -66,10 +71,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_async"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AmiddlewareResponse\u0028\u0029",
-            "name": "middlewareResponse",
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AgetRequestHash\u0028\u0029",
+            "name": "getRequestHash",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_middlewareResponse"
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_getRequestHash"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AapplyMiddlewares\u0028\u0029",
+            "name": "applyMiddlewares",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiRequest.html#method_applyMiddlewares"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\ApiRequest\u003A\u003AFILES",
             "name": "FILES",
@@ -191,6 +201,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method_getRequestId"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003AasArray\u0028\u0029",
+            "name": "asArray",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method_asArray"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003AasObject\u0028\u0029",
             "name": "asObject",
             "summary": "",
@@ -236,10 +251,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-BotApi.html#method_getUpdatesAndCreateEvents"
         },                {
-            "fqsen": "\\Serogaq\\TgBotApi\\BotApi\u003A\u003AcreateRequest\u0028\u0029",
-            "name": "createRequest",
+            "fqsen": "\\Serogaq\\TgBotApi\\BotApi\u003A\u003AcreateApiRequest\u0028\u0029",
+            "name": "createApiRequest",
             "summary": "",
-            "url": "classes/Serogaq-TgBotApi-BotApi.html#method_createRequest"
+            "url": "classes/Serogaq-TgBotApi-BotApi.html#method_createApiRequest"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\BotApi\u003A\u003A\u0024botConfig",
             "name": "botConfig",
@@ -811,6 +826,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Events-NewUpdateEvent.html#property_updateChannel"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\ApiRequestException",
+            "name": "ApiRequestException",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Exceptions-ApiRequestException.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\ApiRequestException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Exceptions-ApiRequestException.html#method___construct"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\ApiResponseException",
             "name": "ApiResponseException",
             "summary": "",
@@ -851,6 +876,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Exceptions-MiddlewareException.html#method___construct"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\OffsetStoreException",
+            "name": "OffsetStoreException",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Exceptions-OffsetStoreException.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\OffsetStoreException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Exceptions-OffsetStoreException.html#method___construct"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\TgBotApiException",
             "name": "TgBotApiException",
             "summary": "",
@@ -885,6 +920,11 @@ Search.appendIndex(
             "name": "arrayToObject",
             "summary": "",
             "url": "namespaces/serogaq-tgbotapi-helpers.html#function_arrayToObject"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\isValidBotConfig\u0028\u0029",
+            "name": "isValidBotConfig",
+            "summary": "",
+            "url": "namespaces/serogaq-tgbotapi-helpers.html#function_isValidBotConfig"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Helpers\\Matchers\\Command",
             "name": "Command",
@@ -1006,6 +1046,21 @@ Search.appendIndex(
             "summary": "Set\u0020Connection\u0020Timeout.",
             "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_setConnectTimeout"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\HttpClient\u003A\u003AsetRequestHash\u0028\u0029",
+            "name": "setRequestHash",
+            "summary": "Set\u0020Request\u0020Hash.",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_setRequestHash"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\HttpClient\u003A\u003AgetRequestHash\u0028\u0029",
+            "name": "getRequestHash",
+            "summary": "Get\u0020Request\u0020Hash.",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_getRequestHash"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\HttpClient\u003A\u003Afake\u0028\u0029",
+            "name": "fake",
+            "summary": "To\u0020create\u0020fake\u0020requests.",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_fake"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\OffsetStore",
             "name": "OffsetStore",
             "summary": "",
@@ -1020,6 +1075,11 @@ Search.appendIndex(
             "name": "get",
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Interfaces-OffsetStore.html#method_get"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\OffsetStore\u003A\u003Aflush\u0028\u0029",
+            "name": "flush",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-OffsetStore.html#method_flush"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\RequestMiddleware",
             "name": "RequestMiddleware",
@@ -1081,6 +1141,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Listeners-HandleNewUpdate.html"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Listeners\\HandleNewUpdate\u003A\u003Ahandle\u0028\u0029",
+            "name": "handle",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Listeners-HandleNewUpdate.html#method_handle"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Providers\\EventServiceProvider",
             "name": "EventServiceProvider",
             "summary": "",
@@ -1136,6 +1201,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method___construct"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003AsetRequestHash\u0028\u0029",
+            "name": "setRequestHash",
+            "summary": "Set\u0020Request\u0020Hash.",
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method_setRequestHash"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003AgetRequestHash\u0028\u0029",
+            "name": "getRequestHash",
+            "summary": "Get\u0020Request\u0020Hash.",
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method_getRequestHash"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003AsetRequestId\u0028\u0029",
             "name": "setRequestId",
             "summary": "",
@@ -1170,6 +1245,16 @@ Search.appendIndex(
             "name": "setConnectTimeout",
             "summary": "Set\u0020Connection\u0020Timeout.",
             "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method_setConnectTimeout"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003Afake\u0028\u0029",
+            "name": "fake",
+            "summary": "To\u0020create\u0020fake\u0020requests.",
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#method_fake"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003A\u0024requestHash",
+            "name": "requestHash",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Services-HttpClient-LaravelHttpClient.html#property_requestHash"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Services\\HttpClient\\LaravelHttpClient\u003A\u003A\u0024requestId",
             "name": "requestId",
@@ -1216,6 +1301,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Services-Middleware.html#method_isAlreadyAdded"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\Middleware\u003A\u003AapplyMiddlewares\u0028\u0029",
+            "name": "applyMiddlewares",
+            "summary": "Applying\u0020Middleware.",
+            "url": "classes/Serogaq-TgBotApi-Services-Middleware.html#method_applyMiddlewares"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Services\\Middleware\u003A\u003AexecRequestMiddlewares\u0028\u0029",
             "name": "execRequestMiddlewares",
             "summary": "",
@@ -1255,6 +1345,11 @@ Search.appendIndex(
             "name": "get",
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Services-OffsetStore-FileOffsetStore.html#method_get"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Services\\OffsetStore\\FileOffsetStore\u003A\u003Aflush\u0028\u0029",
+            "name": "flush",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Services-OffsetStore-FileOffsetStore.html#method_flush"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Services\\OffsetStore\\FileOffsetStore\u003A\u003AcreateOffsetFileIfNotExists\u0028\u0029",
             "name": "createOffsetFileIfNotExists",

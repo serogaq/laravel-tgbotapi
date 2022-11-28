@@ -122,7 +122,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Interfaces/HttpClient.php"><a href="files/src-interfaces-httpclient.html"><abbr title="src/Interfaces/HttpClient.php">HttpClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
@@ -146,11 +146,25 @@
 <h4>Methods</h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_fake">fake()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>To create fake requests.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_getConnectTimeout">getConnectTimeout()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Get Connection Timeout.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_getRequestHash">getRequestHash()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Get Request Hash.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_getRequestId">getRequestId()</a>
@@ -175,9 +189,16 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_setConnectTimeout">setConnectTimeout()</a>
     <span>
-                                &nbsp;: $this    </span>
+                                &nbsp;: self    </span>
 </dt>
 <dd>Set Connection Timeout.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_setRequestHash">setRequestHash()</a>
+    <span>
+                                &nbsp;: self    </span>
+</dt>
+<dd>Set Request Hash.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_setRequestId">setRequestId()</a>
@@ -188,7 +209,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_setTimeout">setTimeout()</a>
     <span>
-                                &nbsp;: $this    </span>
+                                &nbsp;: self    </span>
 </dt>
 <dd>Set Timeout.</dd>
 
@@ -210,6 +231,49 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_fake">
+        fake()
+        <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_fake" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Interfaces/HttpClient.php"><a href="files/src-interfaces-httpclient.html"><abbr title="src/Interfaces/HttpClient.php">HttpClient.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">84</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">To create fake requests.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">fake</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Serogaq-TgBotApi-ApiResponse.html"><abbr title="\Serogaq\TgBotApi\ApiResponse">ApiResponse</abbr></a>|<a href="classes/Serogaq-TgBotApi-Exceptions-HttpClientException.html"><abbr title="\Serogaq\TgBotApi\Exceptions\HttpClientException">HttpClientException</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$responseOrException</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$responseOrException</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Serogaq-TgBotApi-ApiResponse.html"><abbr title="\Serogaq\TgBotApi\ApiResponse">ApiResponse</abbr></a>|<a href="classes/Serogaq-TgBotApi-Exceptions-HttpClientException.html"><abbr title="\Serogaq\TgBotApi\Exceptions\HttpClientException">HttpClientException</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getConnectTimeout">
         getConnectTimeout()
         <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_getConnectTimeout" class="headerlink"><i class="fas fa-link"></i></a>
@@ -217,7 +281,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Interfaces/HttpClient.php"><a href="files/src-interfaces-httpclient.html"><abbr title="src/Interfaces/HttpClient.php">HttpClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -243,6 +307,39 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getRequestHash">
+        getRequestHash()
+        <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_getRequestHash" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Interfaces/HttpClient.php"><a href="files/src-interfaces-httpclient.html"><abbr title="src/Interfaces/HttpClient.php">HttpClient.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">76</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get Request Hash.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getRequestHash</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getRequestId">
         getRequestId()
         <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_getRequestId" class="headerlink"><i class="fas fa-link"></i></a>
@@ -250,7 +347,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Interfaces/HttpClient.php"><a href="files/src-interfaces-httpclient.html"><abbr title="src/Interfaces/HttpClient.php">HttpClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
@@ -282,7 +379,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Interfaces/HttpClient.php"><a href="files/src-interfaces-httpclient.html"><abbr title="src/Interfaces/HttpClient.php">HttpClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -315,7 +412,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Interfaces/HttpClient.php"><a href="files/src-interfaces-httpclient.html"><abbr title="src/Interfaces/HttpClient.php">HttpClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
@@ -390,7 +487,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Interfaces/HttpClient.php"><a href="files/src-interfaces-httpclient.html"><abbr title="src/Interfaces/HttpClient.php">HttpClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -398,7 +495,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setConnectTimeout</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$connectTimeout</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
+                    <span class="phpdocumentor-signature__name">setConnectTimeout</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$connectTimeout</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -415,7 +512,50 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
+    <span class="phpdocumentor-signature__response_type">self</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setRequestHash">
+        setRequestHash()
+        <a href="classes/Serogaq-TgBotApi-Interfaces-HttpClient.html#method_setRequestHash" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Interfaces/HttpClient.php"><a href="files/src-interfaces-httpclient.html"><abbr title="src/Interfaces/HttpClient.php">HttpClient.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">69</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Set Request Hash.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setRequestHash</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$requestHash</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$requestHash</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">self</span>
             &mdash;
         
     
@@ -433,7 +573,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Interfaces/HttpClient.php"><a href="files/src-interfaces-httpclient.html"><abbr title="src/Interfaces/HttpClient.php">HttpClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
@@ -475,7 +615,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Interfaces/HttpClient.php"><a href="files/src-interfaces-httpclient.html"><abbr title="src/Interfaces/HttpClient.php">HttpClient.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -483,7 +623,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setTimeout</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$timeout</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
+                    <span class="phpdocumentor-signature__name">setTimeout</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$timeout</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">self</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -500,7 +640,7 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">$this</span>
+    <span class="phpdocumentor-signature__response_type">self</span>
             &mdash;
         
     

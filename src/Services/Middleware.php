@@ -50,14 +50,15 @@ class Middleware {
 
     /**
      * Applying Middleware.
-     * 
-     * @param ApiRequest|ApiResponse $obj
-     * @param array $middlewares
-     * 
+     *
+     * @param  ApiRequest|ApiResponse  $obj
+     * @param  array  $middlewares
      * @return ApiRequest|ApiResponse
      */
     public function applyMiddlewares(ApiRequest|ApiResponse $obj, array $middlewares = []): ApiRequest|ApiResponse {
-        if (empty($middlewares)) return $obj;
+        if (empty($middlewares)) {
+            return $obj;
+        }
         if ($obj instanceof ApiRequest) {
             foreach ($middlewares as $m) {
                 $this->addRequestMiddleware($m);

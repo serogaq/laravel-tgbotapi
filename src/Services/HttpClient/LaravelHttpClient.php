@@ -13,7 +13,7 @@ use Serogaq\TgBotApi\Interfaces\HttpClient;
 
 class LaravelHttpClient implements HttpClient {
     protected string $requestHash;
-    
+
     protected string $requestId;
 
     protected PendingRequest $request;
@@ -63,7 +63,7 @@ class LaravelHttpClient implements HttpClient {
         array $files = [],
         bool $isAsyncRequest = false
     ): ApiResponse {
-        $cacheFakeRequestKey = 'tgbotapi_httpclientfake_'.$this->getRequestHash();
+        $cacheFakeRequestKey = 'tgbotapi_httpclientfake_' . $this->getRequestHash();
         if (Cache::has($cacheFakeRequestKey)) {
             $responseOrException = json_decode(Cache::pull($cacheFakeRequestKey), true);
             if ($responseOrException['type'] === 'ApiResponse') {
@@ -164,12 +164,12 @@ class LaravelHttpClient implements HttpClient {
 
     /**
      * To create fake requests.
-     * 
-     * @param ApiResponse|HttpClientException $responseOrException
+     *
+     * @param  ApiResponse|HttpClientException  $responseOrException
      * @return void
      */
     public function fake(ApiResponse|HttpClientException $responseOrException): void {
-        Cache::put('tgbotapi_httpclientfake_'.$this->getRequestHash(), match (get_class($responseOrException)) {
+        Cache::put('tgbotapi_httpclientfake_' . $this->getRequestHash(), match (get_class($responseOrException)) {
             ApiResponse::class => json_encode(['type' => 'ApiResponse', 'body' => $responseOrException->asJson(), 'requestId' => $this->getRequestId()]),
             HttpClientException::class => json_encode(['type' => 'HttpClientException', 'message' => $responseOrException->getMessage(), 'code' => $responseOrException->getCode()])
         }, 60);

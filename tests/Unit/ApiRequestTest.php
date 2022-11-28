@@ -2,17 +2,16 @@
 
 namespace Serogaq\TgBotApi\Tests\Unit;
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Cache;
-use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
+use Illuminate\Support\Facades\Config;
 use Serogaq\TgBotApi\Exceptions\{ ApiRequestException, HttpClientException };
 use Serogaq\TgBotApi\Tests\TestCase;
+use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
 
 /**
  * @coversDefaultClass \Serogaq\TgBotApi\ApiRequest
  */
 class ApiRequestTest extends TestCase {
-
     public function setUp(): void {
         parent::setUp();
         Config::set('tgbotapi', [
@@ -23,8 +22,8 @@ class ApiRequestTest extends TestCase {
                     'middleware' => [],
                     'log_channel' => 'null',
                     'api_url' => null,
-                ]
-            ]
+                ],
+            ],
         ]);
     }
 
@@ -62,7 +61,7 @@ class ApiRequestTest extends TestCase {
      */
     public function api_request_object_must_optionally_be_cast_to_string() {
         $apiRequest = new ApiRequest(11111111, 'getMe');
-        $this->assertIsString((string)$apiRequest);
+        $this->assertIsString((string) $apiRequest);
     }
 
     /**

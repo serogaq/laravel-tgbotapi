@@ -52,9 +52,9 @@ class InstallCommandTest extends TestCase {
         }
 
         $this->assertEquals('<?php /*TEST*/ return []; ?>', file_get_contents(config_path('tgbotapi.php')));
-        
+
         Artisan::call('tgbotapi:install --confirm-overwrite=no');
-        
+
         $this->assertTrue(Str::endsWith(Artisan::output(), "Reinstall canceled\n"));
         $this->assertEquals('<?php /*TEST*/ return []; ?>', file_get_contents(config_path('tgbotapi.php')));
     }

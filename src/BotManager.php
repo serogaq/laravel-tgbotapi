@@ -12,7 +12,8 @@ class BotManager {
      *
      * @param  array  $bots
      */
-    public function __construct(protected array $bots = []) {}
+    public function __construct(protected array $bots = []) {
+    }
 
     /**
      * Checking that the bot is exists in the config.
@@ -22,7 +23,9 @@ class BotManager {
      */
     public function botExists(int|string $idOrUsername): bool {
         foreach ($this->bots as $bot) {
-            if (!is_array($bot) || empty($bot)) continue;
+            if (!is_array($bot) || empty($bot)) {
+                continue;
+            }
             if (
                 (is_int($idOrUsername) && getBotIdFromToken($bot['token']) === $idOrUsername) ||
                 (is_string($idOrUsername) && $bot['username'] === $idOrUsername)
@@ -49,9 +52,15 @@ class BotManager {
                 (is_string($idOrUsername) && $bot['username'] === $idOrUsername)
             ) {
                 $config = $bot;
-                if (!isset($bot['log_channel'])) $config['log_channel'] = 'null';
-                if (!isset($bot['middleware'])) $config['middleware'] = [];
-                if (!isset($bot['api_url'])) $config['api_url'] = null;
+                if (!isset($bot['log_channel'])) {
+                    $config['log_channel'] = 'null';
+                }
+                if (!isset($bot['middleware'])) {
+                    $config['middleware'] = [];
+                }
+                if (!isset($bot['api_url'])) {
+                    $config['api_url'] = null;
+                }
                 return $config;
             }
         }

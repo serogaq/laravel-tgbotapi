@@ -4,14 +4,12 @@ namespace Serogaq\TgBotApi\Tests\Unit;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\App;
 use Serogaq\TgBotApi\BotApi;
-use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
-use Serogaq\TgBotApi\Interfaces\HttpClient;
-use Serogaq\TgBotApi\Interfaces\OffsetStore;
 use Serogaq\TgBotApi\Events\NewUpdateEvent;
 use Serogaq\TgBotApi\Exceptions\BotApiException;
+use Serogaq\TgBotApi\Interfaces\OffsetStore;
 use Serogaq\TgBotApi\Tests\TestCase;
+use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
 
 /**
  * @coversDefaultClass \Serogaq\TgBotApi\BotApi
@@ -106,9 +104,9 @@ class BotApiTest extends TestCase {
             'result' => [
                 [
                     'update_id' => 1,
-                    'message' => ['text' => 'test']
-                ]
-            ]
+                    'message' => ['text' => 'test'],
+                ],
+            ],
         ]));
         $offsetStore = resolve(OffsetStore::class);
         $offsetStore->set($botApi->getBotId(), 0);

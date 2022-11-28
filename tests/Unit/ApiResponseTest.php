@@ -10,7 +10,6 @@ use Serogaq\TgBotApi\Tests\TestCase;
  * @coversDefaultClass \Serogaq\TgBotApi\ApiResponse
  */
 class ApiResponseTest extends TestCase {
-
     /**
      * @test
      * @covers ::__construct
@@ -77,7 +76,7 @@ class ApiResponseTest extends TestCase {
      */
     public function api_response_object_must_optionally_be_cast_to_string() {
         $apiResponse = new ApiResponse('{"ok":true}');
-        $this->assertIsString((string)$apiResponse);
+        $this->assertIsString((string) $apiResponse);
     }
 
     /**
@@ -89,7 +88,7 @@ class ApiResponseTest extends TestCase {
         $this->assertEquals(true, $apiResponse['ok']);
         $this->assertEquals('test', $apiResponse['message']['text']);
     }
-    
+
     /**
      * @test
      * @covers ::offsetSet
@@ -99,7 +98,7 @@ class ApiResponseTest extends TestCase {
         $apiResponse['ok'] = false;
         $this->assertEquals(true, $apiResponse['ok']);
     }
-    
+
     /**
      * @test
      * @covers ::offsetUnset
@@ -119,7 +118,7 @@ class ApiResponseTest extends TestCase {
         $this->assertTrue(isset($apiResponse['ok']));
         $this->assertFalse(isset($apiResponse['not-exists']));
     }
-    
+
     /**
      * @test
      * @covers ::getRequestId

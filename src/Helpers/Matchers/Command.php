@@ -4,7 +4,7 @@ namespace Serogaq\TgBotApi\Helpers\Matchers;
 
 use Serogaq\TgBotApi\Updates\CommandUpdate;
 
-class Command extends SimpleXMLElement {
+class Command extends \SimpleXMLElement {
     const WITHOUT_ARGS = 0;
 
     const WITH_ARGS = 1;

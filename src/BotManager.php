@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Serogaq\TgBotApi;
 
-use function Serogaq\TgBotApi\Helpers\getBotIdFromToken;
+use function Serogaq\TgBotApi\Helpers\{ getBotIdFromToken, isValidBotConfig };
 
 class BotManager {
     /**
@@ -23,11 +23,14 @@ class BotManager {
      */
     public function botExists(int|string $idOrUsername): bool {
         foreach ($this->bots as $bot) {
+            if (!is_array($bot) || empty($bot)) {
+                continue;
+            }
             if (
                 (is_int($idOrUsername) && getBotIdFromToken($bot['token']) === $idOrUsername) ||
                 (is_string($idOrUsername) && $bot['username'] === $idOrUsername)
             ) {
-                return (isset($bot['username'], $bot['token']) && mb_strtolower(mb_substr($bot['username'], -3)) === 'bot') ? true : false;
+                return isValidBotConfig($bot);
             }
         }
         return false;
@@ -48,10 +51,19 @@ class BotManager {
                 (is_int($idOrUsername) && getBotIdFromToken($bot['token']) === $idOrUsername) ||
                 (is_string($idOrUsername) && $bot['username'] === $idOrUsername)
             ) {
-                return $bot;
+                $config = $bot;
+                if (!isset($bot['log_channel'])) {
+                    $config['log_channel'] = 'null';
+                }
+                if (!isset($bot['middleware'])) {
+                    $config['middleware'] = [];
+                }
+                if (!isset($bot['api_url'])) {
+                    $config['api_url'] = null;
+                }
+                return $config;
             }
         }
-        return null;
     }
 
     /**

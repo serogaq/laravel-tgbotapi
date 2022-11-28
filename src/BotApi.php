@@ -6,10 +6,11 @@ namespace Serogaq\TgBotApi;
 
 use Serogaq\TgBotApi\Constants\UpdateChannel;
 use Serogaq\TgBotApi\Events\NewUpdateEvent;
+use Serogaq\TgBotApi\Exceptions\BotApiException;
 use Serogaq\TgBotApi\Interfaces\OffsetStore;
 use Serogaq\TgBotApi\Services\Middleware;
 use Serogaq\TgBotApi\Updates\Update;
-use function Serogaq\TgBotApi\Helpers\getBotIdFromToken;
+use function Serogaq\TgBotApi\Helpers\{ getBotIdFromToken, isValidBotConfig };
 
 class BotApi {
     /**
@@ -18,13 +19,13 @@ class BotApi {
      * @param  array  $botConfig  Bot configuration
      */
     public function __construct(protected array $botConfig) {
+        if (!isValidBotConfig($botConfig)) {
+            throw new BotApiException('Incorrect bot configuration', 0);
+        }
     }
 
     public function __call(string $method, array $arguments = []): mixed {
-        /*if (method_exists($this, $method)) {
-            return call_user_func_array([$this, $method], $arguments);
-        }*/
-        $apiRequest = $this->createRequest($method, $arguments);
+        $apiRequest = $this->createApiRequest($method, $arguments);
         return $apiRequest;
     }
 
@@ -40,7 +41,7 @@ class BotApi {
         }
         $arguments[0] = $data;
         $arguments[1] = $options;
-        $apiResponse = $this->createRequest('getUpdates', $arguments)->send();
+        $apiResponse = $this->createApiRequest('getUpdates', $arguments)->send();
         foreach ($apiResponse['result'] as $update) {
             if (isset($update['update_id'])) {
                 $offsetStore->set($botId, (int) $update['update_id'] + 1);
@@ -49,14 +50,14 @@ class BotApi {
         }
     }
 
-    protected function createRequest(string $method, array $arguments): ApiRequest {
+    /**
+     * @codeCoverageIgnore
+     */
+    protected function createApiRequest(string $method, array $arguments): ApiRequest {
         $middleware = resolve(Middleware::class);
-        if (isset($this->botConfig['middleware']) && !empty($this->botConfig['middleware'])) {
-            foreach ($this->botConfig['middleware'] as $m) {
-                $middleware->addRequestMiddleware($m);
-            }
-        }
-        $apiRequest = $middleware->execRequestMiddlewares(new ApiRequest($method, $arguments, $this->getBotId()));
-        return $apiRequest;
+        return $middleware->applyMiddlewares(
+            new ApiRequest($this->getBotId(), $method, $arguments),
+            $this->botConfig['middleware'] ?? []
+        );
     }
 }

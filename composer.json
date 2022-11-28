@@ -13,7 +13,8 @@
     ],
     "require": {
         "php": ">=8.0.2",
-        "illuminate/support": "^8.0 || ^9.0"
+        "illuminate/support": "^8.0 || ^9.0",
+        "guzzlehttp/guzzle": "^7.2"
     },
     "require-dev": {
         "nunomaduro/collision": "^5.10 || ^6.1",
@@ -42,8 +43,7 @@
         "pint": "vendor/bin/pint -v",
         "pint:test": "vendor/bin/pint --test",
         "test": "vendor/bin/testbench package:test",
-        "test:coverage": "vendor/bin/phpunit --coverage-html coverage"
-
+        "test:coverage": "php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-html build/coverage-html"
     },
     "config": {
         "sort-packages": true

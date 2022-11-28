@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Serogaq\TgBotApi\Interfaces;
 
+use Serogaq\TgBotApi\Exceptions\HttpClientException;
 use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
 
 interface HttpClient {
@@ -40,7 +41,7 @@ interface HttpClient {
      * Set Timeout.
      *
      * @param  int  $timeout
-     * @return $this
+     * @return self
      */
     public function setTimeout(int $timeout): self;
 
@@ -55,7 +56,30 @@ interface HttpClient {
      * Set Connection Timeout.
      *
      * @param  int  $connectTimeout
-     * @return $this
+     * @return self
      */
     public function setConnectTimeout(int $connectTimeout): self;
+
+    /**
+     * Set Request Hash.
+     *
+     * @param  string  $requestHash
+     * @return self
+     */
+    public function setRequestHash(string $requestHash): self;
+
+    /**
+     * Get Request Hash.
+     *
+     * @return string
+     */
+    public function getRequestHash(): string;
+
+    /**
+     * To create fake requests.
+     *
+     * @param  ApiResponse|HttpClientException  $responseOrException
+     * @return void
+     */
+    public function fake(ApiResponse|HttpClientException $responseOrException): void;
 }

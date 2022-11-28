@@ -11,19 +11,21 @@ class Install extends Command {
      *
      * @var string
      */
-    protected $signature = 'tgbotapi:install {--force}';
+    protected $signature = 'tgbotapi:install {--force} {--confirm-overwrite=}';
 
     protected $description = 'Install laravel-tgbotapi package';
 
     public function handle() {
         $force = $this->option('force');
+        $confirmOverwrite = false;
         if ($this->alreadyInstalled() && $force !== true) {
-            $confirmOverwrite = $this->confirm('Package laravel-tgbotapi already installed. Do you want to overwrite config, update listener?', false);
+            $confirmOverwrite = is_null($this->option('confirm-overwrite')) ? $this->confirm('Package laravel-tgbotapi already installed. Do you want to overwrite config, update listener?', false) : (
+                in_array($this->option('confirm-overwrite'), ['yes', '1']) ? true : false
+            );
             if ($confirmOverwrite === false) {
                 $this->info('Reinstall canceled');
                 return 0;
             }
-            $force = true;
         }
         if ($force) {
             $confirmOverwrite = true;
@@ -35,7 +37,7 @@ class Install extends Command {
         }
         if (!$this->configExists('tgbotapi.php') || $confirmOverwrite) {
             $this->info('Publishing configuration...');
-            $this->publish('tgbotapi-config', $force);
+            $this->publish('tgbotapi-config', $force || $confirmOverwrite);
         }
         if (!$this->listenerExists('HandleNewUpdate.php') || $confirmOverwrite) {
             $this->info('Publishing listener...');

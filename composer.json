@@ -3,7 +3,7 @@
     "description": "This package provides methods for working with the telegram bot api, and helpers for receiving updates via webhooks or the long polling method",
     "keywords": ["telegram bot", "telegram bot api", "laravel telegram bot", "laravel telegram bot api", "laravel"],
     "homepage": "https://github.com/serogaq/laravel-tgbotapi",
-    "license": "MIT",
+    "license": "BSD-3-Clause",
     "type": "library",
     "authors": [
         {

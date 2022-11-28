@@ -111,7 +111,7 @@ If you like living on the edge, please report any bugs you find on the
 
 ## License
 
-The MIT License (MIT). Please see [License File][link-license] for more information.
+The BSD-3-Clause. Please see [License File][link-license] for more information.
 
 [link-repo]: https://github.com/serogaq/laravel-tgbotapi
 [link-issues]: https://github.com/serogaq/laravel-tgbotapi/issues

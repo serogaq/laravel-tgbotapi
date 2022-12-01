@@ -2,17 +2,16 @@
 
 namespace Serogaq\TgBotApi\Tests\Unit\Services\HttpClient;
 
-use Serogaq\TgBotApi\Services\HttpClient\LaravelHttpClient;
 use Illuminate\Support\Facades\Cache;
 use Serogaq\TgBotApi\ApiResponse;
 use Serogaq\TgBotApi\Exceptions\HttpClientException;
+use Serogaq\TgBotApi\Services\HttpClient\LaravelHttpClient;
 use Serogaq\TgBotApi\Tests\TestCase;
 
 /**
  * @coversDefaultClass \Serogaq\TgBotApi\Services\HttpClient\LaravelHttpClient
  */
 class LaravelHttpClientTest extends TestCase {
-
     public function setUp(): void {
         parent::setUp();
     }
@@ -155,7 +154,7 @@ class LaravelHttpClientTest extends TestCase {
                 method: 'POST',
                 data: ['test' => true, 'data' => ['key' => 'val']],
                 files: [
-                    ['file', 'content', 'file.txt']
+                    ['file', 'content', 'file.txt'],
                 ],
             );
         $this->assertInstanceOf(ApiResponse::class, $response);

@@ -70,14 +70,15 @@ class LaravelHttpClient implements HttpClient {
             if ($responseOrException['type'] === 'ApiResponse') {
                 return new ApiResponse($responseOrException['body'], $responseOrException['statusCode'], $responseOrException['requestId']);
             } elseif ($responseOrException['type'] === 'HttpClientException') {
-                if (isset($responseOrException['ApiResponseBody']))
+                if (isset($responseOrException['ApiResponseBody'])) {
                     throw new HttpClientException(
                         $responseOrException['message'],
                         $responseOrException['code'],
                         new ApiResponse($responseOrException['ApiResponseBody'], $responseOrException['ApiResponseStatusCode'] ?? 200, $responseOrException['requestId'])
                     );
-                else
-                    throw new HttpClientException($responseOrException['message'], $responseOrException['code']); // @codeCoverageIgnore
+                } else {
+                    throw new HttpClientException($responseOrException['message'], $responseOrException['code']);
+                } // @codeCoverageIgnore
             }
         }
         if ($method === 'GET') {
@@ -86,8 +87,12 @@ class LaravelHttpClient implements HttpClient {
                                 ->get($url)
                                 ->throw(function ($response, $e) {
                                     report($e); // @codeCoverageIgnore
-                                    if($e instanceof ConnectionException) throw new HttpClientException($e->getMessage(), 1, null, $e);
-                                    if($e instanceof RequestException) throw new HttpClientException($e->getMessage(), 2, new ApiResponse($response->body(), $response->status(), $this->getRequestId()), $e);
+                                    if ($e instanceof ConnectionException) {
+                                        throw new HttpClientException($e->getMessage(), 1, null, $e);
+                                    }
+                                    if ($e instanceof RequestException) {
+                                        throw new HttpClientException($e->getMessage(), 2, new ApiResponse($response->body(), $response->status(), $this->getRequestId()), $e);
+                                    }
                                 });
             } catch (ConnectionException $e) {
                 report($e); // @codeCoverageIgnore
@@ -115,7 +120,9 @@ class LaravelHttpClient implements HttpClient {
                     $key = $file[0] ?? null;
                     $rawContentOrStream = $file[1] ?? null;
                     $filename = $file[2] ?? $key;
-                    if (is_null($key) || is_null($rawContentOrStream)) continue;
+                    if (is_null($key) || is_null($rawContentOrStream)) {
+                        continue;
+                    }
                     $this->request->attach($key, $rawContentOrStream, $filename);
                 }
             }
@@ -124,8 +131,12 @@ class LaravelHttpClient implements HttpClient {
                                 ->post($url, $multipartData)
                                 ->throw(function ($response, $e) {
                                     report($e); // @codeCoverageIgnore
-                                    if($e instanceof ConnectionException) throw new HttpClientException($e->getMessage(), 1, null, $e);
-                                    if($e instanceof RequestException) throw new HttpClientException($e->getMessage(), 2, new ApiResponse($response->body(), $response->status(), $this->getRequestId()), $e);
+                                    if ($e instanceof ConnectionException) {
+                                        throw new HttpClientException($e->getMessage(), 1, null, $e);
+                                    }
+                                    if ($e instanceof RequestException) {
+                                        throw new HttpClientException($e->getMessage(), 2, new ApiResponse($response->body(), $response->status(), $this->getRequestId()), $e);
+                                    }
                                 });
             } catch (ConnectionException $e) {
                 report($e); // @codeCoverageIgnore

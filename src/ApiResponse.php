@@ -11,7 +11,7 @@ class ApiResponse implements \Stringable, \ArrayAccess {
     protected ?string $requestId;
 
     protected array $response;
-    
+
     protected int $statusCode;
 
     public function __construct(string|array $body, int $statusCode = 200, ?string $requestId = null) {

@@ -33,7 +33,7 @@ jobs:
       - name: Pack docs
         run: sudo tar -czvf docs.tar.gz -C build/docs .
       - name: Make artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: github-pages
           path: docs.tar.gz

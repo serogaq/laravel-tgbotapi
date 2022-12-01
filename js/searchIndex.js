@@ -216,6 +216,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method_asJson"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003AgetStatusCode\u0028\u0029",
+            "name": "getStatusCode",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#method_getStatusCode"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003A\u0024requestId",
             "name": "requestId",
             "summary": "",
@@ -225,6 +230,11 @@ Search.appendIndex(
             "name": "response",
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-ApiResponse.html#property_response"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\ApiResponse\u003A\u003A\u0024statusCode",
+            "name": "statusCode",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-ApiResponse.html#property_statusCode"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\BotApi",
             "name": "BotApi",
@@ -866,6 +876,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Exceptions-HttpClientException.html#method___construct"
         },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\HttpClientException\u003A\u003AgetApiResponse\u0028\u0029",
+            "name": "getApiResponse",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Exceptions-HttpClientException.html#method_getApiResponse"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\HttpClientException\u003A\u003A\u0024apiResponse",
+            "name": "apiResponse",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Exceptions-HttpClientException.html#property_apiResponse"
+        },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Exceptions\\MiddlewareException",
             "name": "MiddlewareException",
             "summary": "",
@@ -1110,6 +1130,11 @@ Search.appendIndex(
             "name": "Update",
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Interfaces-Update.html"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\Update\u003A\u003AasArray\u0028\u0029",
+            "name": "asArray",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Interfaces-Update.html#method_asArray"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Interfaces\\Update\u003A\u003AasObject\u0028\u0029",
             "name": "asObject",
@@ -1545,6 +1570,11 @@ Search.appendIndex(
             "name": "offsetGet",
             "summary": "",
             "url": "classes/Serogaq-TgBotApi-Updates-Update.html#method_offsetGet"
+        },                {
+            "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003AasArray\u0028\u0029",
+            "name": "asArray",
+            "summary": "",
+            "url": "classes/Serogaq-TgBotApi-Updates-Update.html#method_asArray"
         },                {
             "fqsen": "\\Serogaq\\TgBotApi\\Updates\\Update\u003A\u003AasObject\u0028\u0029",
             "name": "asObject",

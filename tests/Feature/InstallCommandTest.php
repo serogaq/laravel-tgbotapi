@@ -11,7 +11,19 @@ use Serogaq\TgBotApi\Tests\TestCase;
  * @coversDefaultClass \Serogaq\TgBotApi\Console\Commands\Install
  */
 class InstallCommandTest extends TestCase {
-    /** @test */
+    /**
+     * @test
+     * @covers ::handle
+     * @covers ::configExists
+     * @covers ::listenerExists
+     * @covers ::alreadyInstalled
+     * @covers ::publish
+     * @covers ::publishUpdateListener
+     * @covers \Serogaq\TgBotApi\Console\Commands\MakeUpdateListener::handle
+     * @covers \Serogaq\TgBotApi\Console\Commands\MakeUpdateListener::getStub
+     * @covers \Serogaq\TgBotApi\Console\Commands\MakeUpdateListener::getDefaultNamespace
+     * @covers \Serogaq\TgBotApi\Console\Commands\MakeUpdateListener::doOtherOperations
+     */
     public function package_installation_successful() {
         if (File::exists(config_path('tgbotapi.php'))) {
             unlink(config_path('tgbotapi.php'));

@@ -44,6 +44,10 @@ class Update implements IUpdate, \Stringable, \ArrayAccess {
         return $this->update[$offset] ?? null;
     }
 
+    public function asArray(): array {
+        return $this->update;
+    }
+
     public function asObject(): object {
         return arrayToObject($this->update);
     }

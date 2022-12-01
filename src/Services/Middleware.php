@@ -57,7 +57,7 @@ class Middleware {
      */
     public function applyMiddlewares(ApiRequest|ApiResponse $obj, array $middlewares = []): ApiRequest|ApiResponse {
         if (empty($middlewares)) {
-            return $obj;
+            return $obj; // @codeCoverageIgnore
         }
         if ($obj instanceof ApiRequest) {
             foreach ($middlewares as $m) {

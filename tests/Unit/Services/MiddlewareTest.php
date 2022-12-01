@@ -59,7 +59,7 @@ class MiddlewareTest extends TestCase {
         $this->assertEquals('Hello World', $apiRequest->getArguments()[0]['text']);
         $this->assertEquals('Hello World!', $apiRequest->getArguments()[0]['new_text']);
         $apiResponse = $this->middleware->applyMiddlewares(
-            new ApiResponse(['text' => 'Hello World', 'new_text' => 'Hello World!'], $apiRequest->getRequestId()),
+            new ApiResponse(['text' => 'Hello World', 'new_text' => 'Hello World!'], 200, $apiRequest->getRequestId()),
             $this->testMiddlewares
         );
         $this->assertArrayHasKey('test', $apiResponse->asArray());

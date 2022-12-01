@@ -124,7 +124,7 @@ class ApiResponseTest extends TestCase {
      * @covers ::getRequestId
      */
     public function api_response_may_or_may_not_have_a_requese_id() {
-        $apiResponse = new ApiResponse('{"ok":true}', 'a1b25cf8d5');
+        $apiResponse = new ApiResponse('{"ok":true}', 200, 'a1b25cf8d5');
         $this->assertEquals('a1b25cf8d5', $apiResponse->getRequestId());
         $this->assertStringMatchesFormat('%x', $apiResponse->getRequestId());
         $apiResponse = new ApiResponse('{"ok":true}');

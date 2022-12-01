@@ -12,7 +12,9 @@ class ApiResponse implements \Stringable, \ArrayAccess {
 
     protected array $response;
 
-    public function __construct(string|array $body, ?string $requestId = null) {
+    protected int $statusCode;
+
+    public function __construct(string|array $body, int $statusCode = 200, ?string $requestId = null) {
         if (is_string($body)) {
             try {
                 $response = json_decode($body, associative: true, flags: JSON_THROW_ON_ERROR);
@@ -26,6 +28,7 @@ class ApiResponse implements \Stringable, \ArrayAccess {
         if (!isset($response) || !is_array($response)) {
             throw new ApiResponseException("Invalid body:\n" . var_export($body, true), 1);
         }
+        $this->statusCode = $statusCode;
         $this->response = $response;
         $this->requestId = $requestId;
     }
@@ -67,5 +70,9 @@ class ApiResponse implements \Stringable, \ArrayAccess {
 
     public function asJson(): string {
         return json_encode($this->response);
+    }
+
+    public function getStatusCode(): int {
+        return $this->statusCode;
     }
 }

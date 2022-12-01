@@ -68,9 +68,17 @@ class LaravelHttpClient implements HttpClient {
         if (Cache::has($cacheFakeRequestKey)) {
             $responseOrException = json_decode(Cache::pull($cacheFakeRequestKey), true);
             if ($responseOrException['type'] === 'ApiResponse') {
-                return new ApiResponse($responseOrException['body'], $responseOrException['requestId']);
+                return new ApiResponse($responseOrException['body'], $responseOrException['statusCode'], $responseOrException['requestId']);
             } elseif ($responseOrException['type'] === 'HttpClientException') {
-                throw new HttpClientException($responseOrException['message'], $responseOrException['code']);
+                if (isset($responseOrException['ApiResponseBody'])) {
+                    throw new HttpClientException(
+                        $responseOrException['message'],
+                        $responseOrException['code'],
+                        new ApiResponse($responseOrException['ApiResponseBody'], $responseOrException['ApiResponseStatusCode'] ?? 200, $responseOrException['requestId'])
+                    );
+                } else {
+                    throw new HttpClientException($responseOrException['message'], $responseOrException['code']);
+                } // @codeCoverageIgnore
             }
         }
         if ($method === 'GET') {
@@ -78,19 +86,27 @@ class LaravelHttpClient implements HttpClient {
                 $response = $this->request
                                 ->get($url)
                                 ->throw(function ($response, $e) {
-                                    report($e);
-                                    throw new HttpClientException($e->getMessage(), 1, $e);
+                                    report($e); // @codeCoverageIgnore
+                                    if ($e instanceof ConnectionException) {
+                                        throw new HttpClientException($e->getMessage(), 1, null, $e);
+                                    }
+                                    if ($e instanceof RequestException) {
+                                        throw new HttpClientException($e->getMessage(), 2, new ApiResponse($response->body(), $response->status(), $this->getRequestId()), $e);
+                                    }
                                 });
-            } catch (ConnectionException | RequestException $e) {
-                report($e);
-                throw new HttpClientException($e->getMessage(), 2, $e);
+            } catch (ConnectionException $e) {
+                report($e); // @codeCoverageIgnore
+                throw new HttpClientException($e->getMessage(), 1, null, $e);
+            } catch (RequestException $e) {
+                report($e); // @codeCoverageIgnore
+                throw new HttpClientException($e->getMessage(), 2, null, $e);
             }
         } elseif ($method === 'POST') {
             if (!empty($data) || !empty($files)) {
                 $this->request->asMultipart();
             }
+            $multipartData = [];
             if (!empty($data)) {
-                $multipartData = [];
                 foreach ($data as $key => $value) {
                     $val = $value;
                     if (is_array($value)) {
@@ -100,25 +116,39 @@ class LaravelHttpClient implements HttpClient {
                 }
             }
             if (!empty($files)) {
-                foreach ($files as $key => $path) {
-                    $this->request->attach($key, file_get_contents($path), explode('/', $path)[count(explode('/', $path)) - 1]);
+                foreach ($files as $file) {
+                    $key = $file[0] ?? null;
+                    $rawContentOrStream = $file[1] ?? null;
+                    $filename = $file[2] ?? $key;
+                    if (is_null($key) || is_null($rawContentOrStream)) {
+                        continue;
+                    }
+                    $this->request->attach($key, $rawContentOrStream, $filename);
                 }
             }
             try {
                 $response = $this->request
                                 ->post($url, $multipartData)
                                 ->throw(function ($response, $e) {
-                                    report($e);
-                                    throw new HttpClientException($e->getMessage(), 1, $e);
+                                    report($e); // @codeCoverageIgnore
+                                    if ($e instanceof ConnectionException) {
+                                        throw new HttpClientException($e->getMessage(), 1, null, $e);
+                                    }
+                                    if ($e instanceof RequestException) {
+                                        throw new HttpClientException($e->getMessage(), 2, new ApiResponse($response->body(), $response->status(), $this->getRequestId()), $e);
+                                    }
                                 });
-            } catch (ConnectionException | RequestException $e) {
-                report($e);
-                throw new HttpClientException($e->getMessage(), 2, $e);
+            } catch (ConnectionException $e) {
+                report($e); // @codeCoverageIgnore
+                throw new HttpClientException($e->getMessage(), 1, null, $e);
+            } catch (RequestException $e) {
+                report($e); // @codeCoverageIgnore
+                throw new HttpClientException($e->getMessage(), 2, null, $e);
             }
         } else {
-            throw new HttpClientException("Unsupported Method '{$method}'", 3);
+            throw new HttpClientException("Unsupported Method '{$method}'", 3); // @codeCoverageIgnore
         }
-        return new ApiResponse($response->body(), $this->getRequestId());
+        return new ApiResponse($response->body(), $response->getStatusCode(), $this->getRequestId());
     }
 
     /**
@@ -171,8 +201,8 @@ class LaravelHttpClient implements HttpClient {
      */
     public function fake(ApiResponse|HttpClientException $responseOrException): void {
         Cache::put('tgbotapi_httpclientfake_' . $this->getRequestHash(), match (get_class($responseOrException)) {
-            ApiResponse::class => json_encode(['type' => 'ApiResponse', 'body' => $responseOrException->asJson(), 'requestId' => $this->getRequestId()]),
-            HttpClientException::class => json_encode(['type' => 'HttpClientException', 'message' => $responseOrException->getMessage(), 'code' => $responseOrException->getCode()])
+            ApiResponse::class => json_encode(['type' => 'ApiResponse', 'body' => $responseOrException->asJson(), 'statusCode' => $responseOrException->getStatusCode(), 'requestId' => $this->getRequestId()]),
+            HttpClientException::class => json_encode(['type' => 'HttpClientException', 'message' => $responseOrException->getMessage(), 'code' => $responseOrException->getCode(), 'ApiResponseBody' => $responseOrException->getApiResponse()?->asJson(), 'ApiResponseStatusCode' => $responseOrException->getApiResponse()?->getStatusCode(), 'requestId' => $this->getRequestId()])
         }, 60);
     }
 }

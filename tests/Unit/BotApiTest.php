@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
 use Serogaq\TgBotApi\BotApi;
 use Serogaq\TgBotApi\Events\NewUpdateEvent;
-use Serogaq\TgBotApi\Exceptions\BotApiException;
+use Serogaq\TgBotApi\Exceptions\{ BotApiException, HttpClientException };
 use Serogaq\TgBotApi\Interfaces\OffsetStore;
 use Serogaq\TgBotApi\Tests\TestCase;
 use Serogaq\TgBotApi\{ ApiRequest, ApiResponse };
@@ -89,6 +89,7 @@ class BotApiTest extends TestCase {
     /**
      * @test
      * @covers ::getUpdatesAndCreateEvents
+     * @covers \Serogaq\TgBotApi\Services\HttpClient\LaravelHttpClient::send
      */
     public function helper_function_getUpdatesAndCreateEvents_must_create_events() {
         $eventReceived = false;
@@ -112,5 +113,33 @@ class BotApiTest extends TestCase {
         $offsetStore->set($botApi->getBotId(), 0);
         $botApi->getUpdatesAndCreateEvents(['timeout' => 1]);
         $this->assertTrue($eventReceived);
+    }
+
+    /**
+     * @test
+     * @covers ::getUpdatesAndCreateEvents
+     * @covers \Serogaq\TgBotApi\Services\HttpClient\LaravelHttpClient::send
+     */
+    public function helper_function_getUpdatesAndCreateEvents_may_fail() {
+        $this->expectException(HttpClientException::class);
+        $this->expectExceptionCode(2);
+        $this->expectExceptionMessage("HTTP request returned status code 400:\n{\"ok\":false,\"error_code\":400,\"description\":\"Error\"}");
+        Config::set('tgbotapi', ['bots' => [$this->botConfig]]);
+        $botApi = new BotApi($this->botConfig);
+        $botApi->getUpdates(['timeout' => 1, 'offset' => 0])->withFakeResponse(
+            new HttpClientException(
+                "HTTP request returned status code 400:\n{\"ok\":false,\"error_code\":400,\"description\":\"Error\"}",
+                2,
+                new ApiResponse(
+                    [
+                        'ok' => false,
+                        'error_code' => 400,
+                        'description' => 'Error',
+                    ],
+                    400
+                )
+            )
+        );
+        $botApi->getUpdatesAndCreateEvents(['timeout' => 1, 'offset' => 0]);
     }
 }

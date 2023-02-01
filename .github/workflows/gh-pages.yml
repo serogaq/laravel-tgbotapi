@@ -48,7 +48,7 @@ jobs:
       - name: Unpacking
         run: mkdir -p ./public && tar -xzvf docs.tar.gz -C ./public
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3.9.0
+        uses: peaceiris/actions-gh-pages@v3.9.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           user_name: 'github-actions[bot]'

@@ -1,8 +1,9 @@
 
+
 :root {
     /* Typography */
-    --font-primary: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-    --font-secondary: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    --font-primary: 'Open Sans', Helvetica, Arial, sans-serif;
+    --font-secondary: 'Open Sans', Helvetica, Arial, sans-serif;
     --font-monospace: 'Source Code Pro', monospace;
     --line-height--primary: 1.6;
     --letter-spacing--primary: .05rem;
@@ -20,15 +21,34 @@
     --text-xxxxl: calc(var(--text-base-size) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
     --text-xxxxxl: calc(var(--text-base-size) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
 
+    --color-hue-red:     4;
+    --color-hue-pink:     340;
+    --color-hue-purple:     291;
+    --color-hue-deep-purple:     262;
+    --color-hue-indigo:     231;
+    --color-hue-blue:     207;
+    --color-hue-light-blue:     199;
+    --color-hue-cyan:     187;
+    --color-hue-teal:     174;
+    --color-hue-green:     122;
+    --color-hue-phpdocumentor-green:     96;
+    --color-hue-light-green:     88;
+    --color-hue-lime:     66;
+    --color-hue-yellow:     54;
+    --color-hue-amber:     45;
+    --color-hue-orange:     36;
+    --color-hue-deep-orange:     14;
+    --color-hue-brown:     16;
+
     /* Colors */
-    --primary-color-hue: 96;
+    --primary-color-hue: var(--color-hue-phpdocumentor-green, --color-hue-phpdocumentor-green);
     --primary-color-saturation: 57%;
     --primary-color: hsl(var(--primary-color-hue), var(--primary-color-saturation), 60%);
     --primary-color-darken: hsl(var(--primary-color-hue), var(--primary-color-saturation), 40%);
     --primary-color-darker: hsl(var(--primary-color-hue), var(--primary-color-saturation), 25%);
     --primary-color-darkest: hsl(var(--primary-color-hue), var(--primary-color-saturation), 10%);
-    --primary-color-lighten: hsl(var(--primary-color-hue), var(--primary-color-saturation), 80%);
-    --primary-color-lighter: hsl(var(--primary-color-hue), var(--primary-color-saturation), 99%);
+    --primary-color-lighten: hsl(var(--primary-color-hue), calc(var(--primary-color-saturation) - 20%), 85%);
+    --primary-color-lighter: hsl(var(--primary-color-hue), calc(var(--primary-color-saturation) - 45%), 97.5%);
     --dark-gray: #d1d1d1;
     --light-gray: #f0f0f0;
 
@@ -139,7 +159,6 @@ body {
     margin-bottom: var(--spacing-md);
     margin-top: var(--spacing-md);
 }
-
 .phpdocumentor h1 .headerlink,
 .phpdocumentor h2 .headerlink,
 .phpdocumentor h3 .headerlink,
@@ -147,21 +166,32 @@ body {
 .phpdocumentor h5 .headerlink,
 .phpdocumentor h6 .headerlink
 {
-    transition: all .3s ease-in-out;
-    opacity: 0;
-    text-decoration: none;
-    color: silver;
-    font-size: 80%;
+    display: none;
 }
 
-.phpdocumentor h1:hover .headerlink,
-.phpdocumentor h2:hover .headerlink,
-.phpdocumentor h3:hover .headerlink,
-.phpdocumentor h4:hover .headerlink,
-.phpdocumentor h5:hover .headerlink,
-.phpdocumentor h6:hover .headerlink
-{
-    opacity: 1;
+@media (min-width: 550px) {
+    .phpdocumentor h1 .headerlink,
+    .phpdocumentor h2 .headerlink,
+    .phpdocumentor h3 .headerlink,
+    .phpdocumentor h4 .headerlink,
+    .phpdocumentor h5 .headerlink,
+    .phpdocumentor h6 .headerlink {
+        display: inline;
+        transition: all .3s ease-in-out;
+        opacity: 0;
+        text-decoration: none;
+        color: silver;
+        font-size: 80%;
+    }
+
+    .phpdocumentor h1:hover .headerlink,
+    .phpdocumentor h2:hover .headerlink,
+    .phpdocumentor h3:hover .headerlink,
+    .phpdocumentor h4:hover .headerlink,
+    .phpdocumentor h5:hover .headerlink,
+    .phpdocumentor h6:hover .headerlink {
+        opacity: 1;
+    }
 }
 .phpdocumentor p {
     margin-top: 0;
@@ -191,9 +221,15 @@ body {
     box-sizing: border-box;
     margin: 0 auto;
     max-width: var(--container-width);
-    padding: 0 var(--spacing-lg);
+    padding: 0 var(--spacing-sm);
     position: relative;
     width: 100%;
+}
+
+@media (min-width: 550px) {
+    .phpdocumentor-section {
+        padding: 0 var(--spacing-lg);
+    }
 }
 
 @media (min-width: 1200px) {
@@ -426,7 +462,7 @@ textarea {
     outline: 0;
 }
 
-.phpdocumentor-label {
+label.phpdocumentor-label {
     display: block;
     margin-bottom: var(--spacing-xs);
 }
@@ -552,7 +588,9 @@ td.phpdocumentor-cell:last-child {
     padding-right: 0;
 }
 .phpdocumentor-label-line {
-    display: flex; flex-direction: row; gap: 1rem
+    display: flex;
+    flex-direction: row;
+    gap: 1rem
 }
 
 .phpdocumentor-label {
@@ -561,6 +599,14 @@ td.phpdocumentor-cell:last-child {
     font-size: 80%;
     display: inline-block;
     overflow: hidden
+}
+
+/*
+It would be better if the phpdocumentor-element class were to become a flex element with a gap, but for #3337 that
+is too big a fix and needs to be done in a new design iteration.
+*/
+.phpdocumentor-signature + .phpdocumentor-label-line .phpdocumentor-label {
+    margin-top: var(--spacing-sm);
 }
 
 .phpdocumentor-label span {
@@ -790,6 +836,7 @@ td.phpdocumentor-cell:last-child {
 
 .phpdocumentor .phpdocumentor-sidebar__category-header {
     font-size: var(--text-md);
+    margin-top: 0;
     margin-bottom: var(--spacing-xs);
     color: var(--link-color-primary);
     font-weight: 600;
@@ -960,10 +1007,6 @@ td.phpdocumentor-cell:last-child {
         margin: 0 0 0 auto;
     }
 }
-.phpdocumentor-content {
-    position: relative;
-}
-
 .phpdocumentor-search-results {
     backdrop-filter: blur(5px);
     background: var(--popover-background-color);
@@ -1153,14 +1196,19 @@ td.phpdocumentor-cell:last-child {
     }
 
     .phpdocumentor-on-this-page__content {
-        position: fixed;
+        position: sticky;
         height: calc(100vh - var(--header-height));
         overflow-y: auto;
         border-left: 1px solid var(--sidebar-border-color);
         padding-left: var(--spacing-lg);
         font-size: 90%;
-        width: calc(18% - var(--spacing-xs) - var(--spacing-xs)); /* This magic number probably indicates a problem, revisit this */
-        right: var(--spacing-xs);
+        top: -1px; /* Needed for the javascript to make the .-stuck trick work */
+        flex: 0 1 auto;
+        width: 15vw;
+    }
+
+    .phpdocumentor-on-this-page__content.-stuck {
+        height: 100vh;
     }
 
     .phpdocumentor-on-this-page__content li {
